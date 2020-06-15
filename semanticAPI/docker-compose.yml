@@ -1,0 +1,8 @@
+version: '3'
+services:
+  semantic:
+    container_name: "imageSemantic"
+    build: .
+    ports: 
+     - "8000:8000"
+    restart: always
