@@ -1,9 +1,18 @@
 version: '3'
 services:
-  semantic:
-    container_name: "imageSemantic"
-    build: .
+  semanticapi:
+    container_name: "semanticapi"
+    build: ./API
     ports: 
-     - "8000:8000"
+     - "8001:8000"
     restart: always
-    
+  semanticserver:
+    image: stain/jena-fuseki
+    container_name: "semanticserver"
+    links:
+      - semanticapi
+    environment:
+      - ADMIN_PASSWORD=stud123
+    ports:
+     - "3031:3030"
+    restart: always

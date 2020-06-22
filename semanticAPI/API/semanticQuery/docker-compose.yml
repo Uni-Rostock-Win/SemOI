@@ -2,7 +2,9 @@ version: '3'
 services:
   semanticAPI:
     container_name: "SemanticAPI"
-    build: ./API
+    build:
+      context: .
+      dockerfile: SemanticAPI/Dockerfile_SemanticAPI 
     image: uni-rostock/SemanticAPI:0.1
     ports: 
      - "8000:8000"
