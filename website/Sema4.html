@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="de">
+  <head>
+      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>SEMA</title>
+    
+    <style>
+        .image-preview {
+            width: 600px;
+            min-height: 350px;
+            border: 2px solid black ;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: grey;
+        }
+        
+        .image-preview__image{
+            display: none;
+            width: 100%;
+        }
+        
+        .output-preview{
+            width: 600px;
+            min-height: 155px;
+            border: 2px solid black ;
+            margin-top: 5px;
+            display: flex;
+            color: black;
+        }
+        
+        .input{
+            margin-left: 118px;
+        }
+        
+        .buttons{
+            margin-left: 118px;
+            margin-top: 15px;
+        }
+        
+        .output-preview-semantik{
+            width: 600px;
+            min-height: 155px;
+            border: 2px solid black ;
+            margin-top: 5px;
+            display: flex;
+            color: black;
+            
+            
+        }
+            
+        
+    </style>
+      
+      
+</head>
+
+<body>
+        <h1 Align="center"> <strong>SEMA</strong> </h1>
+        
+        <h2 Align="center">Semantische Assistenz bei der Objekterkennung in Bildern</h2>
+        <hr Width="50%">
+        
+        
+        
+        
+        <div class="input">
+        <input type="file" name="inpFile" id="inpFile" class="btn btn-secondary bnt-lg">
+            
+        </div>
+        
+        <div class="row justify-content-around">
+    <div class="col-4">
+      <div class="image-preview" id="imagePreview">
+            <img scr="" alt="Bildvorschau" class="image-preview__image">
+            <span class="image-preview__default-text">Bildvorschau</span>
+        </div>
+    </div>
+    <div class="col-4 mr-5">
+    Alle erkannten Objekte werden hier aufgelistet:
+     <div class="output-preview" id="outputPreview">
+            <samp class="output-text" id="output-text"></samp>
+        </div>
+    Mögliche Orte werden hier angezeigt:
+    <div class="output-preview-semantik" id="outputPreviewSemantik"> 
+        <samp class="output-semantik" id="output-semantik"></samp> </div>
+    </div>
+  </div>
+        
+        
+        <div class="download">
+<!-- a href="" download -->
+         <!--button type="button" class="btn btn-indigo btn-lg" sytle="float:right">Download</button>
+         <button type="button" class="btn btn-secondary btn-lg">Download</button>
+         
+</a-->
+        </div>
+
+        <div class="buttons"> 
+        <button type="button" class="btn btn-secondary bnt-lg">Analysieren</button> <button type="button" class="btn btn-secondary bnt-lg">Analysieren schnell</button> <button type="button" class="btn btn-secondary bnt-lg">Download</button>
+        </div>
+        
+        
+   
+        
+<script>
+        const inpFile = document.getElementById("inpFile");
+        const previewContainer = document.getElementById("imagePreview");
+        const previewImage = previewContainer.querySelector(".image-preview__image");
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+        
+        inpFile.addEventListener("change", function(){
+            const file = this.files[0];
+            
+            if(file){
+                const reader = new FileReader();  
+                
+                previewDefaultText.style.display = "none";
+                previewImage.style.display = "block";
+                
+                reader.addEventListener("load", function(){
+                    console.log(this);
+                    previewImage.setAttribute("src", this.result);
+                });
+                
+                reader.readAsDataURL(file);
+            } else {
+                previewDefaultText.style.display = null;
+                previewImage.style.display = null;
+                previewImage.setAttribute("src", "");
+            }
+        });
+    
+    
+</script>
+        
+</body>
+    
+</html>
