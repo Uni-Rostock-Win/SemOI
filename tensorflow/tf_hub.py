@@ -98,6 +98,7 @@ def draw_boxes(image, boxes, class_names, scores, max_boxes=10, min_score=0.1):
   font = ImageFont.load_default()
 
   object_list = []
+
   for i in range(min(boxes.shape[0], max_boxes)):
     if scores[i] >= min_score:
       ymin, xmin, ymax, xmax = tuple(boxes[i])
@@ -117,8 +118,7 @@ def draw_boxes(image, boxes, class_names, scores, max_boxes=10, min_score=0.1):
       np.copyto(image, np.array(image_pil))
     # Object_list stores the found objects and the confident scores    
     object_list.append(display_str)
-  print(object_list)
-  return image
+  return image, object_list
 
 
 def load_img(path):
@@ -154,9 +154,18 @@ def run_object_detection(module, path_to_image, path_to_save):
   result = {key:value.numpy() for key,value in result.items()}
   image_with_boxes = draw_boxes(
       img.numpy(), result["detection_boxes"],
-      result["detection_class_entities"], result["detection_scores"])
+      result["detection_class_entities"], result["detection_scores"])[0]
 
   # Save the image
   im = Image.fromarray(image_with_boxes)
   filename = os.path.splitext(os.path.basename(image_path))[0]
-  im.save('{0}{1}_with_BOXES.jpg'.format(path_to_save,filename), '') 
+  im.save('{0}{1}_with_BOXES.jpg'.format(path_to_save,filename), '')
+
+  object_list = draw_boxes(
+      img.numpy(), result["detection_boxes"],
+      result["detection_class_entities"], result["detection_scores"])[1]
+
+  return object_list
+
+
+print(run_object_detection(2, 'images/image1.jpg', 'images/results/')) 
