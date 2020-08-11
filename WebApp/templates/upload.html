@@ -87,9 +87,13 @@
     <div class="col-4 mr-5">
     Alle erkannten Objekte werden hier aufgelistet:
      <div class="output-preview" id="outputPreview">
+        <samp class="output-text" id="output-text">
                 {% block includes %}
+                {% autoescape off %}
                 {{ObjList}}
+                {% endautoescape %}
                 {% endblock includes %}
+        </samp>
         </div>
     Mögliche Orte werden hier angezeigt:
     <div class="output-preview-semantik" id="outputPreviewSemantik"> 
