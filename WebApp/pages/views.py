@@ -3,9 +3,14 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
-
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Helper Function
+def convertListforHTML(mylist):
+    a = '<br>'.join(mylist)
+    return a
 
 # Create your views here.
 class Home(TemplateView):
@@ -23,6 +28,7 @@ def upload(request):
         path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
         ObjList = run_object_detection(2, path_to_image, path_to_save)
+        ObjList = convertListforHTML(ObjList)
         context= {
             'url' : fs.url(name),
             'ObjList' : ObjList,
