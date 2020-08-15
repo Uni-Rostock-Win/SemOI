@@ -8,7 +8,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Helper Function
-def convertListforHTML(mylist):
+def convertList_toHTML(mylist):
     a = '<br>'.join(mylist)
     return a
 
@@ -22,13 +22,19 @@ def home_view(request, *args, **kwargs):
 def upload(request):
     context = {}
     if request.method == 'POST':
+        # Save the File
         uploaded_file = request.FILES['inpFile']
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file, max_length=1024*1024*16)
+        # Define the path for the loaded image and for the result image
         path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
+        # Run Object Detection
+        # 1 for accurate Detection, 2 for fast Detection
         ObjList = run_object_detection(2, path_to_image, path_to_save)
-        ObjList = convertListforHTML(ObjList)
+        # Convert the List to display in the Output Field
+        ObjList = convertList_toHTML(ObjList)
+
         context= {
             'url' : fs.url(name),
             'ObjList' : ObjList,
