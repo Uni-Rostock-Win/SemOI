@@ -10,9 +10,9 @@ RUN /usr/local/bin/python -m pip install --upgrade pip && \
     pip install djangorestframework && \
     pip install django-crispy-forms && \
     pip install pillow && \
-	pip install tensorflow && \
-	pip install tensorflow-hub && \
-	pip install matplotlib && \
+    pip install tensorflow && \
+    pip install tensorflow-hub && \
+    pip install matplotlib && \
     rm -rf /var/cache/apk/*
 	
 RUN mkdir /home/WebApp
