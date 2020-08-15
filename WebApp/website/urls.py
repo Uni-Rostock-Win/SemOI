@@ -20,9 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('home/', views.home_view, name='home'),
-    path('upload/', views.upload, name='upload')
+    path('', views.upload, name='upload')
 ]
 
 if settings.DEBUG:
