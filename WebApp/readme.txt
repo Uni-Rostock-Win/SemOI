@@ -1,4 +1,10 @@
-Es wird ein virtual environment benötigt. Darin werden dann die requirements.txt installiert. 
+Im Dockerfile sind die requirements enthalten.
 
-Dann über die Kommandozeile nachfolgendes einegeben:
-python manage.py runserver 
+In ../WebApp wechseln über das Terminal/CMD
+
+1. Image in Docker erstellen:
+            docker build -t sema/webapp .
+            
+            
+2. Image ausführen und den Port 8000 über den Port 8002 erreichen:
+            docker run -p 8002:8000 sema/webapp
