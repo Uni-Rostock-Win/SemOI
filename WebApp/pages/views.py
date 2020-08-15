@@ -12,13 +12,7 @@ def convertList_toHTML(mylist):
     a = '<br>'.join(mylist)
     return a
 
-# Create your views here.
-class Home(TemplateView):
-    template_name = 'home1.html'
-
-def home_view(request, *args, **kwargs):
-   return render(request, "home.html", {})
-
+#Create your views here
 def upload(request):
     context = {}
     if request.method == 'POST':
