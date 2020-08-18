@@ -70,11 +70,17 @@
         
         
         
-        <div class="input">
+         <div class="input">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="file" name="inpFile" id="inpFile" class="btn btn-secondary bnt-lg">
-                <button type="submit" class="btn btn-secondary bnt-lg">Hochladen & Analysieren</button>
+                <p>Analysemodul wählen:</p>
+                <input type="radio" id="modul1" name="modul" value="1">
+                <label for="modul1">Modul 1</label>
+                 <input type="radio" id="modul2" name="modul" value="2">
+                <label for="modul2">Modul 2</label>
+                <input type="submit" value="Hochladen & Analysieren" class="btn btn-secondary bnt-lg">
+                <!--button type="submit" class="btn btn-secondary bnt-lg">Hochladen & Analysieren</button-->
             </form>
         </div>
         
@@ -84,6 +90,11 @@
             <img scr="" alt="Bildvorschau" class="image-preview__image">
             <span class="image-preview__default-text">Bildvorschau</span>
         </div>
+        
+        
+   
+        
+        
     </div>
     <div class="col-4 mr-5">
     Alle erkannten Objekte werden hier aufgelistet:
@@ -103,13 +114,7 @@
   </div>
         
         
-        <div class="download">
-<!-- a href="" download -->
-         <!--button type="button" class="btn btn-indigo btn-lg" sytle="float:right">Download</button>
-         <button type="button" class="btn btn-secondary btn-lg">Download</button>
-         
-</a-->
-    
+
     </div>
         
 <script>
