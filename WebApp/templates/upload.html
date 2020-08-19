@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    
+   
     <title>SEMA</title>
     
     <style>
@@ -25,80 +26,93 @@
         .image-preview__image{
             display: none;
             width: 100%;
+            max-height: 350px;
         }
-        
-        .output-preview{
-            width: 600px;
-            min-height: 155px;
-            border: 2px solid black ;
-            margin-top: 5px;
-            display: flex;
-            color: black;
-            margin-left: 5px;
-        }
-        
-        .input{
-            margin-left: 118px;
-        }
-        
-        .buttons{
-            margin-left: 118px;
-            margin-top: 15px;
-        }
-        
-        .output-preview-semantik{
-            width: 600px;
-            min-height: 155px;
-            border: 2px solid black ;
-            margin-top: 5px;
-            display: flex;
-            color: black;
-        }
-            
-        
-    </style>
-      
-      
-</head>
+   
+        .ausgabe{
+            margin-top: 20px;
+        }    
+    
 
+.scrollbar::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #F5F5F5;
+border-radius: 10px; }
+
+.scrollbar::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+
+.scrollbar::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #17a2b8; }
+
+.scrollbar {
+scrollbar-color: #17a2b8 #F5F5F5;
+}
+
+
+.bordered::-webkit-scrollbar-track {
+-webkit-box-shadow: none;
+border: 1px solid #00bcd4; }
+
+.bordered::-webkit-scrollbar-thumb {
+-webkit-box-shadow: none; }
+
+.square::-webkit-scrollbar-track {
+border-radius: 0 !important; }
+
+.square::-webkit-scrollbar-thumb {
+border-radius: 0 !important; }
+
+.thin::-webkit-scrollbar {
+width: 6px; }
+
+.example-1 {
+position: relative;
+overflow-y: scroll;
+height: 200px; }
+
+
+
+      </style>
+
+    </head>
 <body>
-        <h1 Align="center"> <strong>SEMA</strong> </h1>
-        
-        <h2 Align="center">Semantische Assistenz bei der Objekterkennung in Bildern</h2>
-        <hr Width="50%">
-        
-        
-        
-        
-         <div class="input">
+    
+<div class="container-fluid p-3 mb-2 bg-info text-white">
+     <h1 Align="center"> <strong>SEMA</strong> </h1>
+     <h2 Align="center">Semantische Assistenz bei der Objekterkennung in Bildern</h2>
+</div>       
+
+
+<div class="input" align="center">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="file" name="inpFile" id="inpFile" class="btn btn-secondary bnt-lg">
+                <input type="file" name="inpFile" id="inpFile" class="btn btn-info bnt-lg">
                 <p>Analysemodul wählen:</p>
                 <input type="radio" id="modul1" name="modul" value="1">
-                <label for="modul1">Modul 1</label>
+                <label for="modul1">Modul 1 (genauer)</label>
                  <input type="radio" id="modul2" name="modul" value="2">
-                <label for="modul2">Modul 2</label>
-                <input type="submit" value="Hochladen & Analysieren" class="btn btn-secondary bnt-lg">
-                <!--button type="submit" class="btn btn-secondary bnt-lg">Hochladen & Analysieren</button-->
+                <label for="modul2">Modul 2 (schneller)</label>
+                <input type="submit" value="Hochladen & Analysieren" class="btn btn-info bnt-lg">
             </form>
-        </div>
-        
-        <div class="row justify-content-around">
-    <div class="col-4">
-      <div class="image-preview" id="imagePreview">
+</div>
+
+<div class="bild" align="center">
+<div class="image-preview" id="imagePreview">
             <img scr="" alt="Bildvorschau" class="image-preview__image">
             <span class="image-preview__default-text">Bildvorschau</span>
-        </div>
-        
-        
-   
-        
-        
-    </div>
-    <div class="col-4 mr-5">
-    Alle erkannten Objekte werden hier aufgelistet:
-     <div class="output-preview" id="outputPreview">
+</div>
+</div>
+
+<div class="ausgabe">
+<div class="row justify-content-around">
+<div class="col-4">
+    <h5>Erkannte Objekte:</h5>
+    <div class="card example-1 square scrollbar bordered">
+    <div class="output-preview" id="outputPreview">
         <samp class="output-text" id="output-text">
                 {% block includes %}
                 {% autoescape off %}
@@ -106,26 +120,35 @@
                 {% endautoescape %}
         </samp>
         </div>
-    Mögliche Orte werden hier angezeigt:
+    </div>
+</div>
+<div class="col-4">
+    <h5>Mögliche Orte:</h5>
+    <div class="card example-1 square scrollbar bordered">
     <div class="output-preview-semantik" id="outputPreviewSemantik"> 
+        <div id="content-5" class="custom-scrollbar-js p-2">
         <samp class="output-semantik" id="output-semantik">
 	                {% autoescape off %}
 	                {{SemaListHTML}}
 	                {% endautoescape %}
 	                {% endblock includes %}
 	        </samp>
-			
-			
-        </samp> </div>
+</div>
+ </div>
     </div>
-  </div>
-        
-        
+    </div>
+    </div>
+    </div>
 
-    </div>
+<div class="container-fluid p-5 bg-info mt-3">
+
+</div>
         
+  
+</body>
+
 <script>
-        const inpFile = document.getElementById("inpFile");
+    const inpFile = document.getElementById("inpFile");
         const previewContainer = document.getElementById("imagePreview");
         const previewImage = previewContainer.querySelector(".image-preview__image");
         const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
@@ -151,10 +174,7 @@
                 previewImage.setAttribute("src", "");
             }
         });
-    
-    
+
 </script>
-        
-</body>
-    
+   
 </html>
