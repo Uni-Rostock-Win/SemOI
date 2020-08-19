@@ -11,34 +11,23 @@ class SemanticHandler():
 
     @staticmethod
     def scene2Array(json):
-        firstIteration = True
-        array = []
-        tmpArray = []
         scenes = []
-        actualOccasion = ""
-        counter = 0
+        array = []
+        scenes = []
+        firstElement = True
+        
         for jsonObject in json:
-            counter += 1
-            if(actualOccasion != jsonObject["occasion"] or len(json) == counter):
-                print("bum")
-                tmpArray.append({"objectName": jsonObject["objectName"]})
-                tmpArray.append({"imageClassifier": jsonObject["imageClassifier"]})
-                actualOccasion = jsonObject["occasion"]
-                tmpArray.append({"occasion": actualOccasion})
-                if(len(json) != counter):
-                    scenes = []
-                scenes.append(jsonObject["scene"])
-                if(not(firstIteration)):
-                    print(scenes)
-                    tmpArray.append({"scenes": scenes})
-                    array.append(tmpArray)
-            else:
-                scenes.append(jsonObject["scene"])
-            firstIteration = False
+            if(firstElement):
+                array.append({"objectName": jsonObject["objectName"]})
+                array.append({"imageClassifier": jsonObject["imageClassifier"]})
+                firstElement = False
+            scenes.append(jsonObject["scene"])
+        array.append({"scenes": scenes})
+        print(array)
         return array
 
     def getSemanticEnhancement(self, filterId):
-        sparql = SPARQLWrapper("http://semanticserver:3030/ImageRecog")
+        sparql = SPARQLWrapper("http://fittony.gg01.local:3031/ImageRecog")
         sparql.setHTTPAuth(BASIC)
         sparql.setCredentials("admin", "stud123")
         if filterId != ("" or None):
@@ -52,9 +41,9 @@ class SemanticHandler():
         PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
         PREFIX win: <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#>
         PREFIX sema: <http://sema.informatik.uni-rostock.de/sema#>
-        SELECT ?subject ?classifier ?occasion ?scene
+        SELECT DISTINCT ?subject ?classifier ?scene
         WHERE { 
-        ?subject rdfs:subClassOf win:DetectedClasses .
+        ?subject rdfs:subClassOf+ win:DetectedClasses .
         ?subject win:ImageClassifier ?classifier . 
         ?subject rdfs:subClassOf [
         owl:onProperty sema:hasOccasion ;
@@ -68,13 +57,14 @@ class SemanticHandler():
         #qres = self.rdf.query(queryBuilder)
         sparql.setReturnFormat(JSON)
         sparql.setQuery(queryBuilder)
+        
         qres = sparql.queryAndConvert()
         responseBuilder  = []
         
         for row in qres["results"]["bindings"]:
             responseBuilder.append({"objectName": re.sub("((.*)#)", "",row["subject"]["value"]),
             "imageClassifier": row["classifier"]["value"],
-            "occasion":  re.sub("((.*)#)", "", row["occasion"]["value"]),
+         #   "occasion":  re.sub("((.*)#)", "", row["occasion"]["value"]),
             "scene": re.sub("((.*)#)", "", row["scene"]["value"])})
             # responseBuilder.append({"objectName": row["subject"]["value"],
             # "imageClassifier": row["classifier"]["value"],
