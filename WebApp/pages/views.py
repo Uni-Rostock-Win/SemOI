@@ -34,13 +34,13 @@ def upload(request):
         # Get Scenes from the SemanticAPI
         SemaList = semanticCaller(ObjList)
         for List in SemaList:
-            SemaList = convertList_toHTML(List)
+            SemaListHTML = convertList_toHTML(List)
 
 
         context= {
             'url' : fs.url(name),
             'ObjListHTML' : ObjListHTML,
-            'SemaList': SemaList
+            'SemaListHTML': SemaListHTML
          }
 
     return render(request, 'upload.html', context)
