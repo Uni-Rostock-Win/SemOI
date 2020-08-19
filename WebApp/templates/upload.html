@@ -102,14 +102,21 @@
         <samp class="output-text" id="output-text">
                 {% block includes %}
                 {% autoescape off %}
-                {{ObjList}}
+                {{ObjListHTML}}
                 {% endautoescape %}
-                {% endblock includes %}
         </samp>
         </div>
     Mögliche Orte werden hier angezeigt:
     <div class="output-preview-semantik" id="outputPreviewSemantik"> 
-        <samp class="output-semantik" id="output-semantik"></samp> </div>
+        <samp class="output-semantik" id="output-semantik">
+	                {% autoescape off %}
+	                {{SemaListHTML}}
+	                {% endautoescape %}
+	                {% endblock includes %}
+	        </samp>
+			
+			
+        </samp> </div>
     </div>
   </div>
         
