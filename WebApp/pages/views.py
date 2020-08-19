@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
 import os
+from .semanticCaller import semanticCaller
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,13 +26,21 @@ def upload(request):
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
         # Run Object Detection
         # 1 for accurate Detection, 2 for fast Detection
+        ## (How to import the radio button here so you can choose between fast and accurate?)
         ObjList = run_object_detection(2, path_to_image, path_to_save)
         # Convert the List to display in the Output Field
-        ObjList = convertList_toHTML(ObjList)
+        ObjListHTML = convertList_toHTML(ObjList)
+
+        # Get Scenes from the SemanticAPI
+        SemaList = semanticCaller(ObjList)
+        for List in SemaList:
+            SemaList = convertList_toHTML(List)
+
 
         context= {
             'url' : fs.url(name),
-            'ObjList' : ObjList,
+            'ObjListHTML' : ObjListHTML,
+            'SemaList': SemaList
          }
 
     return render(request, 'upload.html', context)
