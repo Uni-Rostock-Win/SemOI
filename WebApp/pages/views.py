@@ -20,7 +20,7 @@ def upload(request):
         # Save the File
         uploaded_file = request.FILES['inpFile']
         fs = FileSystemStorage()
-        name = fs.save(uploaded_file.name, uploaded_file, max_length=1024*1024*16)
+        name = fs.save(uploaded_file.name, uploaded_file)
         # Define the path for the loaded image and for the result image
         path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
