@@ -90,7 +90,7 @@ height: 200px; }
 <div class="input" align="center">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <input type="file" name="inpFile" id="inpFile" class="btn btn-info bnt-lg">
+                <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
                 <p>Analysemodul wählen:</p>
                 <input type="radio" id="modul1" name="modul" value="1">
                 <label for="modul1">Modul 1 (genauer)</label>
