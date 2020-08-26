@@ -39,9 +39,8 @@ def download_and_resize_image(url, new_width=256, new_height=256):
   return filename
 
 # Function to Read an Image from a Directory and Resize it
-def read_and_resize_image(image, new_width=256, new_height=256):
+def read_and_convert_image(image):
   pil_image = Image.open(image)
-  pil_image = ImageOps.fit(pil_image, (new_width, new_height), Image.ANTIALIAS)
   pil_image_rgb = pil_image.convert("RGB")
   pil_image_rgb.save(image, format="JPEG", quality=90)
   return image
@@ -143,7 +142,7 @@ def run_object_detection(module, path_to_image, path_to_save):
     return 0
 
   detector = hub.load(module_handle).signatures['default']
-  image_path = read_and_resize_image(path_to_image, 1280, 856)
+  image_path = read_and_convert_image(path_to_image)
   #Or to download an image use this:
     #image_url = "https://media-cdn.tripadvisor.com/media/photo-s/05/78/07/c6/otto-taverna.jpg"
     #image_path = download_and_resize_image(image_url, 1280, 856)
