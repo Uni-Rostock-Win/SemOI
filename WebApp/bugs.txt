@@ -1,0 +1,7 @@
+- Bild wird in der Vorschau teilweise zu breit angezeigt
+
+- Keine Funktion die die Bilder löscht nach der Analyse -> irgendwann Speicherproblem 
+
+- Modulauswahl wird noch nicht an die Funktion übergeben
+
+
