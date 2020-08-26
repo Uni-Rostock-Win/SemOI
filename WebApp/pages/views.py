@@ -43,8 +43,6 @@ def upload(request):
         for List in SemaList:
             SemaListHTML = convertList_toHTML(List)
 
-        # Function to delete the saved files
-
         context= {
             'url' : fs.url(name),
             'ObjListHTML' : ObjListHTML,
