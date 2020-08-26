@@ -89,13 +89,17 @@ height: 200px; }
 
 <div class="input" align="center">
             <form method="post" enctype="multipart/form-data">
+                <br>
                 {% csrf_token %}
                 <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
+                <br><br>
                 <p>Analysemodul wählen:</p>
-                <input type="radio" id="modul1" name="modul" value="1">
-                <label for="modul1">Modul 1 (genauer)</label>
-                 <input type="radio" id="modul2" name="modul" value="2">
-                <label for="modul2">Modul 2 (schneller)</label>
+                <input type="radio" id="modul1" name="modul" value="1" required >
+                <label for="modul1">Inception Resnet v2 (Sehr genau und langsam)</label>
+                <br>
+                <input type="radio" id="modul2" name="modul" value="2">
+                <label for="modul2">SSD/Mobilenet v2 (Ungenau und schnell)</label>
+                <br>
                 <input type="submit" value="Hochladen & Analysieren" class="btn btn-info bnt-lg">
             </form>
 </div>
@@ -174,6 +178,8 @@ height: 200px; }
                 previewImage.setAttribute("src", "");
             }
         });
+    
+
 
 </script>
    
