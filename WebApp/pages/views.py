@@ -5,7 +5,6 @@ from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
 import os
 from .semanticCaller import semanticCaller
-import tempfile
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,20 +22,17 @@ def upload(request):
         # Request Detection Type from the Radio Buttons/User Input
         modul = request.POST["modul"]
 
-        # Get the file and upload it to a temporary file
+        # Save the File
         uploaded_file = request.FILES['inpFile']
-        #fs = FileSystemStorage()
-        #name = fs.save(uploaded_file.name, uploaded_file)
-
+        fs = FileSystemStorage()
+        name = fs.save(uploaded_file.name, uploaded_file)
 
         # Define the path for the loaded image and for the result image
         path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
 
         # Run Object Detection
-        ObjList = run_object_detection(int(modul), uploaded_file, path_to_save)
-        #ObjList = ObjDet[0]
-        #Image_with_Boxes = ObjDet[1]
+        ObjList = run_object_detection(int(modul), path_to_image, path_to_save)
 
         # Convert the List to display in the Output Field
         ObjListHTML = convertList_toHTML(ObjList)
@@ -53,7 +49,6 @@ def upload(request):
             'url' : fs.url(name),
             'ObjListHTML' : ObjListHTML,
             'SemaListHTML': SemaListHTML
-           # 'Image_with_Boxes': Image_with_Boxes
          }
 
     return render(request, 'upload.html', context)
