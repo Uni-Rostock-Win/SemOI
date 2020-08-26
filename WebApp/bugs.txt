@@ -4,4 +4,6 @@
 
 - Modulauswahl wird noch nicht an die Funktion übergeben
 
+- Bildvorschau von der Analyse
+
 
