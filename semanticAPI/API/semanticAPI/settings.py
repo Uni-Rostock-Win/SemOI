@@ -25,7 +25,7 @@ SECRET_KEY = '_ggd_v3idnd8_r@@fq4sv5!17^jrsww%+q(9(x66#)!t47e(9$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "fittony.gg01.local"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
