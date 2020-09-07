@@ -27,7 +27,7 @@ class SemanticHandler():
         return array
 
     def getSemanticEnhancement(self, filterId):
-        sparql = SPARQLWrapper("http://fittony.gg01.local:3031/ImageRecog")
+        sparql = SPARQLWrapper("http://semanticserver:3030/ImageRecog")
         sparql.setHTTPAuth(BASIC)
         sparql.setCredentials("admin", "stud123")
         if filterId != ("" or None):
@@ -45,13 +45,22 @@ class SemanticHandler():
         WHERE { 
         ?subject rdfs:subClassOf+ win:DetectedClasses .
         ?subject win:ImageClassifier ?classifier . 
-        ?subject rdfs:subClassOf [
-        owl:onProperty sema:hasOccasion ;
-        owl:someValuesFrom ?occasion ]
-        .
-        ?scene rdfs:subClassOf [
-        owl:onProperty sema:hasOccasion ;
-	    owl:someValuesFrom ?occasion]
+        {
+            ?subject rdfs:subClassOf [
+            owl:onProperty sema:hasOccasion ;
+            owl:someValuesFrom ?occasion ]
+            .
+            ?scene rdfs:subClassOf [
+            owl:onProperty sema:hasOccasion ;
+	        owl:someValuesFrom ?occasion]
+        }
+        UNION
+        {
+            ?subject rdfs:subClassOf [
+                owl:onProperty sema:hasEnvironment ;
+                owl:someValuesFrom ?scene
+            ]
+        }
         """ + filter + "} "
         print(queryBuilder)
         #qres = self.rdf.query(queryBuilder)
