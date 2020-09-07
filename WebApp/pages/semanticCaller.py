@@ -43,13 +43,13 @@ def semanticCaller(ObjectList):
         # Get the ID for the Semantic 
         ObjectID = return_ObjID_from_ObjectName(Object)
         # Send the ID to the Semantic
-        response = requests.get('http://fittony.gg01.local:8001?objectID1={0}'.format(ObjectID))
+        response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
         # Append only the Scenes from the Response to the SceneList
         try:
             sceneList.append(response.json()[2]["scenes"])
         # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
-        except IndexError : 
-            sceneList.append([])
+        except : 
+            pass
     return(sceneList)
 
 
