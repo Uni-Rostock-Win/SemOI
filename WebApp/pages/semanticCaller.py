@@ -52,14 +52,16 @@ def semanticCaller(ObjectList, ):
         ObjectListIDs.append(str(ObjectID) + "=" + str(ObjectProbability))
         postObject = {"data": str(ObjectListIDs)}
     # Send the ID to the Semantic
-    #response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
+  # response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
     
     response = requests.post('http://localhost:8001', data=postObject)
 
     # Append only the Scenes from the Response to the SceneList
     try:
         for item in response.json():
-            responseItem = str(item) +": " + str(response.json()[item])
+            convert2Percent = round(float(response.json()[item])* 100, 2)
+            convert2Percent = str(convert2Percent) + "%"
+            responseItem = str(item) +": " + convert2Percent
             sceneList.append(responseItem)
         # sceneList.append(response.json())
     # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case

@@ -31,8 +31,7 @@ def upload(request):
         path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
         path_to_save = os.path.join(BASE_DIR, 'media/results/')
         path_to_annotatedImage = "media/results/" + uploaded_file.name
-        fileType = re.findall("\.[a-zA-Z]*$", path_to_annotatedImage)[0]
-        path_to_annotatedImage = re.sub("\.[a-zA-Z]*$", "_with_BOXES" + fileType, path_to_annotatedImage)
+        path_to_annotatedImage = re.sub("\.[a-zA-Z]*$", "_with_BOXES.jpg", path_to_annotatedImage)
         
         # path_to_annotatedImage = re.sub("\\\\|\/", "/", path_to_annotatedImage)
         # path_to_annotatedImage = path_to_annotatedImage.replace("/", os.path.sep)
@@ -50,8 +49,8 @@ def upload(request):
 
         # Convert the List to display in the Ouput Field
         SemaListHTML =""
-        
         SemaListHTML = convertList_toHTML(SemaList)
+        print(SemaListHTML)
         print(path_to_annotatedImage)
         context= {
             'url' : fs.url(name),

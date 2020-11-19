@@ -1,5 +1,5 @@
 import rdflib
-import re
+import re, os
 from SPARQLWrapper import SPARQLWrapper, JSON, BASIC
 class SemanticHandler():
     
@@ -27,9 +27,9 @@ class SemanticHandler():
         return array
 
     def getSemanticEnhancement(self, filterId):
-        sparql = SPARQLWrapper("http://fittony.gg01.local:3031/ImageRecog")
+        sparql = SPARQLWrapper("http://semanticserver:3030/ImageRecog")
         sparql.setHTTPAuth(BASIC)
-        sparql.setCredentials("admin", "stud123")
+        sparql.setCredentials("admin", os.getenv('ADMIN_PASSWORD'))
         if filterId != ("" or None):
             filter =   'FILTER(str(?classifier) = "' + filterId + '")'
         else:
