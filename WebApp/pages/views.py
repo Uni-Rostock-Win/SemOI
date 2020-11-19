@@ -36,13 +36,18 @@ def upload(request):
 
         # Convert the List to display in the Output Field
         ObjListHTML = convertList_toHTML(ObjList)
-
         # Get Scenes from the SemanticAPI
         SemaList = semanticCaller(ObjList)
-        # Convert the List to display in the Ouput Field
-        for List in SemaList:
-            SemaListHTML = convertList_toHTML(List)
 
+
+        # Convert the List to display in the Ouput Field
+        SemaListHTML =""
+        
+        SemaListHTML = convertList_toHTML(SemaList)
+        print(ObjList)
+        print(ObjListHTML)
+        print(SemaList)
+        print(SemaListHTML)
         context= {
             'url' : fs.url(name),
             'ObjListHTML' : ObjListHTML,

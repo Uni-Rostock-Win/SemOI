@@ -82,8 +82,8 @@ height: 200px; }
 <body>
     
 <div class="container-fluid p-3 mb-2 bg-info text-white">
-     <h1 Align="center"> <strong>SEMA</strong> </h1>
-     <h2 Align="center">Semantische Assistenz bei der Objekterkennung in Bildern</h2>
+     <h1 Align="center"> <strong>SemOI</strong> </h1>
+     <h2 Align="center">Semantic Augmentation for Open Images</h2>
 </div>       
 
 
@@ -93,28 +93,28 @@ height: 200px; }
                 {% csrf_token %}
                 <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
                 <br><br>
-                <p>Analysemodul wählen:</p>
+                <p>Choose your analysis module:</p>
                 <input type="radio" id="modul1" name="modul" value="1" required >
-                <label for="modul1">Inception Resnet v2 (Sehr genau und langsam)</label>
+                <label for="modul1">Inception Resnet v2 (accurate but slow)</label>
                 <br>
                 <input type="radio" id="modul2" name="modul" value="2">
-                <label for="modul2">SSD/Mobilenet v2 (Ungenau und schnell)</label>
+                <label for="modul2">SSD/Mobilenet v2 (less accurate, but faster)</label>
                 <br>
-                <input type="submit" value="Hochladen & Analysieren" class="btn btn-info bnt-lg">
+                <input type="submit" value="Upload and Analyze" class="btn btn-info bnt-lg">
             </form>
 </div>
 
 <div class="bild" align="center">
 <div class="image-preview" id="imagePreview">
-            <img scr="" alt="Bildvorschau" class="image-preview__image">
-            <span class="image-preview__default-text">Bildvorschau</span>
+            <img scr="" alt="Image Preview" class="image-preview__image">
+            <span class="image-preview__default-text">Image Preview</span>
 </div>
 </div>
 
 <div class="ausgabe">
 <div class="row justify-content-around">
 <div class="col-4">
-    <h5>Erkannte Objekte:</h5>
+    <h5>Detected Objects:</h5>
     <div class="card example-1 square scrollbar bordered">
     <div class="output-preview" id="outputPreview">
         <samp class="output-text" id="output-text">
@@ -127,7 +127,7 @@ height: 200px; }
     </div>
 </div>
 <div class="col-4">
-    <h5>Mögliche Orte:</h5>
+    <h5>Semantic Augmentation:</h5>
     <div class="card example-1 square scrollbar bordered">
     <div class="output-preview-semantik" id="outputPreviewSemantik"> 
         <div id="content-5" class="custom-scrollbar-js p-2">

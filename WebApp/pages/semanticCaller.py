@@ -2,6 +2,7 @@ import linecache
 import json
 import requests
 
+
 # Returns the ObjID from a LabelMap
 # We need this because the SemanticAPI only accepts the ObjectID from an OpenImage Object
 # We should use oidv4_LabelMap. Which is the Map for OpenImage
@@ -12,6 +13,7 @@ import requests
 #   id: 
 #   display_name: ""
 # }
+
 def return_ObjID_from_ObjectName(Object):
     labelMap = "oidv4_LabelMap.txt"
     line_number = 0
@@ -33,23 +35,37 @@ def return_ObjID_from_ObjectName(Object):
 
 
 # Function to get the Scenes from the API
-def semanticCaller(ObjectList):
+def semanticCaller(ObjectList, ):
 
     sceneList = []
+    ObjectListIDs = []
     # Object List is in format "Footwear: 46%"
     # Convert it to only have "Footwear"
     for Object in ObjectList:
-        Object = Object.split(":")[0]
+        print(Object)
+        ObjectName = Object.split(":")[0]
+        ObjectProbability = Object.split(":")[1]
+        ObjectProbability = ObjectProbability.replace("%", "")
+        ObjectProbability = float(ObjectProbability)/100
         # Get the ID for the Semantic 
-        ObjectID = return_ObjID_from_ObjectName(Object)
-        # Send the ID to the Semantic
-        response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
-        # Append only the Scenes from the Response to the SceneList
-        try:
-            sceneList.append(response.json()[2]["scenes"])
-        # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
-        except : 
-            pass
+        ObjectID = return_ObjID_from_ObjectName(ObjectName)
+        ObjectListIDs.append(str(ObjectID) + "=" + str(ObjectProbability))
+        postObject = {"data": str(ObjectListIDs)}
+    # Send the ID to the Semantic
+    #response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
+    
+    response = requests.post('http://localhost:8001', data=postObject)
+
+    # Append only the Scenes from the Response to the SceneList
+    try:
+        for item in response.json():
+            responseItem = str(item) +": " + str(response.json()[item])
+            sceneList.append(responseItem)
+        # sceneList.append(response.json())
+    # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
+    except : 
+        pass
+
     return(sceneList)
 
 

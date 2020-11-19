@@ -5815,7 +5815,8 @@
 
 ###  http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Autopart
 <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Autopart> rdf:type owl:Class ;
-                                                                         rdfs:subClassOf <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses> ;
+                                                                         rdfs:subClassOf <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses> ,
+                                                                                         <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Landvehicle> ;
                                                                          <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#ImageClassifier> "/m/08dz3q" .
 
 
@@ -10462,16 +10463,6 @@
 #################################################################
 #    General axioms
 #################################################################
-
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( <http://sema.informatik.uni-rostock.de/sema#autumn>
-                <http://sema.informatik.uni-rostock.de/sema#festive-season>
-                <http://sema.informatik.uni-rostock.de/sema#spring>
-                <http://sema.informatik.uni-rostock.de/sema#summer>
-                <http://sema.informatik.uni-rostock.de/sema#winter>
-              )
-] .
-
 
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( <http://sema.informatik.uni-rostock.de/sema#basketball>

@@ -14,7 +14,7 @@ class SemanticHandler():
         scenes = []
         array = []
         scenes = []
-        firstElement = True
+        firstElement =False 
         
         for jsonObject in json:
             if(firstElement):
@@ -27,7 +27,7 @@ class SemanticHandler():
         return array
 
     def getSemanticEnhancement(self, filterId):
-        sparql = SPARQLWrapper("http://semanticserver:3030/ImageRecog")
+        sparql = SPARQLWrapper("http://fittony.gg01.local:3031/ImageRecog")
         sparql.setHTTPAuth(BASIC)
         sparql.setCredentials("admin", "stud123")
         if filterId != ("" or None):
