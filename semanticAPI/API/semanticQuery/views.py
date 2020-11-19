@@ -38,6 +38,7 @@ def semanticCall(request):
         print(array)
             
         
+        maxValue = 0.0
         for element in array:
             print(element)
             id = element.split("=")[0]
@@ -51,4 +52,10 @@ def semanticCall(request):
                     ProbAggregation[responseElement] = float(prob)
                     print(prob)
                     print("created")
+                if (ProbAggregation[responseElement] > maxValue):
+                    maxValue = ProbAggregation[responseElement] 
+        # Normalize Values
+        for item in ProbAggregation:
+            ProbAggregation[item] = ProbAggregation[item] / maxValue
+
         return Response(ProbAggregation)

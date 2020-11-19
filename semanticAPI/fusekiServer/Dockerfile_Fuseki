@@ -1,3 +1,0 @@
-FROM stain/jena-fuseki
-COPY ./rdf.ttl /staging/
-ENV ADMIN_PASSWORD = stud123
