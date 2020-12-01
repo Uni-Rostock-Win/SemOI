@@ -17,6 +17,3 @@ Kurze Erläuterung zum Code
 - pages/tf_hub.py beinhaltet die komplette Tensorflow Engine
 - pages/semanticCaller.py beinhaltet den kompletten Code um auf die Semantik API von Achim Reiz zuzugreifen
 - oidv4_LabelMap.txt wird benötigt, um die erkannten Objekte in die ObjektID von OpenImage v4 umzuwandeln und diese an die SemantikAPI zu senden
-
-
-

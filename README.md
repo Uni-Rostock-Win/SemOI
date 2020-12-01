@@ -6,4 +6,6 @@ The application builds upon a microservice architecture. In total, the service c
 
 The former serves the webpage, stores the picture temporarily, and performs the object detection using TensorFlow-hub with a pre-trained model for Open Images. In the next step, the detected objects are transferred to the semantic advisory component. This component performs a SPARQL-request for every detected object on an apache fuseki server. Based on the inferred objects, the SC-value is calculated for each detected element and returned to the fronted to display the results.
 The code is written in python and utilizes the Django- and Django-Rest-Framework and Docker  for containerization. For ontology development, we used the tool Protégé. Further, the code is published under an open-source license (LGPL) on Github , including the dockerfile for the service orchestration and the ontology-file.
+**Before using the docker-compose file, please do not forget to change the password**
 
+Further, we developed a translator the conversion of the json-based hierachy provided by OpenImages into an RDF-graph. Please see SemanticAPI/ImageRecog2RDF for the sourcefiles.
