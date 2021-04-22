@@ -54,7 +54,7 @@ def semanticCaller(ObjectList, ):
     # Send the ID to the Semantic
   # response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
     
-    response = requests.post('http://localhost:8001', data=postObject)
+    response = requests.post('http://fittony.gg01.local:8001', data=postObject)
 
     # Append only the Scenes from the Response to the SceneList
     try:
