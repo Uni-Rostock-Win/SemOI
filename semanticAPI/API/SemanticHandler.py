@@ -1,13 +1,13 @@
-import rdflib
-import re, os
-from SPARQLWrapper import SPARQLWrapper, JSON, BASIC
+import re, os, rdflib, logging
+
+
 class SemanticHandler():
     
     
     def __init__(self):
-        # self.rdf = rdflib.Graph()
-        # self.rdf.parse(location='rdf.ttl', format="turtle")
-        pass
+        self.rdf = rdflib.Graph(store="OxMemory")
+        self.rdf.parse(location="ontologies/rdf.owl", format="application/rdf+xml")
+        
 
     @staticmethod
     def scene2Array(json):
@@ -27,9 +27,6 @@ class SemanticHandler():
         return array
 
     def getSemanticEnhancement(self, filterId):
-        sparql = SPARQLWrapper("http://semanticserver:3030/ImageRecog")
-        sparql.setHTTPAuth(BASIC)
-        sparql.setCredentials("admin", os.getenv('ADMIN_PASSWORD'))
         if filterId != ("" or None):
             filter =   'FILTER(str(?classifier) = "' + filterId + '")'
         else:
@@ -62,26 +59,14 @@ class SemanticHandler():
             ]
         }
         """ + filter + "} "
-        print(queryBuilder)
-        #qres = self.rdf.query(queryBuilder)
-        sparql.setReturnFormat(JSON)
-        sparql.setQuery(queryBuilder)
-        
-        qres = sparql.queryAndConvert()
+        logging.debug(queryBuilder)
+        qres = self.rdf.query(queryBuilder)
         responseBuilder  = []
         
-        for row in qres["results"]["bindings"]:
-            responseBuilder.append({"objectName": re.sub("((.*)#)", "",row["subject"]["value"]),
-            "imageClassifier": row["classifier"]["value"],
-         #   "occasion":  re.sub("((.*)#)", "", row["occasion"]["value"]),
-            "scene": re.sub("((.*)#)", "", row["scene"]["value"])})
-            # responseBuilder.append({"objectName": row["subject"]["value"],
-            # "imageClassifier": row["classifier"]["value"],
-            # "occasion":   row["occasion"]["value"],
-            # "scene": row["scene"]["value"]})
+        for row in qres:
+            responseBuilder.append({
+                "objectName": re.sub("((.*)#)", "",str(row[0])),
+                "imageClassifier": str(row[1]),
+                "scene": re.sub("((.*)#)", "", str(row[2]))})
+                
         return self.scene2Array(responseBuilder)
-  
-
-    
-    
-    

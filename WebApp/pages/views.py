@@ -5,6 +5,7 @@ from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
 import os, re
 from .semanticCaller import semanticCaller
+from django.views.decorators.csrf import csrf_exempt,csrf_protect #Add this
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -14,7 +15,7 @@ def convertList_toHTML(mylist):
     return a
 
 #Create your views here
-
+@csrf_exempt
 def upload(request):
     context = {}
     if request.method == 'POST':

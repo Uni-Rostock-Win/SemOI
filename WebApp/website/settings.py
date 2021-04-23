@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '1_t83+g8@%c4+(dj)^n=vvbqus*06jsjcd4+xok-&u8k814t!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [fittony.gg01.local]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
