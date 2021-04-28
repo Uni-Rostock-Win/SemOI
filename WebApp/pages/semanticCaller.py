@@ -1,6 +1,4 @@
-import linecache
-import json
-import requests
+import linecache, json, requests, os
 
 
 # Returns the ObjID from a LabelMap
@@ -54,7 +52,10 @@ def semanticCaller(ObjectList, ):
     # Send the ID to the Semantic
   # response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
     
-    response = requests.post('http://localhost:8001', data=postObject)
+    #depending whether the location is in a docker conainer, use localhost or the local docker instantiation
+    dockerCheck = os.environ.get("inDockerContainer", False)
+    targetUrl = "http://semanticapi:8000" if dockerCheck else "http://fittony.gg01.local:8001"
+    response = requests.post(targetUrl, data=postObject) 
 
     # Append only the Scenes from the Response to the SceneList
     try:

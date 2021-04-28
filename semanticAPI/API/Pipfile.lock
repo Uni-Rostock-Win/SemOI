@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2fbdb3bd53f951801394579ee201ce8a11228d6d8b09760cc8039c49bdcf1851"
+            "sha256": "c242bf53c1c6de78b9da7e4675497faa1c49aecd85c83c9896031950bf91f3df"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,24 @@
                 "sha256:aa4d33c06640f5352aca96e4b81afd8ab3b47337cc12089822d6f322ac772c81"
             ],
             "version": "==0.6.0"
+        },
+        "oxrdflib": {
+            "hashes": [
+                "sha256:2872342a634e38254183f1e85ec1b402d4bd3f7df1ff47a835fa9bc1d0348b83",
+                "sha256:8130c9803007d0e1ebbec84063e4d3cdf6e1bd67173207d5bdfe493f10384e09"
+            ],
+            "index": "pypi",
+            "version": "==0.2.0"
+        },
+        "pyoxigraph": {
+            "hashes": [
+                "sha256:045a140fefd4ba787430072ba3bc79b6ab6ad9e4667f68aa8f06eb5066ba1a4c",
+                "sha256:1d51d0dc6601628a8f0dedea8e3c13bfb509a9029157e80ebea194f4648f3f9c",
+                "sha256:e09059cb8ffcb87be2abcbeffc4f4786644eee786f566e464d727b25bf0e537a",
+                "sha256:efd1791dcd57fd7cf3ba3be0280c40b23c99b5860c1f2870a39a11f0b4eecef6"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==0.2.3"
         },
         "pyparsing": {
             "hashes": [
