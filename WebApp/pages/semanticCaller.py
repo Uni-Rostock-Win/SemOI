@@ -54,7 +54,7 @@ def semanticCaller(ObjectList, ):
     
     #depending whether the location is in a docker conainer, use localhost or the local docker instantiation
     dockerCheck = os.environ.get("inDockerContainer", False)
-    targetUrl = "http://semanticapi:8000" if dockerCheck else "http://fittony.gg01.local:8001"
+    targetUrl = "http://semanticapi:8000" if dockerCheck else "http://localhost:8001"
     response = requests.post(targetUrl, data=postObject) 
 
     # Append only the Scenes from the Response to the SceneList

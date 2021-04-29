@@ -1,1 +1,2 @@
-Webapp/media/
+WebApp/media/
+*__pycache__*
