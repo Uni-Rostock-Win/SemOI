@@ -9,3 +9,16 @@ The code is written in python and utilizes the Django- and Django-Rest-Framework
 **Before using the docker-compose file, please do not forget to change the password**
 
 Further, we developed a translator the conversion of the json-based hierachy provided by OpenImages into an RDF-graph. Please see SemanticAPI/ImageRecog2RDF for the sourcefiles.
+
+# Setting up a development environment
+
+## Initial setup after clone
+
+- run ``$ pipenv install`` in each subdirectory to install any dependencies.
+
+## Running the development server
+
+1. run ``$ pipenv shell`` in the desired subdirectory (e.g. "WebApp").
+2. run ``$ python manage.py runserver [port]`` in the previously started shell.
+
+Any file changes will cause a reload of the project.
