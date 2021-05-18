@@ -131,7 +131,7 @@ def load_img(path):
 #small and fast = 2 (SSD + MobileNet V2)
 ### Path has to be as String
 #EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/') 
-def run_object_detection(module, path_to_image, path_to_save):
+def run_object_detection(module, source, destination):
 
   if module == 1:
     module_handle = 'https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1'
@@ -142,23 +142,19 @@ def run_object_detection(module, path_to_image, path_to_save):
     return 0
 
   detector = hub.load(module_handle).signatures['default']
-  image_path = read_and_convert_image(path_to_image)
-  #Or to download an image use this:
-    #image_url = "https://media-cdn.tripadvisor.com/media/photo-s/05/78/07/c6/otto-taverna.jpg"
-    #image_path = download_and_resize_image(image_url, 1280, 856)
+  image_path = read_and_convert_image(source)
 
   img = load_img(image_path)
   converted_img  = tf.image.convert_image_dtype(img, tf.float32)[tf.newaxis, ...]
   result = detector(converted_img)
-  result = {key:value.numpy() for key,value in result.items()}
+  result = {key: value.numpy() for key, value in result.items()}
   image_with_boxes = draw_boxes(
       img.numpy(), result["detection_boxes"],
       result["detection_class_entities"], result["detection_scores"])[0]
 
   # Save the image
   im = Image.fromarray(image_with_boxes)
-  filename = os.path.splitext(os.path.basename(image_path))[0]
-  im.save('{0}{1}_with_BOXES.jpg'.format(path_to_save,filename), '')
+  im.save(destination, '')
 
   object_list = draw_boxes(
       img.numpy(), result["detection_boxes"],
@@ -167,4 +163,4 @@ def run_object_detection(module, path_to_image, path_to_save):
   return object_list
 
 
-#print(run_object_detection(2, 'images/image1.jpg', 'images/results/')) 
+#print(run_object_detection(2, 'images/image1.jpg', 'images/results/'))

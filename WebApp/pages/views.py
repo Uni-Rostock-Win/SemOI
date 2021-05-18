@@ -1,66 +1,69 @@
+import os
+import time
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
-import os, re
 from .semanticCaller import semanticCaller
-from django.views.decorators.csrf import csrf_exempt,csrf_protect #Add this
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Helper Function
-def convertList_toHTML(mylist):
-    a = '<br>'.join(mylist)
-    return a
+def html_list(ls):
+    return "<br>".join(ls)
 
 #Create your views here
 @csrf_exempt
 def upload(request):
     context = {}
-    if request.method == 'POST':
 
+    if request.method == 'POST':
         # Request Detection Type from the Radio Buttons/User Input
         modul = request.POST["modul"]
-
+        print("module", modul)
+        
         # Save the File
-        uploaded_file = request.FILES['inpFile']
+        uploaded_file = request.FILES["inpFile"]
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
-
-        # Define the path for the loaded image and for the result image
-        path_to_image = os.path.join(BASE_DIR, 'media/{0}'.format(uploaded_file.name))
-        path_to_save = os.path.join(BASE_DIR, 'media/results/')
-        path_to_annotatedImage = "media/results/" + uploaded_file.name
-        path_to_annotatedImage = re.sub("\.[a-zA-Z]*$", "_with_BOXES.jpg", path_to_annotatedImage)
+        print("fs save name", name)
         
-        # path_to_annotatedImage = re.sub("\\\\|\/", "/", path_to_annotatedImage)
-        # path_to_annotatedImage = path_to_annotatedImage.replace("/", os.path.sep)
-        print(path_to_annotatedImage)
+        # Define the path for the loaded image and for the result image
+        source = os.path.join(BASE_DIR, "media", uploaded_file.name)
+        path_to_save = os.path.join(BASE_DIR, "media", "results")
+
+        if not os.path.exists(path_to_save):
+            print("creating path", path_to_save)
+            os.mkdir(path_to_save)
+
+        path_raw = os.path.join(path_to_save, uploaded_file.name)
+        (file_name, file_extension) = os.path.splitext(path_raw);
+        destination = file_name + "-result" + file_extension
+
+        print("source image", source)
+        print("save image at", destination)
         
         # Run Object Detection
-        ObjList = run_object_detection(int(modul), path_to_image, path_to_save)
+        ObjList = run_object_detection(int(modul), source, destination)
 
         # Convert the List to display in the Output Field
-        ObjListHTML = convertList_toHTML(ObjList)
+        ObjListHTML = html_list(ObjList)
         # Get Scenes from the SemanticAPI
         SemaList = semanticCaller(ObjList)
-        print(path_to_save)
-        print(path_to_image)
 
         # Convert the List to display in the Ouput Field
-        SemaListHTML =""
-        SemaListHTML = convertList_toHTML(SemaList)
-        print(SemaListHTML)
-        print(path_to_annotatedImage)
-        context= {
-            'url' : fs.url(name),
-            'ObjListHTML' : ObjListHTML,
-            'SemaListHTML': SemaListHTML,
-            'uploadedImage': path_to_annotatedImage,
-            'result': True
+        SemaListHTML = html_list(SemaList)
+        print("semantic list", SemaListHTML)
+
+        context = {
+            "url" : fs.url(name),
+            "ObjListHTML" : ObjListHTML,
+            "SemaListHTML": SemaListHTML,
+            "uploadedImage": os.path.relpath(destination, BASE_DIR),
+            "result": True
          }
 
-    return render(request, 'upload.html', context)
+    return render(request, "upload.html", context)
 
 

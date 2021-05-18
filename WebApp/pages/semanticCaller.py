@@ -1,4 +1,6 @@
-import linecache, json, requests, os
+import os
+import json
+import requests
 
 
 # Returns the ObjID from a LabelMap
@@ -12,46 +14,103 @@ import linecache, json, requests, os
 #   display_name: ""
 # }
 
-def return_ObjID_from_ObjectName(Object):
-    labelMap = "oidv4_LabelMap.txt"
-    line_number = 0
-    with open(labelMap, 'r') as read_obj:
-        for line in read_obj:
-            # For each line, check if the Line contains the string
-            line_number += 1
-            if Object in line:
-                # If yes, then go up 2 lines and assign the line to ObjID
-                line_number -= 2
-                ObjID = linecache.getline(labelMap, line_number)
-                # ObjID should be now: name: "/m/01nkt"
-                # We only want the ObjectID number between the " " 
-                # So lets slice the line and only take the String between the quotation marks
-                ObjID = ObjID.split("\"")[1]
-                return ObjID
+class ObjectDefinitionAccess:
+
+    def __init__(self):
+        pass
+
+    def definitions(self, source):
+        block_name = ""
+        block_content = ""
+
+        state = False
+        
+        for line in source:
+            for c in line:
+                if c == "{":
+                    state = True
+                elif c == "}":
+                    yield self.parse_block(block_name, block_content)
+                    state = False
+                    block_name = ""
+                    block_content = ""
+                else:
+                    if state:
+                        block_content += c
+                    else:
+                        block_name += c
+
+            
+    def parse_block(self, name, content):
+        items = {}
+
+        lines = filter(lambda x: x, map(lambda x: x.strip(), content.splitlines()))
+        
+        for line in lines:
+            i = line.index(":")
+            j = i + 1
+            key = line[0:i].strip()
+            value = line[j:].strip()            
+            items[key] = self.replace_escapes(value)
+            
+        return (name.strip(), items)
+
+    def replace_escapes(self, part):
+        result = ""
+
+        ignore = False
+        
+        for c in part:
+            if ignore:
+                result += c
+                ignore = False
+                continue
+            
+            if c == "\\":
+                ignore = True
+                continue
+
+            if c != "\"":
+                result += c
+
+        return result
 
 
+def build_object_index():
+    index = {}
+
+    with open("oidv4_LabelMap.txt", "r") as source:
+        access = ObjectDefinitionAccess()
+        for (name, items) in access.definitions(source):
+            key = items["display_name"]
+            value = items["name"]
+            index[key] = value
+
+    return index
 
 
 # Function to get the Scenes from the API
-def semanticCaller(ObjectList, ):
-
-    sceneList = []
+def semanticCaller(objects, ):
+    scenes = []
     ObjectListIDs = []
     # Object List is in format "Footwear: 46%"
     # Convert it to only have "Footwear"
-    for Object in ObjectList:
-        print(Object)
-        ObjectName = Object.split(":")[0]
-        ObjectProbability = Object.split(":")[1]
+
+    id_index = build_object_index()
+
+    for obj in objects:
+        print("object", obj)
+        parts = obj.split(":")
+        ObjectName = parts[0]
+        ObjectProbability = parts[1]
         ObjectProbability = ObjectProbability.replace("%", "")
-        ObjectProbability = float(ObjectProbability)/100
+        ObjectProbability = float(ObjectProbability) / 100.0
         # Get the ID for the Semantic 
-        ObjectID = return_ObjID_from_ObjectName(ObjectName)
+        ObjectID = id_index[ObjectName]
         ObjectListIDs.append(str(ObjectID) + "=" + str(ObjectProbability))
         postObject = {"data": str(ObjectListIDs)}
+
     # Send the ID to the Semantic
-  # response = requests.get('http://semanticapi:8000?objectID1={0}'.format(ObjectID))
-    
     #depending whether the location is in a docker conainer, use localhost or the local docker instantiation
     dockerCheck = os.environ.get("inDockerContainer", False)
     targetUrl = "http://semanticapi:8000" if dockerCheck else "http://localhost:8001"
@@ -63,16 +122,10 @@ def semanticCaller(ObjectList, ):
             convert2Percent = round(float(response.json()[item])* 100, 2)
             convert2Percent = str(convert2Percent) + "%"
             responseItem = str(item) +": " + convert2Percent
-            sceneList.append(responseItem)
+            scenes.append(responseItem)
         # sceneList.append(response.json())
     # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
     except : 
         pass
 
-    return(sceneList)
-
-
-
-
-
-
+    return(scenes)

@@ -1,1 +1,0 @@
-Here are the annotated Pictures. This folder has to exists, otherwise the Software will fail
