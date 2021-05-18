@@ -7,6 +7,7 @@ from django.core.files.storage import FileSystemStorage
 from .tf_hub import run_object_detection
 from .semanticCaller import semanticCaller
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from performance import PerformanceRegistry
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -17,6 +18,7 @@ def html_list(ls):
 @csrf_exempt
 def upload(request):
     context = {}
+    registry = PerformanceRegistry()
 
     if request.method == 'POST':
         # Request Detection Type from the Radio Buttons/User Input
@@ -24,6 +26,8 @@ def upload(request):
         print("module", modul)
         
         # Save the File
+        save_performance = registry.start("file-save")
+        
         uploaded_file = request.FILES["inpFile"]
         fs = FileSystemStorage()
         name = fs.save(uploaded_file.name, uploaded_file)
@@ -43,14 +47,21 @@ def upload(request):
 
         print("source image", source)
         print("save image at", destination)
+
+        save_performance.stop()
         
         # Run Object Detection
+        object_detection_performance = registry.start("object-detection")
         ObjList = run_object_detection(int(modul), source, destination)
-
+        object_detection_performance.stop()
+        
         # Convert the List to display in the Output Field
         ObjListHTML = html_list(ObjList)
+
         # Get Scenes from the SemanticAPI
+        semantic_processing_performance = registry.start("semantic-detection")
         SemaList = semanticCaller(ObjList)
+        semantic_processing_performance.stop()
 
         # Convert the List to display in the Ouput Field
         SemaListHTML = html_list(SemaList)
@@ -64,6 +75,15 @@ def upload(request):
             "result": True
          }
 
-    return render(request, "upload.html", context)
+    render_performance = registry.start("rendering")
+    render_result = render(request, "upload.html", context)
+    render_performance.stop()
+
+    print("performance results")
+    for e in registry.relative():
+        e[2] *= 100.0
+        print("{0:32s}{1:4.1f}s {2:5.1f}%".format(*e))
+
+    return render_result
 
 
