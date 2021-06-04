@@ -36,26 +36,37 @@ def semanticCall(request):
         array = str(newData).split(",")
         
         print(array)
-            
+        
         
         maxValue = 0.0
-        for element in array:
-            print(element)
-            id = element.split("=")[0]
-            prob = element.split("=")[1]
-            semanticResponse = sh.getSemanticEnhancement(id)
-            print(semanticResponse)
-            for responseElement in semanticResponse[0]["scenes"]:
-                if responseElement in ProbAggregation:
-                    ProbAggregation[responseElement] = ProbAggregation[responseElement] + float(prob)
-                else:
-                    ProbAggregation[responseElement] = float(prob)
-                    print(prob)
-                    print("created")
-                if (ProbAggregation[responseElement] > maxValue):
-                    maxValue = ProbAggregation[responseElement] 
-        # Normalize Values
-        for item in ProbAggregation:
-            ProbAggregation[item] = ProbAggregation[item] / maxValue
+        detectedObjects = []
+        
+        for detectedObject in array:
+            detectedObjects.append({
+                "detectorId":  detectedObject.split("=")[0],
+                "probability":  float(detectedObject.split("=")[1])
+                })
 
-        return Response(ProbAggregation)
+        semanticResponse = sh.getSemanticEnhancement(detectedObjects)
+        inferedElements = {}
+        for detectedObject in detectedObjects:
+            inferedElementsForOneDetector = filterSemanticResponse(detectedObject["detectorId"], semanticResponse)
+            for inferedElement in inferedElementsForOneDetector:
+                if(inferedElement in inferedElements):
+                    inferedElements[inferedElement] += detectedObject["probability"]
+                else:
+                    inferedElements[inferedElement] =  detectedObject["probability"]
+                maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
+        
+        # Normalize Values
+        for element in inferedElements:
+            inferedElements[element] /= maxValue
+
+        return Response(inferedElements)
+
+def filterSemanticResponse(detectorId: str, semanticRespose: list):
+    contextList = []
+    for element in semanticRespose:
+        if(detectorId == element["imageClassifier"]):
+            contextList.append(element["contextItems"])
+    return contextList
