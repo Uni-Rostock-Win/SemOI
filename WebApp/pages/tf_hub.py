@@ -131,7 +131,7 @@ def load_img(path):
 #small and fast = 2 (SSD + MobileNet V2)
 ### Path has to be as String
 #EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/') 
-def run_object_detection(module, source, destination):
+def run_object_detection(module, source, destination, registry):
 
   if module == 1:
     module_handle = 'https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1'
@@ -141,20 +141,38 @@ def run_object_detection(module, source, destination):
     print("Invalid Module number")
     return 0
 
+  detector_load_performance = registry.start("detector-load")
   detector = hub.load(module_handle).signatures['default']
-  image_path = read_and_convert_image(source)
+  detector_load_performance.stop()
 
+  image_read_performance = registry.start("image-read")
+  image_path = read_and_convert_image(source)
+  image_read_performance.stop()
+
+  image_load_performance = registry.start("image-load")
   img = load_img(image_path)
+  image_load_performance.stop()
+
+  image_convert_performance = registry.start("image-convert")
   converted_img  = tf.image.convert_image_dtype(img, tf.float32)[tf.newaxis, ...]
+  image_convert_performance.stop()
+
+  image_detect_performance = registry.start("detect")
   result = detector(converted_img)
+  image_detect_performance.stop()
+
+  image_boxing_performance = registry.start("boxing")
   result = {key: value.numpy() for key, value in result.items()}
   image_with_boxes = draw_boxes(
       img.numpy(), result["detection_boxes"],
       result["detection_class_entities"], result["detection_scores"])[0]
-
+  image_boxing_performance.stop()
+  
   # Save the image
+  image_save_performance = registry.start("image-save")
   im = Image.fromarray(image_with_boxes)
   im.save(destination, '')
+  image_save_performance.stop()
 
   object_list = draw_boxes(
       img.numpy(), result["detection_boxes"],

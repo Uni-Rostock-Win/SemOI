@@ -52,7 +52,7 @@ def upload(request):
         
         # Run Object Detection
         object_detection_performance = registry.start("object-detection")
-        ObjList = run_object_detection(int(modul), source, destination)
+        ObjList = run_object_detection(int(modul), source, destination, registry)
         object_detection_performance.stop()
         
         # Convert the List to display in the Output Field
