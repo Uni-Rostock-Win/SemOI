@@ -6,13 +6,39 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
 
     <title>SEMA</title>
 
     <style>
+        :root {
+            --bs-primary: #004a99;
+        }
+        body
+        {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: "Roboto" !important;
+            background-color: #f8f9fa;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            border: 1px solid cyan;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: .25rem;
+        }
+        .btn-customized {
+            background-color: #17a2b8
+        }
+        .btn-customized:hover {
+            opacity: 90%
+        }
         .image-preview {
             width: 600px;
             min-height: 350px;
@@ -26,7 +52,6 @@
         }
 
         .image-preview__image {
-            display: none;
             width: 100%;
             max-height: 350px;
         }
@@ -84,19 +109,61 @@
             overflow-y: scroll;
             height: 200px;
         }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
     </style>
 
 </head>
 
 <body>
-
-    <div class="container-fluid p-3 mb-2 bg-info text-white">
-        <h1 Align="center"> <strong>SemOI</strong> </h1>
-        <h2 Align="center">Semantic Augmentation for Open Images</h2>
+    <nav class="navbar navbar-light bg-dark px-3">
+        <span class="text-info ml-2 mb-0 h1">SemOI</span>
+        <form class="form-inline">
+            <div class="form-outline">
+                <label for="inpFile" class="btn-outline-info custom-file-upload">Upload Image</label>
+                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
+            </div>
+        </form>
+    </nav>
+    <div class="container" id="landingPage">
+        <div class="container-fluid p-3 my-3 bg-info text-white">
+            <h1 Align="center"> <strong>SemOI</strong> </h1>
+            <h2 Align="center">Semantic Augmentation for Open Images</h2>
+        </div>
     </div>
-
-
-    <div class="input" align="center">
+    <div class="container" id="imageUpload" style="display: none">
+        <div class="row d-flex justify-content-center my-4">
+            <div class="col-4 d-grid gap-2">
+                <div class="float-left"><span>Choose Options:</span></div>
+                <div class="btn-group float-right">
+                    <input
+                    type="radio"
+                    class="btn-check"
+                    name="options"
+                    id="option1"
+                    autocomplete="off"
+                    checked
+                    />
+                    <label class="btn btn-outline-dark" for="option1">Fast</label>
+                
+                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
+                    <label class="btn btn-outline-dark" for="option2">Accurate</label>
+                </div>   
+                <button type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill">Analyze</button>        
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-6" id="imageContainer">
+                    <img scr="{{uploadedImage}}" alt="Image Preview" class="img-fluid imagePreview">
+            </div>
+        </div>
+    </div>
+    <!-- <div class="input" align="center">
         <form method="post" enctype="multipart/form-data">
             <br>
             {% csrf_token %}
@@ -111,16 +178,9 @@
             <br>
             <input type="submit" value="Upload and Analyze" class="btn btn-info bnt-lg">
         </form>
-    </div>
+    </div> -->
 
-    <div class="bild" align="center">
-        <div class="image-preview" id="imagePreview">
-            <img scr="{{uploadedImage}}" alt="Image Preview" class="image-preview__image">
-            <span class="image-preview__default-text">Image Preview</span>
-        </div>
-    </div>
-
-    <div class="ausgabe">
+    <div class="ausgabe" id="resultContainer" style="display:none">
         <div class="row justify-content-around">
             <div class="col-4">
                 <h5>Detected Objects:</h5>
@@ -152,9 +212,9 @@
             </div>
         </div>
     </div>
-
-    <div class="container-fluid p-5 bg-info mt-3">
-        <a class="badge badge-light href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
+    <div class="footer p-4 bg-dark">
+        <div class="row"><span class="text-light my-2">© 2021 Universität Rostock</span></div>
+        <a class="btn text-light btn-link" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
     </div>
 
 
@@ -162,15 +222,18 @@
 
 <script>
     const inpFile = document.getElementById("inpFile");
-    const previewContainer = document.getElementById("imagePreview");
-    const previewImage = previewContainer.querySelector(".image-preview__image");
-    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    const imageUpload = document.getElementById("imageUpload");
+    const landingPage = document.getElementById("landingPage");
+    const resultContainer = document.getElementById("resultContainer");
+    const imageContainer = document.getElementById("imageContainer");
+    const previewImage = imageContainer.querySelector(".imagePreview");
+    // const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
     {%if result %}
     const result = true
-
-    previewImage.setAttribute("src", "{{uploadedImage}}");
-    previewDefaultText.style.display = "none";
-    previewImage.style.display = "block";
+    // previewImage.setAttribute("src", "{{uploadedImage}}");
+    // previewDefaultText.style.display = "none";
+    // previewImage.style.display = "block";
 
     {% else %}
     const result = false
@@ -180,10 +243,12 @@
         console.log(result);
         console.log(file);
         if (file) {
+            landingPage.style.display = "none";
+            imageUpload.style.display = "block";
             const reader = new FileReader();
 
-            previewDefaultText.style.display = "none";
-            previewImage.style.display = "block";
+            // previewDefaultText.style.display = "none";
+            // previewImage.style.display = "block";
 
             reader.addEventListener("load", function () {
                 console.log(this);
@@ -197,7 +262,7 @@
         else {
 
             previewDefaultText.style.display = null;
-            previewImage.style.display = null;
+            // previewImage.style.display = null;
             previewImage.setAttribute("src", "");
         }
     });
