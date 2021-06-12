@@ -8,9 +8,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="../media/Logo.png">
 
-
-    <title>SEMA</title>
+    <title>SemOI</title>
 
     <style>
         :root {
@@ -121,8 +121,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-dark px-3">
-        <span class="text-info ml-2 mb-0 h1">SemOI</span>
+    <nav class="navbar navbar-light bg-dark px-4">
+        <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
         <form class="form-inline">
             <div class="form-outline">
                 <label for="inpFile" class="btn-outline-info custom-file-upload">Upload Image</label>
@@ -131,9 +131,17 @@
         </form>
     </nav>
     <div class="container" id="landingPage">
-        <div class="container-fluid p-3 my-3 bg-info text-white">
+        <div class="container-fluid p-3 mt-5 bg-info text-light">
             <h1 Align="center"> <strong>SemOI</strong> </h1>
             <h2 Align="center">Semantic Augmentation for Open Images</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4"><img src="../media/SemOI.png" class="img-fluid" alt="SemOI Logo"/></div>
+            <div class="col-1"></div>
+            <div class="col-5 d-flex align-items-center"><img src="../media/uni_rostock.png" class="img-fluid" alt="Uni Rostock Logo"/></div>
+        </div>
+        <div class="row justify-content-center">
+            <button type="button" style="max-width: 350px;" class="btn btn-lg btn-danger mt-5 text-light rounded-pill">Show demo</button>
         </div>
     </div>
     <div class="container" id="imageUpload" style="display: none">
