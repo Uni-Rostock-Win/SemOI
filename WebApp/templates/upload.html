@@ -107,7 +107,7 @@
         .example-1 {
             position: relative;
             overflow-y: scroll;
-            height: 200px;
+            height: 400px;
         }
         .footer {
             position: fixed;
@@ -123,15 +123,18 @@
 <body>
     <nav class="navbar navbar-light bg-dark px-4">
         <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
-        <form class="form-inline">
-            <div class="form-outline">
-                <label for="inpFile" class="btn-outline-info custom-file-upload">Upload Image</label>
-                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
-            </div>
+        <form method="post" id="form1" enctype="multipart/form-data" class="form-inline">
+            <label for="inpFile" class="btn-outline-info custom-file-upload">Upload Image</label>
+            <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
+            <div style="display: none">
+                <input type="radio" value="1" class="btn-check" name="modul" autocomplete="off"/>
+                <input type="radio" value="2" class="btn-check" name="modul" autocomplete="off" />
+            </div>  
         </form>
     </nav>
+    <input type="hidden" id="myVar" name="variable" value="">
     <div class="container" id="landingPage">
-        <div class="container-fluid p-3 mt-5 bg-info text-light">
+        <div class="container-fluid p-3 mt-5">
             <h1 Align="center"> <strong>SemOI</strong> </h1>
             <h2 Align="center">Semantic Augmentation for Open Images</h2>
         </div>
@@ -146,24 +149,20 @@
     </div>
     <div class="container" id="imageUpload" style="display: none">
         <div class="row d-flex justify-content-center my-4">
-            <div class="col-4 d-grid gap-2">
+            <form id="form2" class="col-4 d-grid gap-2">
+                {% csrf_token %}
                 <div class="float-left"><span>Choose Options:</span></div>
                 <div class="btn-group float-right">
-                    <input
-                    type="radio"
-                    class="btn-check"
-                    name="options"
-                    id="option1"
-                    autocomplete="off"
-                    checked
-                    />
-                    <label class="btn btn-outline-dark" for="option1">Fast</label>
-                
-                    <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" />
+                    <input type="radio" value="1" class="btn-check" name="options" id="option1" autocomplete="off" checked/>
+                    <label class="btn btn-outline-dark" for="option1">Fast</label> 
+                    <input type="radio" value="2" class="btn-check" name="options" id="option2" autocomplete="off" />
                     <label class="btn btn-outline-dark" for="option2">Accurate</label>
-                </div>   
-                <button type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill">Analyze</button>        
-            </div>
+                </div>  
+                <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="submitForm()">
+                    <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Analyze
+                </button>    
+            </form>
         </div>
         <div class="row justify-content-center">
             <div class="col-6" id="imageContainer">
@@ -171,26 +170,10 @@
             </div>
         </div>
     </div>
-    <!-- <div class="input" align="center">
-        <form method="post" enctype="multipart/form-data">
-            <br>
-            {% csrf_token %}
-            <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
-            <br><br>
-            <p>Choose your analysis module:</p>
-            <input type="radio" id="modul1" name="modul" value="1" required>
-            <label for="modul1">Inception Resnet v2 (accurate but slow)</label>
-            <br>
-            <input type="radio" id="modul2" name="modul" value="2">
-            <label for="modul2">SSD/Mobilenet v2 (less accurate, but faster)</label>
-            <br>
-            <input type="submit" value="Upload and Analyze" class="btn btn-info bnt-lg">
-        </form>
-    </div> -->
-
-    <div class="ausgabe" id="resultContainer" style="display:none">
+    {{ ObjListHTML|json_script:'objects' }}
+    <div class="container mt-5" id="showResults" style="display: none">
         <div class="row justify-content-around">
-            <div class="col-4">
+            <div class="col-3">
                 <h5>Detected Objects:</h5>
                 <div class="card example-1 square scrollbar bordered">
                     <div class="output-preview" id="outputPreview">
@@ -203,7 +186,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-6 mt-3 pt-3" id="imageContainer">
+                <img src="../media/SemOI.png" alt="Image Preview" class="img-fluid">
+            </div>
+            <div class="col-3">
                 <h5>Semantic Augmentation:</h5>
                 <div class="card example-1 square scrollbar bordered">
                     <div class="output-preview-semantik" id="outputPreviewSemantik">
@@ -227,56 +213,51 @@
 
 
 </body>
-
 <script>
     const inpFile = document.getElementById("inpFile");
     const imageUpload = document.getElementById("imageUpload");
     const landingPage = document.getElementById("landingPage");
-    const resultContainer = document.getElementById("resultContainer");
     const imageContainer = document.getElementById("imageContainer");
     const previewImage = imageContainer.querySelector(".imagePreview");
-    // const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+    const results = document.getElementById("showResults");
+    const btn = document.getElementById("btn");
+    const loading = document.getElementById("loading");
 
-    {%if result %}
-    const result = true
-    // previewImage.setAttribute("src", "{{uploadedImage}}");
-    // previewDefaultText.style.display = "none";
-    // previewImage.style.display = "block";
+    var js_variable = JSON.parse(document.getElementById('objects').textContent);
+    // console.log(js_variable)
+    if (js_variable) {
+        landingPage.style.display = "none";
+        results.style.display = "block"
+    }
 
-    {% else %}
-    const result = false
-    {% endif %}
+
     inpFile.addEventListener("change", function () {
         const file = this.files[0];
-        console.log(result);
         console.log(file);
+        console.log(js_variable)
         if (file) {
-            landingPage.style.display = "none";
-            imageUpload.style.display = "block";
             const reader = new FileReader();
-
-            // previewDefaultText.style.display = "none";
-            // previewImage.style.display = "block";
-
             reader.addEventListener("load", function () {
                 console.log(this);
                 previewImage.setAttribute("src", this.result);
+                landingPage.style.display = "none";
+                results.style.display = "none"
+                imageUpload.style.display = "block";
             });
-
             reader.readAsDataURL(file);
         }
-
-
         else {
-
-            previewDefaultText.style.display = null;
-            // previewImage.style.display = null;
+            console.log("ELSE")
             previewImage.setAttribute("src", "");
         }
     });
 
-
-
+    function submitForm(){
+        loading.style.display = "inline-block";
+        btn.disabled = true;
+        document.forms["form1"]["modul"].value = document.forms["form2"]["options"].value;
+        document.getElementById("form1").submit();
+    }
 </script>
 
 </html>
