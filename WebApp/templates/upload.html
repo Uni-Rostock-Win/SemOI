@@ -123,42 +123,24 @@
 <body>
     <nav class="navbar navbar-light bg-dark px-4">
         <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
-        <form method="post" id="form1" enctype="multipart/form-data" class="form-inline">
-            <label for="inpFile" class="btn-outline-info custom-file-upload">Upload Image</label>
+        <form method="post" id="saveFile" action="/upload/" enctype="multipart/form-data" class="form-inline">
+            {% csrf_token %}
+            <label for="inpFile" class="btn-dark btn-outline-info custom-file-upload">Change Image</label>
             <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
-            <div style="display: none">
-                <input type="radio" value="1" class="btn-check" name="modul" autocomplete="off"/>
-                <input type="radio" value="2" class="btn-check" name="modul" autocomplete="off" />
-            </div>  
         </form>
     </nav>
-    <input type="hidden" id="myVar" name="variable" value="">
-    <div class="container" id="landingPage">
-        <div class="container-fluid p-3 mt-5">
-            <h1 Align="center"> <strong>SemOI</strong> </h1>
-            <h2 Align="center">Semantic Augmentation for Open Images</h2>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-4"><img src="../media/SemOI.png" class="img-fluid" alt="SemOI Logo"/></div>
-            <div class="col-1"></div>
-            <div class="col-5 d-flex align-items-center"><img src="../media/uni_rostock.png" class="img-fluid" alt="Uni Rostock Logo"/></div>
-        </div>
-        <div class="row justify-content-center">
-            <button type="button" style="max-width: 350px;" class="btn btn-lg btn-danger mt-5 text-light rounded-pill">Show demo</button>
-        </div>
-    </div>
-    <div class="container" id="imageUpload" style="display: none">
+    <div class="container" id="imageUpload">
         <div class="row d-flex justify-content-center my-4">
-            <form id="form2" class="col-4 d-grid gap-2">
+            <form method="post" action="/results/" id="uploadImg" class="col-4 d-grid gap-2">
                 {% csrf_token %}
                 <div class="float-left"><span>Choose Options:</span></div>
                 <div class="btn-group float-right">
-                    <input type="radio" value="1" class="btn-check" name="options" id="option1" autocomplete="off" checked/>
+                    <input type="radio" value="1" class="btn-check" name="modul" id="option1" autocomplete="off" checked/>
                     <label class="btn btn-outline-dark" for="option1">Fast</label> 
-                    <input type="radio" value="2" class="btn-check" name="options" id="option2" autocomplete="off" />
+                    <input type="radio" value="2" class="btn-check" name="modul" id="option2" autocomplete="off" />
                     <label class="btn btn-outline-dark" for="option2">Accurate</label>
                 </div>  
-                <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="submitForm()">
+                <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
                     <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Analyze
                 </button>    
@@ -166,43 +148,8 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-6" id="imageContainer">
-                    <img scr="{{uploadedImage}}" alt="Image Preview" class="img-fluid imagePreview">
-            </div>
-        </div>
-    </div>
-    {{ ObjListHTML|json_script:'objects' }}
-    <div class="container mt-5" id="showResults" style="display: none">
-        <div class="row justify-content-around">
-            <div class="col-3">
-                <h5>Detected Objects:</h5>
-                <div class="card example-1 square scrollbar bordered">
-                    <div class="output-preview" id="outputPreview">
-                        <samp class="output-text" id="output-text">
-                            {% block includes %}
-                            {% autoescape off %}
-                            {{ObjListHTML}}
-                            {% endautoescape %}
-                        </samp>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 mt-3 pt-3" id="imageContainer">
-                <img src="../media/SemOI.png" alt="Image Preview" class="img-fluid">
-            </div>
-            <div class="col-3">
-                <h5>Semantic Augmentation:</h5>
-                <div class="card example-1 square scrollbar bordered">
-                    <div class="output-preview-semantik" id="outputPreviewSemantik">
-                        <div id="content-5" class="custom-scrollbar-js p-2">
-                            <samp class="output-semantik" id="output-semantik">
-                                {% autoescape off %}
-                                {{SemaListHTML}}
-                                {% endautoescape %}
-                                {% endblock includes %}
-                            </samp>
-                        </div>
-                    </div>
-                </div>
+                <!-- <img scr="../media/SemOI.png" alt="Image Preview" class="img-fluid"> -->
+                <img src="../media/party.jpg" class="img-fluid" alt="SemOI Logo"/>
             </div>
         </div>
     </div>
@@ -210,53 +157,31 @@
         <div class="row"><span class="text-light my-2">© 2021 Universität Rostock</span></div>
         <a class="btn text-light btn-link" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
     </div>
-
-
 </body>
 <script>
+    // const previewContainer = document.getElementById("imageContainer");
+    // const previewImage = previewContainer.querySelector(".imagePreview");
+    // previewImage.setAttribute("src", "{{uploadedImage}}");
     const inpFile = document.getElementById("inpFile");
-    const imageUpload = document.getElementById("imageUpload");
-    const landingPage = document.getElementById("landingPage");
-    const imageContainer = document.getElementById("imageContainer");
-    const previewImage = imageContainer.querySelector(".imagePreview");
-    const results = document.getElementById("showResults");
-    const btn = document.getElementById("btn");
-    const loading = document.getElementById("loading");
-
-    var js_variable = JSON.parse(document.getElementById('objects').textContent);
-    // console.log(js_variable)
-    if (js_variable) {
-        landingPage.style.display = "none";
-        results.style.display = "block"
-    }
-
 
     inpFile.addEventListener("change", function () {
         const file = this.files[0];
         console.log(file);
-        console.log(js_variable)
         if (file) {
             const reader = new FileReader();
             reader.addEventListener("load", function () {
                 console.log(this);
-                previewImage.setAttribute("src", this.result);
-                landingPage.style.display = "none";
-                results.style.display = "none"
-                imageUpload.style.display = "block";
+                // previewImage.setAttribute("src", this.result);
             });
             reader.readAsDataURL(file);
-        }
-        else {
-            console.log("ELSE")
-            previewImage.setAttribute("src", "");
+            document.getElementById("saveFile").submit();
         }
     });
 
-    function submitForm(){
-        loading.style.display = "inline-block";
-        btn.disabled = true;
-        document.forms["form1"]["modul"].value = document.forms["form2"]["options"].value;
-        document.getElementById("form1").submit();
+    function startLoading() {
+        document.getElementById("loading").style.display = "inline-block";
+        document.getElementById("btn").disabled = true;
+        document.getElementById("uploadImg").submit()
     }
 </script>
 

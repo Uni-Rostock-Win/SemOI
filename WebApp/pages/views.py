@@ -16,15 +16,17 @@ def html_list(ls):
 
 #Create your views here
 @csrf_exempt
-def upload(request):
+def index(request):
+    render_result = render(request, "index.html")
+    return render_result
+
+@csrf_exempt
+def saveFile(request):
     context = {}
     registry = PerformanceRegistry()
-
-    if request.method == 'POST':
-        # Request Detection Type from the Radio Buttons/User Input
-        modul = request.POST["modul"]
-        print("module", modul)
-        
+    global destination
+    global source
+    if request.method == 'POST':        
         # Save the File
         save_performance = registry.start("file-save")
         
@@ -47,9 +49,46 @@ def upload(request):
 
         print("source image", source)
         print("save image at", destination)
-
+        print(os.path.relpath(destination, BASE_DIR))
         save_performance.stop()
-        
+        # context = {
+        #     "uploadedImage": os.path.relpath(destination, BASE_DIR),
+        # }
+    render_result = render(request, "upload.html", context)
+    return render_result
+
+@csrf_exempt
+def demo(request):
+    ObjListHTML = [ "Person: 68%",
+                    "Person: 51%",
+                    "Drink: 44%",
+                    "Man: 41%",
+                    "Wine glass: 26%",
+                    "Clothing: 25%",
+                    "Human arm: 21%",
+                    "Man: 21%",
+                    "Drink: 18%"
+                    ]
+    SemaListHTML = ["dinner: 100.0%"]
+    context = {
+        "ObjListHTML" : "<br>".join(ObjListHTML),
+        "SemaListHTML": "<br>".join(SemaListHTML),
+        # "uploadedImage": os.path.relpath(destination, BASE_DIR),
+        }
+    render_result = render(request, "results.html", context)
+    return render_result
+
+@csrf_exempt
+def upload(request):
+    context = {}
+    registry = PerformanceRegistry()
+
+    if request.method == 'POST':
+        # Request Detection Type from the Radio Buttons/User Input
+        modul = request.POST["modul"]
+        print("module", modul)
+        print("dest", destination)
+        print("src", source)
         # Run Object Detection
         object_detection_performance = registry.start("object-detection")
         ObjList = run_object_detection(int(modul), source, destination)
@@ -68,7 +107,7 @@ def upload(request):
         print("semantic list", SemaListHTML)
 
         context = {
-            "url" : fs.url(name),
+            # "url" : fs.url(name),
             "ObjListHTML" : ObjListHTML,
             "SemaListHTML": SemaListHTML,
             "uploadedImage": os.path.relpath(destination, BASE_DIR),
@@ -76,7 +115,7 @@ def upload(request):
          }
 
     render_performance = registry.start("rendering")
-    render_result = render(request, "upload.html", context)
+    render_result = render(request, "results.html", context)
     render_performance.stop()
 
     print("performance results")
