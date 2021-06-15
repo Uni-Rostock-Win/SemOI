@@ -1,22 +1,12 @@
-##Imports and function definitions
-
-# For running inference on the TF-Hub module.
 import tensorflow as tf
 import tensorflow_hub as hub
-# For downloading the image.
-import matplotlib.pyplot as plt
-import tempfile
-from six.moves.urllib.request import urlopen
-from six import BytesIO
-# For drawing onto the image.
 import numpy as np
 from PIL import Image
 from PIL import ImageColor
 from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
-#For saving the image
-import os.path
+
 
 # Print Tensorflow version
 print(tf.__version__)
@@ -24,26 +14,28 @@ print(tf.__version__)
 print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
 
 
-## Helper functions for downloading images/open images and for visualization.
-# Function to Download an Image and Resize it
-def download_and_resize_image(url, new_width=256, new_height=256):
-  _, filename = tempfile.mkstemp(suffix=".jpg")
-  response = urlopen(url)
-  image_data = response.read()
-  image_data = BytesIO(image_data)
-  pil_image = Image.open(image_data)
-  pil_image = ImageOps.fit(pil_image, (new_width, new_height), Image.ANTIALIAS)
-  pil_image_rgb = pil_image.convert("RGB")
-  pil_image_rgb.save(filename, format="JPEG", quality=90)
-  print("Image downloaded to %s." % filename)
-  return filename
+def limit_image_size(image_data):
+    width, height = image_data.size
+    pixels = width * height
 
-# Function to Read an Image from a Directory and Resize it
-def read_and_convert_image(image):
-  pil_image = Image.open(image)
-  pil_image_rgb = pil_image.convert("RGB")
-  pil_image_rgb.save(image, format="JPEG", quality=90)
-  return image
+    # 8 Megapixels
+    target = 8_000_000
+
+    if pixels > target:
+        factor = target / pixels
+        print("resizing image by factor", factor)
+        return ImageOps.scale(image_data, factor, Image.BICUBIC)
+    else:
+        return image_data
+
+
+# preprocess the image by loading it from a source path and resize it if necessary
+def preprocess_image(source_path):
+    image_raw = Image.open(source_path)
+    image_rgb = image_raw.convert("RGB")
+    resized = limit_image_size(image_rgb)
+
+    return image_rgb, resized, tf.keras.preprocessing.image.img_to_array(resized)
 
 
 def draw_bounding_box_on_image(image,
@@ -55,130 +47,122 @@ def draw_bounding_box_on_image(image,
                                font,
                                thickness=4,
                                display_str_list=()):
-  """Adds a bounding box to an image."""
-  draw = ImageDraw.Draw(image)
-  im_width, im_height = image.size
-  (left, right, top, bottom) = (xmin * im_width, xmax * im_width,
-                                ymin * im_height, ymax * im_height)
-  draw.line([(left, top), (left, bottom), (right, bottom), (right, top),
-             (left, top)],
-            width=thickness,
-            fill=color)
+    """Adds a bounding box to an image."""
 
-  # If the total height of the display strings added to the top of the bounding
-  # box exceeds the top of the image, stack the strings below the bounding box
-  # instead of above.
-  display_str_heights = [font.getsize(ds)[1] for ds in display_str_list]
-  # Each display_str has a top and bottom margin of 0.05x.
-  total_display_str_height = (1 + 2 * 0.05) * sum(display_str_heights)
+    draw = ImageDraw.Draw(image)
+    im_width, im_height = image.size
 
-  if top > total_display_str_height:
-    text_bottom = top
-  else:
-    text_bottom = top + total_display_str_height
-  # Reverse list and print from bottom to top.
-  for display_str in display_str_list[::-1]:
-    text_width, text_height = font.getsize(display_str)
-    margin = np.ceil(0.05 * text_height)
-    draw.rectangle([(left, text_bottom - text_height - 2 * margin),
-                    (left + text_width, text_bottom)],
-                   fill=color)
-    draw.text((left + margin, text_bottom - text_height - margin),
-              display_str,
-              fill="black",
-              font=font)
-    text_bottom -= text_height - 2 * margin
+    left = xmin * im_width
+    right = xmax * im_width
+    top = ymin * im_height
+    bottom = ymax * im_height
 
+    draw.line([(left, top), (left, bottom), (right, bottom), (right, top),
+               (left, top)],
+              width=thickness,
+              fill=color)
 
-def draw_boxes(image, boxes, class_names, scores, max_boxes=10, min_score=0.1):
-  """Overlay labeled boxes on an image with formatted scores and label names."""
-  colors = list(ImageColor.colormap.values())
-    
-  font = ImageFont.load_default()
+    # If the total height of the display strings added to the top of the bounding
+    # box exceeds the top of the image, stack the strings below the bounding box
+    # instead of above.
+    display_str_heights = [font.getsize(ds)[1] for ds in display_str_list]
+    # Each display_str has a top and bottom margin of 0.05x.
+    total_display_str_height = (1 + 2 * 0.05) * sum(display_str_heights)
 
-  object_list = []
-
-  for i in range(min(boxes.shape[0], max_boxes)):
-    if scores[i] >= min_score:
-      ymin, xmin, ymax, xmax = tuple(boxes[i])
-      display_str = "{}: {}%".format(class_names[i].decode("ascii"),
-                                     int(100 * scores[i]))
-      color = colors[hash(class_names[i]) % len(colors)]
-      image_pil = Image.fromarray(np.uint8(image)).convert("RGB")
-      draw_bounding_box_on_image(
-          image_pil,
-          ymin,
-          xmin,
-          ymax,
-          xmax,
-          color,
-          font,
-          display_str_list=[display_str])
-      np.copyto(image, np.array(image_pil))
-    # Object_list stores the found objects and the confident scores    
-    object_list.append(display_str)
-  return image, object_list
+    if top > total_display_str_height:
+        text_bottom = top
+    else:
+        text_bottom = top + total_display_str_height
+    # Reverse list and print from bottom to top.
+    for display_str in display_str_list[::-1]:
+        text_width, text_height = font.getsize(display_str)
+        margin = np.ceil(0.05 * text_height)
+        draw.rectangle([(left, text_bottom - text_height - 2 * margin),
+                        (left + text_width, text_bottom)],
+                       fill=color)
+        draw.text((left + margin, text_bottom - text_height - margin),
+                  display_str,
+                  fill="black",
+                  font=font)
+        text_bottom -= text_height - 2 * margin
 
 
-def load_img(path):
-  img = tf.io.read_file(path)
-  img = tf.image.decode_jpeg(img, channels=3)
-  return img
+def draw_boxes(image_pil, boxes, class_names, scores, max_boxes=10, min_score=0.1):
+    """Overlay labeled boxes on an image with formatted scores and label names."""
+    colors = list(ImageColor.colormap.values())
 
-## Function to run the actual Object Detection
-### Choose Module
-#high accuracy = 1 (FasterRCNN + InceptionResNet V2)
-#small and fast = 2 (SSD + MobileNet V2)
-### Path has to be as String
-#EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/') 
+    font = ImageFont.load_default()
+
+    object_list = []
+
+    for i in range(min(boxes.shape[0], max_boxes)):
+        if scores[i] >= min_score:
+            ymin, xmin, ymax, xmax = tuple(boxes[i])
+
+            class_name = class_names[i].decode("ascii")
+            score = int(100 * scores[i])
+            display_str = "{}: {}%".format(class_name, score)
+
+            color = colors[hash(class_names[i]) % len(colors)]
+
+            draw_bounding_box_on_image(
+                image_pil,
+                ymin,
+                xmin,
+                ymax,
+                xmax,
+                color,
+                font,
+                display_str_list=[display_str])
+
+            object_list.append(display_str)
+
+    return object_list
+
+
+# Function to run the actual Object Detection
+# Choose Module
+# high accuracy = 1 (FasterRCNN + InceptionResNet V2)
+# small and fast = 2 (SSD + MobileNet V2)
+# EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/', performance_registry)
 def run_object_detection(module, source, destination, registry):
+    if module == 1:
+        module_handle = 'https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1'
+    elif module == 2:
+        module_handle = 'https://tfhub.dev/google/openimages_v4/ssd/mobilenet_v2/1'
+    else:
+        print("Invalid Module number")
+        return 0
 
-  if module == 1:
-    module_handle = 'https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1'
-  elif module == 2: 
-    module_handle = 'https://tfhub.dev/google/openimages_v4/ssd/mobilenet_v2/1'
-  else: 
-    print("Invalid Module number")
-    return 0
+    detector_load_performance = registry.start("detector-load")
+    detector = hub.load(module_handle).signatures['default']
+    detector_load_performance.stop()
 
-  detector_load_performance = registry.start("detector-load")
-  detector = hub.load(module_handle).signatures['default']
-  detector_load_performance.stop()
+    image_load_performance = registry.start("image-load")
+    image_rgb, image_resized, tf_image_data = preprocess_image(source)
+    image_load_performance.stop()
 
-  image_read_performance = registry.start("image-read")
-  image_path = read_and_convert_image(source)
-  image_read_performance.stop()
+    image_convert_performance = registry.start("image-convert")
+    converted_img = tf.image.convert_image_dtype(tf_image_data, tf.float32)[tf.newaxis, ...]
+    image_convert_performance.stop()
 
-  image_load_performance = registry.start("image-load")
-  img = load_img(image_path)
-  image_load_performance.stop()
+    image_detect_performance = registry.start("detect")
+    object_detection_result = detector(converted_img)
+    image_detect_performance.stop()
 
-  image_convert_performance = registry.start("image-convert")
-  converted_img  = tf.image.convert_image_dtype(img, tf.float32)[tf.newaxis, ...]
-  image_convert_performance.stop()
+    image_boxing_performance = registry.start("boxing")
+    result = {key: value.numpy() for key, value in object_detection_result.items()}
 
-  image_detect_performance = registry.start("detect")
-  result = detector(converted_img)
-  image_detect_performance.stop()
+    boxes = result["detection_boxes"]
+    entities = result["detection_class_entities"]
+    scores = result["detection_scores"]
 
-  image_boxing_performance = registry.start("boxing")
-  result = {key: value.numpy() for key, value in result.items()}
-  image_with_boxes = draw_boxes(
-      img.numpy(), result["detection_boxes"],
-      result["detection_class_entities"], result["detection_scores"])[0]
-  image_boxing_performance.stop()
-  
-  # Save the image
-  image_save_performance = registry.start("image-save")
-  im = Image.fromarray(image_with_boxes)
-  im.save(destination, '')
-  image_save_performance.stop()
+    object_list = draw_boxes(image_resized, boxes, entities, scores)
+    image_boxing_performance.stop()
 
-  object_list = draw_boxes(
-      img.numpy(), result["detection_boxes"],
-      result["detection_class_entities"], result["detection_scores"])[1]
+    # Save the image
+    image_save_performance = registry.start("image-save")
+    image_resized.save(destination, '')
+    image_save_performance.stop()
 
-  return object_list
-
-
-#print(run_object_detection(2, 'images/image1.jpg', 'images/results/'))
+    return object_list

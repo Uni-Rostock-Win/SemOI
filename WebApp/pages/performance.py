@@ -33,8 +33,8 @@ class PerformanceEntry:
         self.started = started
         self.stopped = None
         self.registry = registry
+        self.duration = None
 
     def stop(self):
         self.stopped = time.time()
         self.duration = self.stopped - self.started
-
