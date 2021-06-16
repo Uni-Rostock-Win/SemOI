@@ -62,353 +62,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#airfield -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#airfield">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-        <rdfs:comment>https://vision.princeton.edu/projects/2010/SUN/explore/SUN_128x128/a/airfield/</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#airplane_cabin -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#airplane_cabin">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#airport_terminal -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#airport_terminal">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#alcove -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#alcove">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#alley -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#alley">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#city"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#amphitheater -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#amphitheater">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#city"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#amusement_arcade -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#amusement_arcade">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#freetime"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#amusement_park -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#amusement_park">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#apartment_building_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#apartment_building_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#aquarium -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#aquarium">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#freetime"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#aqueduct -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#aqueduct">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#arcade -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#arcade">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#arch -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#arch">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#archaelogical_excavation -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#archaelogical_excavation">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#archive -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#archive">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#arena_hockey -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#arena_hockey">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#arena_performance -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#arena_performance">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-        <rdfs:comment>https://vision.princeton.edu/projects/2010/SUN/explore/SUN_128x128/a/arena/performance/</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#arena_rodeo -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#arena_rodeo">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#army_base -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#army_base">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#art_gallery -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#art_gallery">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#art_school -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#art_school">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#art_studio -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#art_studio">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#artists_loft -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#artists_loft">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#assembly_line -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#assembly_line">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#athletic_field_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#athletic_field_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#atrium_public -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#atrium_public">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#attic -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#attic">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#auditorium -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#auditorium">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#auto_factory -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#auto_factory">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#auto_showroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#auto_showroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#autumn -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#autumn">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#badlands -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#badlands">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bakery_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bakery_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#balcony_exterior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#balcony_exterior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#balcony_interior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#balcony_interior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ball_pit -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ball_pit">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ballroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ballroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bamboo_forest -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bamboo_forest">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bank_vault -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bank_vault">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#banquet_hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#banquet_hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bar -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bar">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#barn -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#barn">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#barndoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#barndoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#baseball -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#baseball">
@@ -435,190 +88,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#baseball_field -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#baseball_field">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#basement -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#basement">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#basketball -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#basketball">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#basketballcourt_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#basketballcourt_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bathroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bathroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bazaar_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bazaar_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bazaar_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bazaar_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#beach -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#beach">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#beach_house -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#beach_house">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#beauty_salon -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#beauty_salon">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bedchamber -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bedchamber">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bedroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bedroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#beer_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#beer_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#beer_hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#beer_hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#berth -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#berth">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#biology_laboratory -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#biology_laboratory">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#boardwalk -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#boardwalk">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#boat_deck -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#boat_deck">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#boathouse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#boathouse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bookstore -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bookstore">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#booth_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#booth_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#botanical_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#botanical_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bow_window_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bow_window_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#bowling -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bowling">
@@ -629,776 +98,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bowlingequipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bowling_alley -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bowling_alley">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#boxing_ring -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#boxing_ring">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bridge -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bridge">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#building_facade -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#building_facade">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bullring -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bullring">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#burial_chamber -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#burial_chamber">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bus_interior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bus_interior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#bus_station_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bus_station_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#business -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#business">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#butchers_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#butchers_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#butte -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#butte">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cabin_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cabin_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cafeteria -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cafeteria">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#campsite -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#campsite">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#campus -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#campus">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#canal_natural -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#canal_natural">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#canal_urban -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#canal_urban">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#candy_store -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#candy_store">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#canyon -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#canyon">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#car_interior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#car_interior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#carrousel -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#carrousel">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#freetime"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#castle -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#castle">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#casual-business -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#casual-business">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
-        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#formal-business"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#casual-class-events -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#casual-class-events">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#catacomb -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#catacomb">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cemetery -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cemetery">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#chalet -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#chalet">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#chemistry_lab -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#chemistry_lab">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#childs_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#childs_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#christmas -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#christmas">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
-        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#thanks-giving"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#church_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#church_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#church_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#church_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#city -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#city">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#classroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#classroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#clean_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#clean_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cliff -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cliff">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#closet -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#closet">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#clothing_store -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#clothing_store">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#coast -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#coast">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cockpit -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cockpit">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#coffee_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#coffee_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#computer_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#computer_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#concert-hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#concert-hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#conference_center -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#conference_center">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#conference_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#conference_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#construction_site -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#construction_site">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#corn_field -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#corn_field">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#corral -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#corral">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#corridor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#corridor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#cottage -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#cottage">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#courthouse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#courthouse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#courtyard -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#courtyard">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#creek -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#creek">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#crevasse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#crevasse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#crosswalk -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#crosswalk">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dam -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dam">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#delicatessen -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#delicatessen">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#department_store -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#department_store">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#desert -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#desert">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#desert_road -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#desert_road">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#desert"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#desert_sand -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#desert_sand">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#desert"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#desert_vegetation -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#desert_vegetation">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#desert"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#diner_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#diner_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dining_hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dining_hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dining_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dining_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dinner -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dinner">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#discotheque -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#discotheque">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#doorway_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#doorway_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dorm_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dorm_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#downtown -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#downtown">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#city"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#dressing_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dressing_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#driveway -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#driveway">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#drugstore -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#drugstore">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#elevator_door -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#elevator_door">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#lift"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#elevator_lobby -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#elevator_lobby">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#lift"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#elevator_shaft -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#elevator_shaft">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#lift"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#embassy -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#embassy">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#engine_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#engine_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#entrance_hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#entrance_hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#escalator_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#escalator_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#lift"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#excavation -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#excavation">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fabric_store -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fabric_store">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#family -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#family">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#farm -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#farm">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fastfood_restaurant -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fastfood_restaurant">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#festive-season -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#festive-season">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#field_cultivated -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#field_cultivated">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#field_road -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#field_road">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#field_wild -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#field_wild">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fieldhockey -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fieldhockey">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fire_escape -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fire_escape">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fire_station -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fire_station">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fishpond -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fishpond">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#flea_market_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#flea_market_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#florist_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#florist_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#food_court -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#food_court">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
     </owl:Class>
     
 
@@ -1429,158 +128,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#football_field -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#football_field">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#forest -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#forest">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#forest_broadleaf -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#forest_broadleaf">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#forest_path -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#forest_path">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#forest_road -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#forest_road">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#formal-business -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#formal-business">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#formal_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#formal_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#fountain -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fountain">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#public-place"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#gala -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gala">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#galley -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#galley">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#garage_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#garage_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#garage_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#garage_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#gas_station -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gas_station">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#gazebo_exterior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gazebo_exterior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#general_store_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#general_store_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#general_store_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#general_store_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#gift_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gift_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#glacier -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#glacier">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#golf -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#golf">
@@ -1591,38 +138,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Golfball"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#golf_course -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#golf_course">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#greenhouse_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#greenhouse_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#greenhouse_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#greenhouse_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#grotto -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#grotto">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
     </owl:Class>
     
 
@@ -1671,14 +186,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#gymnasium_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gymnasium_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#gymnastic -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gymnastic">
@@ -1699,78 +206,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#handball -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#handball">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hangar_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hangar_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hangar_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hangar_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#harbor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#harbor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hardware_store -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hardware_store">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hayfield -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hayfield">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#heliport -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#heliport">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#high-class-events -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#high-class-events">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#highway -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#highway">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#hiking -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hiking">
@@ -1781,38 +216,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Hikingequipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hills -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hills">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#home -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#home">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#home_office -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#home_office">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#home_theater -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#home_theater">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
     </owl:Class>
     
 
@@ -1833,134 +236,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hospital -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hospital">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hospital_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hospital_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hot_spring -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hot_spring">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hotel -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hotel">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hotel_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hotel_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hotel_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hotel_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#hotel"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#house -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#house">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#hunting_lodge_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hunting_lodge_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ice_cream_parlor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ice_cream_parlor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ice_floe -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ice_floe">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ice_shelf -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ice_shelf">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ice_skating_rink_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ice_skating_rink_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ice_skating_rink_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ice_skating_rink_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#iceberg -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#iceberg">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#icehockey -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#icehockey">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#igloo -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#igloo">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
     </owl:Class>
     
 
@@ -1988,408 +263,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#indoorsoccer -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#indoorsoccer">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#industrial_area -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#industrial_area">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#infrastructure -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#infrastructure">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#inn_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#inn_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#inside -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#inside">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#scenes"/>
-        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#islet -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#islet">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#jacuzzi_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#jacuzzi_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#jail_cell -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#jail_cell">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#public_institution"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#japanese_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#japanese_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#jewelry_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#jewelry_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#junkyard -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#junkyard">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#kasbah -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#kasbah">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#kennel_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#kennel_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#kindergarden_classroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#kindergarden_classroom">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#kitchen -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#kitchen">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lagoon -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lagoon">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lake_natural -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lake_natural">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#landfill -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#landfill">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#landing_deck -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#landing_deck">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#landscape -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#landscape">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#laundromat -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#laundromat">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lawn -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lawn">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lecture_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lecture_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#legislative_chamber -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#legislative_chamber">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#leisure-activity -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#leisure-activity">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#casual-class-events"/>
-        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#party"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#library_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#library_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#library_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#library_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lift -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lift">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lighthouse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lighthouse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#living_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#living_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#loading_dock -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#loading_dock">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lobby -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lobby">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#lock_chamber -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#lock_chamber">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#locker_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#locker_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mansion -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mansion">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#manufactured_home -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#manufactured_home">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#market_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#market_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#market_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#market_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#public-place"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#marketplace -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#marketplace">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#marsh -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#marsh">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#martial-arts -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#martial-arts">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#martial_arts_gym -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#martial_arts_gym">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#maternity -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#maternity">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mausoleum -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mausoleum">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#medina -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#medina">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#memorials -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#memorials">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mezzanine -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mezzanine">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#moat_water -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#moat_water">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mosque_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mosque_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#motel -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#motel">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#hotel"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#motor-sports -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#motor-sports">
@@ -2400,164 +273,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Autopart"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mountain -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mountain">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mountain_path -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mountain_path">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#mountain_snowy -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#mountain_snowy">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#movie_theater_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#movie_theater_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#museam_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#museam_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#museam_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#museam_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#music_studio -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#music_studio">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#natural_history_museum -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#natural_history_museum">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#nursery -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#nursery">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#nursing_home -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#nursing_home">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#public_institution"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#oast_house -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#oast_house">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#occasion -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ocean -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ocean">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#office -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#office">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#office_building -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#office_building">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#office_cubicles -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#office_cubicles">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#oilrig -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#oilrig">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#operating_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#operating_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#orchard -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#orchard">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#orchestra_pit -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#orchestra_pit">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
     </owl:Class>
     
 
@@ -2584,375 +299,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#outside -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#outside">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#scenes"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pagoda -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pagoda">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#palace -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#palace">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pantry -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pantry">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#park -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#park">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#parking_garage_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#parking_garage_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#parking_garage_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#parking_garage_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#parking_lot -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#parking_lot">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#party -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#party">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#casual-class-events"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pasture -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pasture">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#patio -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#patio">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pavilion -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pavilion">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pet_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pet_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pharmacy -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pharmacy">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#phone_booth -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#phone_booth">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#physics_laboratory -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#physics_laboratory">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#picnic_area -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#picnic_area">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pier -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pier">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pizzeria -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pizzeria">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#restaurant"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#playground -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#playground">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#playroom -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#playroom">
-        <rdfs:subClassOf rdf:resource="http://www.co-ode.org/ontologies/ont.owl#freetime"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#plaza -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#plaza">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#city"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#polo -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#polo">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pond -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pond">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#porch -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#porch">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#promenade -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#promenade">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#pub_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#pub_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#public-place -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#public-place">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#racecourse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#racecourse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#raceway -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#raceway">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#raft -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#raft">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#railroad_track -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#railroad_track">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#rainforest -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rainforest">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#reception -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#reception">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#hotel"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#recreation_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#recreation_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#repair_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#repair_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#residential_neighborhood -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#residential_neighborhood">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#restaurant -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#restaurant">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#restaurant_kitchen -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#restaurant_kitchen">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#restaurant"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#restaurant_patio -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#restaurant_patio">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#restaurant"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#rice_paddy -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rice_paddy">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#river -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#river">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#rock_arch -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rock_arch">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#roof_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#roof_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#rooftop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rooftop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#rope_bridge -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rope_bridge">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#rugby -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#rugby">
@@ -2969,14 +315,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Rugbyball"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ruin -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ruin">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
     </owl:Class>
     
 
@@ -3001,174 +339,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#runway -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#runway">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sandbox -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sandbox">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sauna -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sauna">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#scenes -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#scenes">
-        <owl:disjointWith rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#schoolhouse -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#schoolhouse">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#science_museum -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#science_museum">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sea -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sea">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#seasonal -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#seasonal">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#server_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#server_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shed -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shed">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shoe_shop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shoe_shop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shopfront -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shopfront">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shopping_mall_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shopping_mall_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shops -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shops">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#shower -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#shower">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#bathroom"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ski_resort -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ski_resort">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ski_slope -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ski_slope">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sky -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sky">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#skyscraper -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#skyscraper">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#city"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#slum -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#slum">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#snowfield -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#snowfield">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#soccer -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#soccer">
@@ -3185,158 +355,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsuniform"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#soccer_field -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#soccer_field">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sports -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sports">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sports-ground -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sports-ground">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sports-hall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sports-hall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#spring -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#spring">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stable -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stable">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stadium_baseball -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stadium_baseball">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stadium_football -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stadium_football">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stadium_soccer -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stadium_soccer">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stage_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stage_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#concert-hall"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#stage_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#stage_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#staircase -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#staircase">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#storage_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#storage_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#street -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#street">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#subway_station_platform -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#subway_station_platform">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#summer -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#summer">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#supermarket -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#supermarket">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#sushi_bar -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sushi_bar">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#restaurant"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#swamp -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#swamp">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
     </owl:Class>
     
 
@@ -3361,62 +379,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#swimming_hole -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#swimming_hole">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#swimming_pool_indoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#swimming_pool_indoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#swimming_pool_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#swimming_pool_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#synagogue_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#synagogue_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#television_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#television_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#television_studio -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#television_studio">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#temple_asia -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#temple_asia">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#tennis -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#tennis">
@@ -3431,174 +393,6 @@
     
 
 
-    <!-- http://sema.informatik.uni-rostock.de/sema#thanks-giving -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#thanks-giving">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#throne_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#throne_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#ticket_booth -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#ticket_booth">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#topiary_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#topiary_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#tower -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#tower">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#toyshop -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#toyshop">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#shops"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#train_interior -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#train_interior">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#train_station_platform -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#train_station_platform">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#infrastructure"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#tree_farm -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#tree_farm">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#tree_house -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#tree_house">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#forest"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#trench -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#trench">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#tundra -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#tundra">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#underwater_ocean_deep -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#underwater_ocean_deep">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#utility_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#utility_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#home"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#valley -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#valley">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#vegetable_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#vegetable_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#veterinarians_office -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#veterinarians_office">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#viaduct -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#viaduct">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#memorials"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#village -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#village">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#vineyard -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#vineyard">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#volcano -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#volcano">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
     <!-- http://sema.informatik.uni-rostock.de/sema#volleyball -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#volleyball">
@@ -3609,111 +403,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Volleyball"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#volleyballcourt_outdoor -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#volleyballcourt_outdoor">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#sports-ground"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#waiting_room -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#waiting_room">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#water_park -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#water_park">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#water_tower -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#water_tower">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#waterfall -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#waterfall">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#watering_hole -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#watering_hole">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#wave -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wave">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#wedding -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wedding">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#wet_bar -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wet_bar">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-        <rdfs:comment>https://vision.princeton.edu/projects/2010/SUN/explore/SUN_128x128/w/wet_bar/</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#wheat_field -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wheat_field">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#wind_farm -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wind_farm">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#landscape"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#windmill -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#windmill">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#outside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#winter -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#winter">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
     </owl:Class>
     
 
@@ -3734,46 +423,6 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Snowboard"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#yard -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#yard">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#yoga -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#yoga">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#youth_hostel -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#youth_hostel">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#hotel"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#zen_garden -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#zen_garden">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#garden"/>
-    </owl:Class>
-    
-
-
-    <!-- http://sema.informatik.uni-rostock.de/sema#convention° -->
-
-    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#convention°">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
     </owl:Class>
     
 
@@ -4280,12 +929,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Billiardtable">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bar"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/04p0qw</ImageClassifier>
     </owl:Class>
     
@@ -4387,12 +1030,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bottleopener">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenutensil"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/04f5ws</ImageClassifier>
     </owl:Class>
     
@@ -4421,12 +1058,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bowlingequipment">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bowling_alley"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/07pj7bq</ImageClassifier>
     </owl:Class>
     
@@ -4652,12 +1283,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Canopener">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenutensil"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/02mqfb</ImageClassifier>
     </owl:Class>
     
@@ -4829,12 +1454,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Chisel">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0_dqb</ImageClassifier>
     </owl:Class>
     
@@ -5173,12 +1792,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cuttingboard">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenutensil"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/02pdsw</ImageClassifier>
     </owl:Class>
     
@@ -5375,24 +1988,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Drill">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/01d380</ImageClassifier>
     </owl:Class>
     
@@ -5438,18 +2033,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Dumbbell">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#martial_arts_gym"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#recreation_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/04h8sr</ImageClassifier>
     </owl:Class>
     
@@ -5785,12 +2368,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Gasstove">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/02wv84t</ImageClassifier>
     </owl:Class>
     
@@ -5856,12 +2433,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Golfball">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#golf_course"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/044r5d</ImageClassifier>
     </owl:Class>
     
@@ -5907,24 +2478,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Grinder">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0h8jyh6</ImageClassifier>
     </owl:Class>
     
@@ -5952,24 +2505,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Hairdryer">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bathroom"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#sauna"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#swimming_pool_indoor"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/03wvsk</ImageClassifier>
     </owl:Class>
     
@@ -5997,24 +2532,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Hammer">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/03l9g</ImageClassifier>
     </owl:Class>
     
@@ -6134,12 +2651,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Helicopter">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Aircraft"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#airport_terminal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/09ct_</ImageClassifier>
     </owl:Class>
     
@@ -6204,12 +2715,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Horizontalbar">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#recreation_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0cqn2</ImageClassifier>
     </owl:Class>
     
@@ -6390,12 +2895,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Indoorrower">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#recreation_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/03wym</ImageClassifier>
     </owl:Class>
     
@@ -6459,18 +2958,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Jacuzzi">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bathroom"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#swimming_pool_indoor"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/065h6l</ImageClassifier>
     </owl:Class>
     
@@ -6517,24 +3004,6 @@
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Jug">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Container"/>
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bar"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#beer_hall"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#wet_bar"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/08hvt4</ImageClassifier>
     </owl:Class>
     
@@ -6562,18 +3031,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kettle">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#office"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/03s_tn</ImageClassifier>
     </owl:Class>
     
@@ -6592,12 +3049,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchendiningroomtable">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Table"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0h8n5zk</ImageClassifier>
     </owl:Class>
     
@@ -6607,12 +3058,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenknife">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/058qzx</ImageClassifier>
     </owl:Class>
     
@@ -6669,24 +3114,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Ladder">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/012w5l</ImageClassifier>
     </owl:Class>
     
@@ -6777,18 +3204,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Lifejacket">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsequipment"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#boat_deck"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#boathouse"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/054xkw</ImageClassifier>
     </owl:Class>
     
@@ -6995,12 +3410,6 @@
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Microwaveoven">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0fx9l</ImageClassifier>
     </owl:Class>
     
@@ -7238,12 +3647,6 @@
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Oven">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/029bxz</ImageClassifier>
     </owl:Class>
     
@@ -7335,30 +3738,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Parkingmeter">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#market_outdoor"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#parking_garage_outdoor"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#parking_lot"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#street"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/015qbp</ImageClassifier>
     </owl:Class>
     
@@ -7530,24 +3909,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Pitcher">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bar"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#beer_hall"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#wet_bar"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/054fyh</ImageClassifier>
     </owl:Class>
     
@@ -7566,12 +3927,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Pizzacutter">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenutensil"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/08ks85</ImageClassifier>
     </owl:Class>
     
@@ -7617,12 +3972,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Plumbingfixture">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bathroom"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/02pkr5</ImageClassifier>
     </owl:Class>
     
@@ -7823,12 +4172,6 @@
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Refrigerator">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/040b_t</ImageClassifier>
     </owl:Class>
     
@@ -7838,18 +4181,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Remotecontrol">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#hospital_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#living_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0qjjc</ImageClassifier>
     </owl:Class>
     
@@ -8042,18 +4373,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Screwdriver">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#engine_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/01bms0</ImageClassifier>
     </owl:Class>
     
@@ -8389,12 +4708,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Spicerack">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenware"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0h8kx63</ImageClassifier>
     </owl:Class>
     
@@ -8541,36 +4854,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Streetlight">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#crosswalk"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#driveway"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#parking_lot"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#street"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#train_station_platform"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/033rq4</ImageClassifier>
     </owl:Class>
     
@@ -8991,24 +5274,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Torch">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/07dd4</ImageClassifier>
     </owl:Class>
     
@@ -9045,24 +5310,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Trafficlight">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#crosswalk"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#driveway"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#street"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/015qff</ImageClassifier>
     </owl:Class>
     
@@ -9072,24 +5319,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Trafficsign">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#crosswalk"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#driveway"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#street"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/01mqdt</ImageClassifier>
     </owl:Class>
     
@@ -9280,30 +5509,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Washingmachine">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#basement"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bathroom"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#pantry"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#utility_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0174k2</ImageClassifier>
     </owl:Class>
     
@@ -9385,12 +5590,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Whisk">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenutensil"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#kitchen"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/02vwcm</ImageClassifier>
     </owl:Class>
     
@@ -9418,36 +5617,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Window">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#DetectedClasses"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bedchamber"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#bedroom"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#childs_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#home_office"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#living_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/0d4v4</ImageClassifier>
     </owl:Class>
     
@@ -9475,12 +5644,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wineglass">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#dinner"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/09tvcd</ImageClassifier>
     </owl:Class>
     
@@ -9517,12 +5680,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wood-burningstove">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Homeappliance"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#living_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/04169hn</ImageClassifier>
     </owl:Class>
     
@@ -9550,30 +5707,6 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wrench">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tool"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#construction_site"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#engine_room"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#industrial_area"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#junkyard"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
         <ImageClassifier>/m/01j5ks</ImageClassifier>
     </owl:Class>
     
@@ -10088,14 +6221,6 @@
                 <owl:onClass rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#gymnastics -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#gymnastics">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
     </owl:Class>
     
 
@@ -10688,12 +6813,6 @@
     
 
 
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    
-
-
     <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#rooms -->
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#rooms">
@@ -10898,86 +7017,6 @@
     
 
 
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#zoo -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#zoo">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#backseat -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#backseat">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#car_interior"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#bluecolor-business -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#bluecolor-business">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#children -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#children">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#freetime -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#freetime">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#frontseat -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#frontseat">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#car_interior"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#holiday -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#holiday">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#medical-business -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#medical-business">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#private-area -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#private-area">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.co-ode.org/ontologies/ont.owl#public_institution -->
-
-    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#public_institution">
-        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#inside"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.co-ode.org/ontologies/ont.owl#water-sports -->
 
     <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#water-sports">
@@ -11001,44 +7040,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#autumn"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#spring"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#summer"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#winter"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#dinner"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#gala"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#wedding"/>
-        </owl:members>
-    </rdf:Description>
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#fieldhockey"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#football"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#rugby"/>
-            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#soccer"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 

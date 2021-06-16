@@ -42,7 +42,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX win: <http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#>
        
-SELECT DISTINCT ?detected ?classifier ?subClassContexts
+SELECT DISTINCT ?detected ?classifier ?context
 
 WHERE {
 	?detected rdfs:subClassOf+ win:DetectedClasses ;
@@ -52,7 +52,6 @@ WHERE {
             		rdfs:subClassOf [
             			owl:onProperty win:hasDetectedClass ;
            			owl:someValuesFrom ?detected ] .
-	?subClassContexts rdfs:subClassOf* ?context
         """ + filter + "} "
         logging.debug(queryBuilder)
         print(queryBuilder)
