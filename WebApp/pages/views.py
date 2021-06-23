@@ -50,9 +50,7 @@ def upload(request):
         save_performance.stop()
 
         # Run Object Detection
-        object_detection_performance = registry.start("object-detection")
         object_list = run_object_detection(int(modul), source, destination, registry)
-        object_detection_performance.stop()
 
         # Convert the List to display in the Output Field
         ObjListHTML = html_list(object_list)

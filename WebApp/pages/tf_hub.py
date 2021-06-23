@@ -1,17 +1,21 @@
 import tensorflow as tf
-import tensorflow_hub as hub
 import numpy as np
 from PIL import Image
 from PIL import ImageColor
 from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
-
+from .detector import DetectorManager
 
 # Print Tensorflow version
 print(tf.__version__)
 # Check available GPU devices.
 print("The following GPU devices are available: %s" % tf.test.gpu_device_name())
+
+_detector_manager = DetectorManager()
+print("loading detectors")
+_detector_manager.load_all_detectors()
+print("detectors loaded")
 
 
 def limit_image_size(image_data):
@@ -135,7 +139,8 @@ def run_object_detection(module, source, destination, registry):
         return 0
 
     detector_load_performance = registry.start("detector-load")
-    detector = hub.load(module_handle).signatures['default']
+    #  detector = hub.load(module_handle).signatures['default']
+    detector = _detector_manager.get_detector(module_handle)
     detector_load_performance.stop()
 
     image_load_performance = registry.start("image-load")
