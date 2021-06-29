@@ -62,6 +62,14 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#autumn -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#autumn">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#baseball -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#baseball">
@@ -88,6 +96,14 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#basketball -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#basketball">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#bowling -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#bowling">
@@ -98,6 +114,72 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bowlingequipment"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#business -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#business">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#casual-business -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#casual-business">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
+        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#formal-business"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#casual-class-events -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#casual-class-events">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#christmas -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#christmas">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
+        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#thanks-giving"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#dinner -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#dinner">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#family -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#family">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#festive-season -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#festive-season">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#fieldhockey -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#fieldhockey">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
     </owl:Class>
     
 
@@ -124,6 +206,22 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Rugbyball"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#formal-business -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#formal-business">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#gala -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#gala">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
     </owl:Class>
     
 
@@ -206,6 +304,22 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#handball -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#handball">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#high-class-events -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#high-class-events">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#hiking -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#hiking">
@@ -240,6 +354,14 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#icehockey -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#icehockey">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#indoor -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#indoor">
@@ -263,6 +385,39 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#indoorsoccer -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#indoorsoccer">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#leisure-activity -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#leisure-activity">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#casual-class-events"/>
+        <owl:disjointWith rdf:resource="http://sema.informatik.uni-rostock.de/sema#party"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#martial-arts -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#martial-arts">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#maternity -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#maternity">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#motor-sports -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#motor-sports">
@@ -274,6 +429,12 @@
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#occasion -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#occasion"/>
     
 
 
@@ -295,6 +456,22 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Scoreboard"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#party -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#party">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#casual-class-events"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#polo -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#polo">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
     </owl:Class>
     
 
@@ -339,6 +516,14 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#seasonal -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#seasonal">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#soccer -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#soccer">
@@ -355,6 +540,30 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Sportsuniform"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#sports -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#sports">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#occasion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#spring -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#spring">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#summer -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#summer">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
     </owl:Class>
     
 
@@ -393,6 +602,14 @@
     
 
 
+    <!-- http://sema.informatik.uni-rostock.de/sema#thanks-giving -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#thanks-giving">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
+    </owl:Class>
+    
+
+
     <!-- http://sema.informatik.uni-rostock.de/sema#volleyball -->
 
     <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#volleyball">
@@ -403,6 +620,22 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Volleyball"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#wedding -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#wedding">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#high-class-events"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#winter -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#winter">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#seasonal"/>
     </owl:Class>
     
 
@@ -423,6 +656,14 @@
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Snowboard"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sema.informatik.uni-rostock.de/sema#yoga -->
+
+    <owl:Class rdf:about="http://sema.informatik.uni-rostock.de/sema#yoga">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
     </owl:Class>
     
 
@@ -5644,6 +5885,12 @@
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wineglass">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://sema.informatik.uni-rostock.de/sema#dinner"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <ImageClassifier>/m/09tvcd</ImageClassifier>
     </owl:Class>
     
@@ -6221,6 +6468,14 @@
                 <owl:onClass rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Person"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#gymnastics -->
+
+    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#gymnastics">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
     </owl:Class>
     
 
@@ -6813,6 +7068,12 @@
     
 
 
+    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove -->
+
+    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    
+
+
     <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#rooms -->
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#rooms">
@@ -7017,6 +7278,54 @@
     
 
 
+    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#zoo -->
+
+    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#zoo">
+        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#remove"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#bluecolor-business -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#bluecolor-business">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#children -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#children">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#holiday -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#holiday">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#medical-business -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#medical-business">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#business"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#private-area -->
+
+    <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#private-area">
+        <rdfs:subClassOf rdf:resource="http://sema.informatik.uni-rostock.de/sema#family"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.co-ode.org/ontologies/ont.owl#water-sports -->
 
     <owl:Class rdf:about="http://www.co-ode.org/ontologies/ont.owl#water-sports">
@@ -7040,6 +7349,44 @@
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#autumn"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#festive-season"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#spring"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#summer"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#winter"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#dinner"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#gala"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#wedding"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#fieldhockey"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#football"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#rugby"/>
+            <rdf:Description rdf:about="http://sema.informatik.uni-rostock.de/sema#soccer"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
