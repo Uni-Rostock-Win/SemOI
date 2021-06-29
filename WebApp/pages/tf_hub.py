@@ -129,18 +129,9 @@ def draw_boxes(image_pil, boxes, class_names, scores, max_boxes=10, min_score=0.
 # high accuracy = 1 (FasterRCNN + InceptionResNet V2)
 # small and fast = 2 (SSD + MobileNet V2)
 # EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/', performance_registry)
-def run_object_detection(module, source, destination, registry):
-    if module == 1:
-        module_handle = 'https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1'
-    elif module == 2:
-        module_handle = 'https://tfhub.dev/google/openimages_v4/ssd/mobilenet_v2/1'
-    else:
-        print("Invalid Module number")
-        return 0
-
+def run_object_detection(module_identifier, source, destination, registry):
     detector_load_performance = registry.start("detector-load")
-    #  detector = hub.load(module_handle).signatures['default']
-    detector = _detector_manager.get_detector(module_handle)
+    detector = _detector_manager.get_detector(module_identifier)
     detector_load_performance.stop()
 
     image_load_performance = registry.start("image-load")
@@ -165,7 +156,6 @@ def run_object_detection(module, source, destination, registry):
     object_list = draw_boxes(image_resized, boxes, entities, scores)
     image_boxing_performance.stop()
 
-    # Save the image
     image_save_performance = registry.start("image-save")
     image_resized.save(destination, '')
     image_save_performance.stop()

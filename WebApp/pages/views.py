@@ -13,16 +13,15 @@ def html_list(ls):
     return "<br>".join(ls)
 
 
-# Create your views here
 @csrf_exempt
 def upload(request):
     context = {}
     registry = PerformanceRegistry()
 
-    if request.method == 'POST':
+    if request.method == "POST":
         # Request Detection Type from the Radio Buttons/User Input
-        modul = request.POST["modul"]
-        print("module", modul)
+        module_identifier = request.POST["module-identifier"]
+        print("module", module_identifier)
 
         # Save the File
         save_performance = registry.start("file-save")
@@ -50,7 +49,7 @@ def upload(request):
         save_performance.stop()
 
         # Run Object Detection
-        object_list = run_object_detection(int(modul), source, destination, registry)
+        object_list = run_object_detection(module_identifier, source, destination, registry)
 
         # Convert the List to display in the Output Field
         ObjListHTML = html_list(object_list)

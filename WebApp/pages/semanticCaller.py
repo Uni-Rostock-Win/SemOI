@@ -113,8 +113,8 @@ def semanticCaller(objects, ):
 
     # Send the ID to the Semantic
     # depending whether the location is in a docker conainer, use localhost or the local docker instantiation
-    is_docker_environemnt = os.environ.get("inDockerContainer", False)
-    destination = "http://semanticapi:8000" if is_docker_environemnt else "http://localhost:8001"
+    is_docker_environment = os.environ.get("inDockerContainer", False)
+    destination = "http://semanticapi:8000" if is_docker_environment else "http://localhost:8001"
     response = requests.post(destination, data=post_data)
 
     # Append only the Scenes from the Response to the SceneList

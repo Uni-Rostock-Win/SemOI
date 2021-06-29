@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-
     <title>SEMA</title>
 
     <style>
@@ -103,10 +102,10 @@
             <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
             <br><br>
             <p>Choose your analysis module:</p>
-            <input type="radio" id="modul1" name="modul" value="1" required>
+            <input type="radio" id="modul1" name="module-identifier" value="resnet-v2" required>
             <label for="modul1">Inception Resnet v2 (accurate but slow)</label>
             <br>
-            <input type="radio" id="modul2" name="modul" value="2">
+            <input type="radio" id="modul2" name="module-identifier" value="mobilenet-v2">
             <label for="modul2">SSD/Mobilenet v2 (less accurate, but faster)</label>
             <br>
             <input type="submit" value="Upload and Analyze" class="btn btn-info bnt-lg">
@@ -191,18 +190,12 @@
             });
 
             reader.readAsDataURL(file);
-        }
-
-
-        else {
-
+        } else {
             previewDefaultText.style.display = null;
             previewImage.style.display = null;
             previewImage.setAttribute("src", "");
         }
     });
-
-
 
 </script>
 
