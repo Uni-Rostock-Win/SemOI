@@ -46,14 +46,19 @@ def semanticCall(request):
         inferedElements = {}
         # Calculte the semantic Confidence Value.
         for detectedObject in detectedObjects:
-            #The newly amount of relations can be accessed using
+            # Access at first just one detected element
             inferedElementsForOneDetector = filterSemanticResponse(detectedObject["detectorId"], semanticResponse)
+            # For this detected element, iterate over the inferred items by the semantic
             for inferedElement in inferedElementsForOneDetector:
+                # If the infered item already has been detected
                 if(inferedElement in inferedElements):
+                    # Then set the counter of the amount of detected elements +1
                     inferedElements[inferedElement] += detectedObject["probability"]
-                    print(getRelationCountForInferredElement(semanticResponse, inferedElement))
+                    print(getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
                 else:
+                    # Otherwise add the element to the dict
                     inferedElements[inferedElement] =  detectedObject["probability"]
+                # Calculates the highest counter over all elements.
                 maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
         
         # Normalize Values
