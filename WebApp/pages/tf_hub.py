@@ -1,3 +1,4 @@
+from collections import namedtuple
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -16,6 +17,9 @@ _detector_manager = DetectorManager()
 print("loading detectors")
 _detector_manager.load_all_detectors()
 print("detectors loaded")
+
+image_dimension_tuple = namedtuple("ImageDimensions", ["width", "height", "size"])
+image_box_tuple = namedtuple("ImageDetectionBox", ["x1", "y1", "x2", "y2"])
 
 
 def limit_image_size(image_data):
@@ -39,14 +43,15 @@ def preprocess_image(source_path):
     image_rgb = image_raw.convert("RGB")
     resized = limit_image_size(image_rgb)
 
-    return image_rgb, resized, tf.keras.preprocessing.image.img_to_array(resized)
+    width, height = resized.size
+    size = width * height
+    dimension = image_dimension_tuple(width, height, size)
+
+    return dimension, image_rgb, resized, tf.keras.preprocessing.image.img_to_array(resized)
 
 
 def draw_bounding_box_on_image(image,
-                               ymin,
-                               xmin,
-                               ymax,
-                               xmax,
+                               position,
                                color,
                                font,
                                thickness=4,
@@ -54,12 +59,16 @@ def draw_bounding_box_on_image(image,
     """Adds a bounding box to an image."""
 
     draw = ImageDraw.Draw(image)
-    im_width, im_height = image.size
 
-    left = xmin * im_width
-    right = xmax * im_width
-    top = ymin * im_height
-    bottom = ymax * im_height
+    # ymin, xmin, ymax, xmax
+
+    # xmin, ymin, xmax, ymax
+    #   x1,   y1,   x2,   y2
+
+    left = position.x1
+    right = position.x2
+    top = position.y1
+    bottom = position.y2
 
     draw.line([(left, top), (left, bottom), (right, bottom), (right, top),
                (left, top)],
@@ -91,51 +100,81 @@ def draw_bounding_box_on_image(image,
         text_bottom -= text_height - 2 * margin
 
 
-def draw_boxes(image_pil, boxes, class_names, scores, max_boxes=10, min_score=0.1):
+def draw_boxes(image_pil, spliced):
     """Overlay labeled boxes on an image with formatted scores and label names."""
     colors = list(ImageColor.colormap.values())
-
     font = ImageFont.load_default()
 
-    object_list = []
+    for entry in spliced:
+        class_name = entry[0]
+        score = int(100 * entry[1])
+        display_str = "{}: {}%".format(class_name, score)
 
-    for i in range(min(boxes.shape[0], max_boxes)):
-        if scores[i] >= min_score:
-            ymin, xmin, ymax, xmax = tuple(boxes[i])
+        color = colors[hash(class_name) % len(colors)]
 
-            class_name = class_names[i].decode("ascii")
-            score = int(100 * scores[i])
-            display_str = "{}: {}%".format(class_name, score)
+        draw_bounding_box_on_image(
+            image_pil,
+            entry[2],
+            color,
+            font,
+            display_str_list=[display_str])
 
-            color = colors[hash(class_names[i]) % len(colors)]
 
-            draw_bounding_box_on_image(
-                image_pil,
-                ymin,
-                xmin,
-                ymax,
-                xmax,
-                color,
-                font,
-                display_str_list=[display_str])
+def splice_result(object_detection_result, image_dimensions, item_limit=10, min_score=0.1):
+    result = {key: value.numpy() for key, value in object_detection_result.items()}
 
-            object_list.append(display_str)
+    positions = result["detection_boxes"]
+    entities = result["detection_class_entities"]
+    scores = result["detection_scores"]
 
-    return object_list
+    image_width = float(image_dimensions.width)
+    image_height = float(image_dimensions.height)
+    float_size = float(image_dimensions.size)
+
+    ls = []
+    entries = len(entities)
+    processed = 0
+    for i in range(0, entries):
+        if processed >= item_limit:
+            break
+
+        entity = entities[i].decode("utf-8")
+        score = scores[i]
+        rel_position = positions[i]
+
+        # left = xmin * im_width
+        # right = xmax * im_width
+        # top = ymin * im_height
+        # bottom = ymax * im_height
+
+        position = image_box_tuple(rel_position[1] * image_width, rel_position[0] * image_height,
+                                   rel_position[3] * image_width, rel_position[2] * image_height)
+
+        if score < min_score:
+            continue
+
+        covered_area = (position.x2 - position.x1) * (position.y2 - position.y1)
+        importance = covered_area / float_size
+        print("entity", entity, "covered area", covered_area, "importance", importance)
+
+        ls.append((entity, score, position, importance))
+
+        processed += 1
+
+    return ls
 
 
 # Function to run the actual Object Detection
 # Choose Module
 # high accuracy = 1 (FasterRCNN + InceptionResNet V2)
 # small and fast = 2 (SSD + MobileNet V2)
-# EXAMPLE USE: run_object_detection(2, 'images/image1.jpg', 'images/results/', performance_registry)
 def run_object_detection(module_identifier, source, destination, registry):
     detector_load_performance = registry.start("detector-load")
     detector = _detector_manager.get_detector(module_identifier)
     detector_load_performance.stop()
 
     image_load_performance = registry.start("image-load")
-    image_rgb, image_resized, tf_image_data = preprocess_image(source)
+    image_dimension, image_rgb, image_resized, tf_image_data = preprocess_image(source)
     image_load_performance.stop()
 
     image_convert_performance = registry.start("image-convert")
@@ -146,18 +185,14 @@ def run_object_detection(module_identifier, source, destination, registry):
     object_detection_result = detector(converted_img)
     image_detect_performance.stop()
 
+    spliced = splice_result(object_detection_result, image_dimension, 12, 0.1)
+
     image_boxing_performance = registry.start("boxing")
-    result = {key: value.numpy() for key, value in object_detection_result.items()}
-
-    boxes = result["detection_boxes"]
-    entities = result["detection_class_entities"]
-    scores = result["detection_scores"]
-
-    object_list = draw_boxes(image_resized, boxes, entities, scores)
+    draw_boxes(image_resized, spliced)
     image_boxing_performance.stop()
 
     image_save_performance = registry.start("image-save")
     image_resized.save(destination, '')
     image_save_performance.stop()
 
-    return object_list
+    return spliced

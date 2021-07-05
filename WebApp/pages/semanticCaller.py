@@ -89,23 +89,16 @@ def build_object_index():
 
 
 # Function to get the Scenes from the API
-def semanticCaller(objects, ):
+def semanticCaller(detection_result):
     scenes = []
     object_list_ids = []
-    # Object List is in format "Footwear: 46%"
-    # Convert it to only have "Footwear"
-
     id_index = build_object_index()
-
     post_data = {}
 
-    for obj in objects:
-        print("object", obj)
-        parts = obj.split(":")
-        object_name = parts[0]
-        object_probability = parts[1]
-        object_probability = object_probability.replace("%", "")
-        object_probability = float(object_probability) / 100.0
+    for entry in detection_result:
+        object_name = entry[0]
+        object_probability = entry[1]
+
         # Get the ID for the Semantic
         object_id = id_index[object_name]
         object_list_ids.append(str(object_id) + "=" + str(object_probability))

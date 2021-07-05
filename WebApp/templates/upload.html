@@ -114,7 +114,7 @@
 
     <div class="bild" align="center">
         <div class="image-preview" id="imagePreview">
-            <img scr="{{uploadedImage}}" alt="Image Preview" class="image-preview__image">
+            <img src="{{uploadedImage|safe}}" alt="Image Preview" class="image-preview__image">
             <span class="image-preview__default-text">Image Preview</span>
         </div>
     </div>
@@ -127,9 +127,7 @@
                     <div class="output-preview" id="outputPreview">
                         <samp class="output-text" id="output-text">
                             {% block includes %}
-                            {% autoescape off %}
-                            {{ObjListHTML}}
-                            {% endautoescape %}
+                            {{ObjListHTML | safe}}
                         </samp>
                     </div>
                 </div>
@@ -140,9 +138,7 @@
                     <div class="output-preview-semantik" id="outputPreviewSemantik">
                         <div id="content-5" class="custom-scrollbar-js p-2">
                             <samp class="output-semantik" id="output-semantik">
-                                {% autoescape off %}
-                                {{SemaListHTML}}
-                                {% endautoescape %}
+                                {{SemaListHTML | safe}}
                                 {% endblock includes %}
                             </samp>
                         </div>
@@ -153,7 +149,7 @@
     </div>
 
     <div class="container-fluid p-5 bg-info mt-3">
-        <a class="badge badge-light href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
+        <a class="badge badge-light" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
     </div>
 
 

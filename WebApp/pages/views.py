@@ -49,25 +49,29 @@ def upload(request):
         save_performance.stop()
 
         # Run Object Detection
-        object_list = run_object_detection(module_identifier, source, destination, registry)
+        detection_result = run_object_detection(module_identifier, source, destination, registry)
 
         # Convert the List to display in the Output Field
-        ObjListHTML = html_list(object_list)
+        html_mapper = lambda x: "{0} @ score={1:3.1f}% rel-area={2:3.1f}%".format(x[0], x[1] * 100.0, x[3] * 100.0)
+        ObjListHTML = html_list(map(html_mapper, detection_result))
 
         # Get Scenes from the SemanticAPI
         semantic_processing_performance = registry.start("semantic-detection")
-        SemaList = semanticCaller(object_list)
+        SemaList = semanticCaller(detection_result)
         semantic_processing_performance.stop()
 
         # Convert the List to display in the Output Field
         SemaListHTML = html_list(SemaList)
         print("semantic list", SemaListHTML)
 
+        uploaded_image_path = os.path.relpath(destination, BASE_DIR).replace("\\", "/")  # windows quirk
+        print("uploaded image path:", uploaded_image_path)
+
         context = {
             "url": fs.url(name),
             "ObjListHTML": ObjListHTML,
             "SemaListHTML": SemaListHTML,
-            "uploadedImage": os.path.relpath(destination, BASE_DIR),
+            "uploadedImage": uploaded_image_path,
             "result": True
         }
 

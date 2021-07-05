@@ -17,22 +17,22 @@ class DetectorManager:
             }
         }
 
-        self.storage = {}
+        self._storage = {}
 
     def load_all_detectors(self):
         iterations = 0
         for identifier, descriptor in self._descriptors.items():
             handle = descriptor["handle"]
-            print("[detectors] loading detector", handle)
-            self.storage[identifier] = hub.load(handle).signatures["default"]
+            print("[detector storage] loading detector", handle)
+            self._storage[identifier] = hub.load(handle).signatures["default"]
             iterations += 1
         print("loaded", iterations, "detectors")
 
     def get_detector(self, identifier):
-        if identifier in self.storage:
-            return self.storage[identifier]
+        if identifier in self._storage:
+            return self._storage[identifier]
         else:
-            raise AssertionError("no such tf detector:", identifier)
+            raise AssertionError("[detector storage] no such tf detector:", identifier)
 
     def get_descriptors(self):
         return self._descriptors
