@@ -1,5 +1,4 @@
 import os
-import json
 import requests
 
 
@@ -24,7 +23,7 @@ class ObjectDefinitionAccess:
         block_content = ""
 
         state = False
-        
+
         for line in source:
             for c in line:
                 if c == "{":
@@ -40,32 +39,32 @@ class ObjectDefinitionAccess:
                     else:
                         block_name += c
 
-            
     def parse_block(self, name, content):
         items = {}
 
         lines = filter(lambda x: x, map(lambda x: x.strip(), content.splitlines()))
-        
+
         for line in lines:
             i = line.index(":")
             j = i + 1
             key = line[0:i].strip()
-            value = line[j:].strip()            
+            value = line[j:].strip()
             items[key] = self.replace_escapes(value)
-            
-        return (name.strip(), items)
 
-    def replace_escapes(self, part):
+        return name.strip(), items
+
+    @staticmethod
+    def replace_escapes(part):
         result = ""
 
         ignore = False
-        
+
         for c in part:
             if ignore:
                 result += c
                 ignore = False
                 continue
-            
+
             if c == "\\":
                 ignore = True
                 continue
@@ -90,42 +89,37 @@ def build_object_index():
 
 
 # Function to get the Scenes from the API
-def semanticCaller(objects, ):
+def semanticCaller(detection_result):
     scenes = []
-    ObjectListIDs = []
-    # Object List is in format "Footwear: 46%"
-    # Convert it to only have "Footwear"
-
+    object_list_ids = []
     id_index = build_object_index()
+    post_data = {}
 
-    for obj in objects:
-        print("object", obj)
-        parts = obj.split(":")
-        ObjectName = parts[0]
-        ObjectProbability = parts[1]
-        ObjectProbability = ObjectProbability.replace("%", "")
-        ObjectProbability = float(ObjectProbability) / 100.0
-        # Get the ID for the Semantic 
-        ObjectID = id_index[ObjectName]
-        ObjectListIDs.append(str(ObjectID) + "=" + str(ObjectProbability))
-        postObject = {"data": str(ObjectListIDs)}
+    for entry in detection_result:
+        object_name = entry[0]
+        object_probability = entry[1]
+
+        # Get the ID for the Semantic
+        object_id = id_index[object_name]
+        object_list_ids.append(str(object_id) + "=" + str(object_probability))
+        post_data["data"] = str(object_list_ids)
 
     # Send the ID to the Semantic
-    #depending whether the location is in a docker conainer, use localhost or the local docker instantiation
-    dockerCheck = os.environ.get("inDockerContainer", False)
-    targetUrl = "http://semanticapi:8000" if dockerCheck else "http://localhost:8001"
-    response = requests.post(targetUrl, data=postObject) 
+    # depending whether the location is in a docker conainer, use localhost or the local docker instantiation
+    is_docker_environment = os.environ.get("inDockerContainer", False)
+    destination = "http://semanticapi:8000" if is_docker_environment else "http://localhost:8001"
+    response = requests.post(destination, data=post_data)
 
     # Append only the Scenes from the Response to the SceneList
     try:
         for item in response.json():
-            convert2Percent = round(float(response.json()[item])* 100, 2)
+            convert2Percent = round(float(response.json()[item]) * 100, 2)
             convert2Percent = str(convert2Percent) + "%"
-            responseItem = str(item) +": " + convert2Percent
+            responseItem = str(item) + ": " + convert2Percent
             scenes.append(responseItem)
         # sceneList.append(response.json())
     # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
-    except : 
+    except:
         pass
 
-    return(scenes)
+    return scenes
