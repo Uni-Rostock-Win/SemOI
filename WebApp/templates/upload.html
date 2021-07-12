@@ -8,7 +8,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <!--<link rel="shortcut icon" type="image/x-icon" href="../media/Logo.png">-->
+    <link rel="shortcut icon" type="image/x-icon" href="../media/Logo.png">
 
     <title>SemOI</title>
 
@@ -16,12 +16,14 @@
         :root {
             --bs-primary: #004a99;
         }
-        body
+        html, body
         {
             font-size: 1em !important;
             color: #000 !important;
             font-family: "Roboto", sans-serif;
             background-color: #f8f9fa;
+            height: 100%;
+            margin: 0;
         }
         input[type="file"] {
             display: none;
@@ -33,121 +35,54 @@
             cursor: pointer;
             border-radius: .25rem;
         }
-        .btn-customized {
-            background-color: #17a2b8
-        }
-        .btn-customized:hover {
-            opacity: 90%
-        }
-        .image-preview {
-            width: 600px;
-            min-height: 350px;
-            border: 2px solid black;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: grey;
-        }
-
-        .image-preview__image {
-            width: 100%;
-            max-height: 350px;
-        }
-
-        .ausgabe {
-            margin-top: 20px;
-        }
-
-
-        .scrollbar::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-            background-color: #F5F5F5;
-            border-radius: 10px;
-        }
-
-        .scrollbar::-webkit-scrollbar {
-            width: 12px;
-            background-color: #F5F5F5;
-        }
-
-        .scrollbar::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-            background-color: #17a2b8;
-        }
-
-        .scrollbar {
-            scrollbar-color: #17a2b8 #F5F5F5;
-        }
-
-        .bordered::-webkit-scrollbar-track {
-            -webkit-box-shadow: none;
-            border: 1px solid #00bcd4;
-        }
-
-        .bordered::-webkit-scrollbar-thumb {
-            -webkit-box-shadow: none;
-        }
-
-        .square::-webkit-scrollbar-track {
-            border-radius: 0 !important;
-        }
-
-        .square::-webkit-scrollbar-thumb {
-            border-radius: 0 !important;
-        }
-
-        .thin::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .example-1 {
-            position: relative;
-            overflow-y: scroll;
-            height: 400px;
-        }
         .footer {
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
+            height: 126px;
+            margin-top: -126px;
             text-align: center;
+        }
+        #imageContainer {
+            width: 100%;
+            max-width: 540px;
+        }
+        #analyze {
+            width: 100%;
+            max-width: 400px;
         }
     </style>
 
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-dark px-4">
-        <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
-        <form method="post" id="upload" action="/upload/" enctype="multipart/form-data" class="form-inline">
-            {% csrf_token %}
-            <label for="inpFile" class="btn-dark btn-outline-info custom-file-upload">Change Image</label>
-            <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
-        </form>
-    </nav>
-    <div class="container" id="imageUpload">
-        <div class="row d-flex justify-content-center my-4">
-            <form method="post" action="/results/" id="analyze" class="col-4 d-grid gap-2">
+    <div style="min-height: 100%">
+        <nav class="navbar navbar-light bg-dark px-4">
+            <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
+            <form method="post" id="upload" action="/upload/" enctype="multipart/form-data" class="form-inline">
                 {% csrf_token %}
-                <div class="float-left"><span>Choose Options:</span></div>
-                <div class="btn-group float-right">
-                    <input type="radio" value="mobilenet-v2" class="btn-check" name="module-identifier" id="option1" autocomplete="off" checked/>
-                    <label class="btn btn-outline-dark" for="option1">Fast</label> 
-                    <input type="radio" value="resnet-v2" class="btn-check" name="module-identifier" id="option2" autocomplete="off" />
-                    <label class="btn btn-outline-dark" for="option2">Accurate</label>
-                </div>  
-                <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
-                    <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    Analyze
-                </button>    
+                <label for="inpFile" class="btn-dark btn-outline-info custom-file-upload">Upload Image</label>
+                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
             </form>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-6" id="imageContainer">
-                <img src="{{ uploadedImage }}" class="img-fluid" alt="SemOI Logo"/>
+        </nav>
+        <div class="container" style="padding-bottom: 150px;">
+            <div class="row px-2 my-4 justify-content-center">
+                <div id="imageContainer">
+                    <img src="{{ uploadedImage }}" class="img-fluid" style="width: 100%" alt="Uploaded Image"/>
+                </div>
+            </div>
+            <div class="row px-2 d-flex justify-content-center my-4">
+                <form method="post" action="/results/" id="analyze" class="d-grid gap-2">
+                    {% csrf_token %}
+                    <div class="float-left"><span>Choose Options:</span></div>
+                    <div class="btn-group float-right">
+                        <input type="radio" value="mobilenet-v2" class="btn-check" name="module-identifier" id="option1" autocomplete="off" checked/>
+                        <label class="btn btn-outline-dark" for="option1">Fast</label> 
+                        <input type="radio" value="resnet-v2" class="btn-check" name="module-identifier" id="option2" autocomplete="off" />
+                        <label class="btn btn-outline-dark" for="option2">Accurate</label>
+                    </div>  
+                    <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
+                        <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Analyze
+                    </button>    
+                </form>
             </div>
         </div>
     </div>
@@ -165,7 +100,7 @@
         if (file) {
             const reader = new FileReader();
             reader.readAsDataURL(file);
-            document.getElementById("saveFile").submit();
+            document.getElementById("upload").submit();
         }
     });
 

@@ -33,11 +33,13 @@ def demo(request):
                "Man: 21%",
                "Drink: 18%"]
 
-    semantics = ["dinner: 100.0%"]
+    semantics = ["dinner: 100.0%",
+                 "people: 100.0%"]
 
     data = {
         "ObjListHTML": "<br>".join(entries),
         "SemaListHTML": "<br>".join(semantics),
+        "resultImage": "../media/results/party_with_BOXES.jpg"
     }
 
     return render(request, "results.html", data)
