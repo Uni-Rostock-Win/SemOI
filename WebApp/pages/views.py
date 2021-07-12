@@ -8,21 +8,50 @@ from .performance import PerformanceRegistry
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+source = ""
+destination = ""
+
 
 def html_list(ls):
     return "<br>".join(ls)
 
 
 @csrf_exempt
+def index(request):
+    return render(request, "index.html")
+
+
+@csrf_exempt
+def demo(request):
+    entries = ["Person: 68%",
+               "Person: 51%",
+               "Drink: 44%",
+               "Man: 41%",
+               "Wine glass: 26%",
+               "Clothing: 25%",
+               "Human arm: 21%",
+               "Man: 21%",
+               "Drink: 18%"]
+
+    semantics = ["dinner: 100.0%"]
+
+    data = {
+        "ObjListHTML": "<br>".join(entries),
+        "SemaListHTML": "<br>".join(semantics),
+    }
+
+    return render(request, "results.html", data)
+
+
+@csrf_exempt
 def upload(request):
-    context = {}
+    global source
+    global destination
+
     registry = PerformanceRegistry()
+    context = {}
 
     if request.method == "POST":
-        # Request Detection Type from the Radio Buttons/User Input
-        module_identifier = request.POST["module-identifier"]
-        print("module", module_identifier)
-
         # Save the File
         save_performance = registry.start("file-save")
 
@@ -45,38 +74,59 @@ def upload(request):
 
         print("source image", source)
         print("save image at", destination)
-
         save_performance.stop()
+
+        uploaded_image_path = "/" + os.path.relpath(source, BASE_DIR).replace("\\", "/")  # windows quirk
+
+        context = {
+            "uploadedImage": uploaded_image_path
+        }
+
+    return render(request, "upload.html", context)
+
+
+@csrf_exempt
+def analyze(request):
+    context = {}
+    registry = PerformanceRegistry()
+
+    global source
+    global destination
+    global BASE_DIR
+
+    if request.method == "POST":
+        # Request Detection Type from the Radio Buttons/User Input
+        module_identifier = request.POST["module-identifier"]
+        print("module", module_identifier)
 
         # Run Object Detection
         detection_result = run_object_detection(module_identifier, source, destination, registry)
 
         # Convert the List to display in the Output Field
         html_mapper = lambda x: "{0} @ score={1:3.1f}% rel-area={2:3.1f}%".format(x[0], x[1] * 100.0, x[3] * 100.0)
-        ObjListHTML = html_list(map(html_mapper, detection_result))
+        object_list_html = html_list(map(html_mapper, detection_result))
 
         # Get Scenes from the SemanticAPI
         semantic_processing_performance = registry.start("semantic-detection")
-        SemaList = semanticCaller(detection_result)
+        semantics = semanticCaller(detection_result)
         semantic_processing_performance.stop()
 
         # Convert the List to display in the Output Field
-        SemaListHTML = html_list(SemaList)
-        print("semantic list", SemaListHTML)
+        semantic_list_html = html_list(semantics)
+        print("semantic list", semantic_list_html)
 
-        uploaded_image_path = os.path.relpath(destination, BASE_DIR).replace("\\", "/")  # windows quirk
-        print("uploaded image path:", uploaded_image_path)
+        result_image_path = "/" + os.path.relpath(destination, BASE_DIR).replace("\\", "/")  # windows quirk
+        print("result image path:", result_image_path)
 
         context = {
-            "url": fs.url(name),
-            "ObjListHTML": ObjListHTML,
-            "SemaListHTML": SemaListHTML,
-            "uploadedImage": uploaded_image_path,
+            "ObjListHTML": object_list_html,
+            "SemaListHTML": semantic_list_html,
+            "resultImage": result_image_path,
             "result": True
         }
 
     render_performance = registry.start("rendering")
-    render_result = render(request, "upload.html", context)
+    render_result = render(request, "results.html", context)
     render_performance.stop()
 
     print("performance results")

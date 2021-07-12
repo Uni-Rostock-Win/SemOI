@@ -18,6 +18,8 @@ class PerformanceRegistry:
         for entry in self.entries:
             if entry.stopped is not None:
                 total += entry.duration
+        if total == 0:
+            return results
 
         for entry in self.entries:
             if entry.stopped is not None:

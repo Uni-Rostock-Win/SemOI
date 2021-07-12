@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="../media/logo.png">
+
+    <title>SemOI</title>
+
+    <style>
+        :root {
+            --bs-primary: #004a99;
+        }
+        body
+        {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: "Roboto", sans-serif;
+            background-color: #f8f9fa;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .custom-file-upload {
+            border: 1px solid cyan;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: .25rem;
+        }
+        .btn-customized {
+            background-color: #17a2b8
+        }
+        .btn-customized:hover {
+            opacity: 90%
+        }
+        .image-preview {
+            width: 600px;
+            min-height: 350px;
+            border: 2px solid black;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: grey;
+        }
+
+        .image-preview__image {
+            width: 100%;
+            max-height: 350px;
+        }
+
+        .ausgabe {
+            margin-top: 20px;
+        }
+
+
+        .scrollbar::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+            background-color: #F5F5F5;
+            border-radius: 10px;
+        }
+
+        .scrollbar::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        .scrollbar::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+            background-color: #17a2b8;
+        }
+
+        .scrollbar {
+            scrollbar-color: #17a2b8 #F5F5F5;
+        }
+
+
+        .bordered::-webkit-scrollbar-track {
+            -webkit-box-shadow: none;
+            border: 1px solid #00bcd4;
+        }
+
+        .bordered::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: none;
+        }
+
+        .square::-webkit-scrollbar-track {
+            border-radius: 0 !important;
+        }
+
+        .square::-webkit-scrollbar-thumb {
+            border-radius: 0 !important;
+        }
+
+        .thin::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .example-1 {
+            position: relative;
+            overflow-y: scroll;
+            height: 400px;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-light bg-dark px-4">
+        <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
+        <form method="post" action="/demo/" id="demo" enctype="multipart/form-data" class="form-inline">
+            {% csrf_token %}
+            <input class="btn-dark btn-outline-info custom-file-upload" type="submit" value="Show Demo" />
+        </form>
+    </nav>
+    <div class="container" id="landingPage">
+        <div class="container-fluid p-3 mt-5">
+            <h1 align="center"><strong>SemOI</strong></h1>
+            <h2 align="center">Semantic Augmentation for Open Images</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <img src="../media/SemOI.png" class="img-fluid" alt="SemOI Logo"/>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5 d-flex align-items-center">
+                <img src="../media/uni_rostock.png" class="img-fluid" alt="Uni Rostock Logo"/>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <form method="post" action="/upload/" id="upload" enctype="multipart/form-data" style="max-width: 350px;">
+                {% csrf_token %}
+                <label for="inpFile" style="width: 100%" class="btn btn-lg btn-danger mt-5 text-light rounded-pill">Upload Image</label>
+                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
+            </form>
+        </div>
+    </div>
+    <div class="footer p-4 bg-dark">
+        <div class="row"><span class="text-light my-2">© 2021 Universität Rostock</span></div>
+        <a class="btn text-light btn-link" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
+    </div>
+</body>
+<script>
+    const inpFile = document.getElementById("inpFile");
+
+    inpFile.addEventListener("change", function () {
+        const file = this.files[0];
+        console.log(file);
+        if (file) {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            document.getElementById("upload").submit();
+        }
+    });
+</script>
+
+</html>
