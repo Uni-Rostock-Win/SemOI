@@ -105,14 +105,15 @@ def analyze(request):
         detection_result = run_object_detection(module_identifier, source, destination, registry)
 
         # Convert the List to display in the Output Field
-        html_mapper = lambda x: "{0} @ score={1:3.1f}% rel-area={2:3.1f}%".format(x[0], x[1] * 100.0, x[3] * 100.0)
+        # html_mapper = lambda x: "{0} @ score={1:3.1f}% rel-area={2:3.1f}%".format(x[0], x[1] * 100.0, x[3] * 100.0)
+        html_mapper = lambda x: "{0}: {1:3.1f}%".format(x[0], x[1] * 100.0)
         object_list_html = html_list(map(html_mapper, detection_result))
 
         # Get Scenes from the SemanticAPI
         semantic_processing_performance = registry.start("semantic-detection")
         semantics = semanticCaller(detection_result)
         semantic_processing_performance.stop()
-
+        
         # Convert the List to display in the Output Field
         semantic_list_html = html_list(semantics)
         print("semantic list", semantic_list_html)

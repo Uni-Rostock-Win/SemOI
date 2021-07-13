@@ -115,6 +115,6 @@ def semanticCaller(detection_result):
     parsed = response.json()
 
     for key in parsed:
-        scenes.append("{0}: {1:.1f}".format(str(key), float(parsed[key] * 100.0)))
+        scenes.append("{0}: {1:.1f}%".format(str(key), float(parsed[key] * 100.0)))
 
     return scenes
