@@ -6005,32 +6005,6 @@
     
 
 
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#breakfast -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#breakfast">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#meal"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Coffee"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Juice"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tea"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
     <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#camping -->
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#camping">
@@ -7234,7 +7208,55 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bottle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bowl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cakestand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Chopsticks"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cocktailshaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Coffeecup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Coffeetable"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Fork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Jug"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -7246,39 +7268,85 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenknife"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Mixingbowl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Mug"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Pitcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Plate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Platter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Saltandpeppershakers"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Saucer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Servingtray"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Spoon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Table"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#dinner -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#dinner">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#meal"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Beer"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Candle"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Teapot"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cocktail"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
-                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wine"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wineglass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -8738,18 +8806,64 @@
     
 
 
-    <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#lunch -->
-
-    <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#lunch">
-        <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#meal"/>
-    </owl:Class>
-    
-
-
     <!-- http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#meal -->
 
     <owl:Class rdf:about="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#meal">
         <rdfs:subClassOf rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#context"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Beer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bottle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Bowl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cakestand"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Chopsticks"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cocktail"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cocktailshaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Coffee"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Coffeecup"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
@@ -8760,6 +8874,114 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Food"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Fork"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Jug"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Juice"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Kitchenknife"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Mixingbowl"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Mug"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Pitcher"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Plate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Platter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Saltandpeppershakers"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Saucer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Servingtray"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Spoon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tableware"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Tea"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Teapot"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wineglass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -9223,6 +9445,12 @@
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Cocktailshaker"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Drink"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -9230,6 +9458,12 @@
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
                 <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wine"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#hasDetectedClass"/>
+                <owl:someValuesFrom rdf:resource="http://wirtschaftsinformatik.uni-rostock.de/studentimagerecog#Wineglass"/>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>

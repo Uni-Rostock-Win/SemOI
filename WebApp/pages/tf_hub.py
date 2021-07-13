@@ -131,7 +131,7 @@ def draw_boxes(image_pil, spliced):
 
 def splice_result(object_detection_result, image_dimensions, item_limit=10, min_score=0.1):
     result = {key: value.numpy() for key, value in object_detection_result.items()}
-
+    print("all detected Objects", object_detection_result)
     positions = result["detection_boxes"]
     entities = result["detection_class_entities"]
     scores = result["detection_scores"]
@@ -155,11 +155,14 @@ def splice_result(object_detection_result, image_dimensions, item_limit=10, min_
                                    rel_position[3] * image_width, rel_position[2] * image_height)
 
         if score < min_score:
-            continue
+            break
 
         covered_area = (position.x2 - position.x1) * (position.y2 - position.y1)
         importance = covered_area / float_size
         print("entity", entity, "covered area", covered_area, "importance", importance)
+
+        if importance < 0.1:
+            continue
 
         ls.append((entity, score, position, importance))
 
@@ -189,7 +192,7 @@ def run_object_detection(module_identifier, source, destination, registry):
     object_detection_result = detector(converted_img)
     image_detect_performance.stop()
 
-    spliced = splice_result(object_detection_result, image_dimension, 12, 0.1)
+    spliced = splice_result(object_detection_result, image_dimension, 20, 0.1)
 
     image_boxing_performance = registry.start("boxing")
     draw_boxes(image_resized, spliced)
