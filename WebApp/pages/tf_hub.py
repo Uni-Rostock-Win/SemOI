@@ -1,4 +1,6 @@
 from collections import namedtuple
+import tempfile
+import os
 import tensorflow as tf
 import numpy as np
 from PIL import Image
@@ -47,7 +49,19 @@ def preprocess_image(source_path):
     size = width * height
     dimension = image_dimension_tuple(width, height, size)
 
-    return dimension, image_rgb, resized, tf.keras.preprocessing.image.img_to_array(resized)
+    fd, temp_file_path = tempfile.mkstemp(suffix=".jpeg")
+    try:
+        resized.save(temp_file_path, format="JPEG", quality=90)
+        print("temporary file path", temp_file_path)
+
+        # tf_image = tf.keras.preprocessing.image.img_to_array(resized)
+        tf_image_content = tf.io.read_file(temp_file_path)
+        tf_image = tf.image.decode_jpeg(tf_image_content, channels=3)
+    finally:
+        os.close(fd)
+        os.remove(temp_file_path)
+
+    return dimension, image_rgb, resized, tf_image
 
 
 def draw_bounding_box_on_image(image,
@@ -59,11 +73,6 @@ def draw_bounding_box_on_image(image,
     """Adds a bounding box to an image."""
 
     draw = ImageDraw.Draw(image)
-
-    # ymin, xmin, ymax, xmax
-
-    # xmin, ymin, xmax, ymax
-    #   x1,   y1,   x2,   y2
 
     left = position.x1
     right = position.x2
@@ -141,11 +150,6 @@ def splice_result(object_detection_result, image_dimensions, item_limit=10, min_
         entity = entities[i].decode("utf-8")
         score = scores[i]
         rel_position = positions[i]
-
-        # left = xmin * im_width
-        # right = xmax * im_width
-        # top = ymin * im_height
-        # bottom = ymax * im_height
 
         position = image_box_tuple(rel_position[1] * image_width, rel_position[0] * image_height,
                                    rel_position[3] * image_width, rel_position[2] * image_height)

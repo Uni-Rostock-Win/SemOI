@@ -111,15 +111,10 @@ def semanticCaller(detection_result):
     response = requests.post(destination, data=post_data)
 
     # Append only the Scenes from the Response to the SceneList
-    try:
-        for item in response.json():
-            convert2Percent = round(float(response.json()[item]) * 100, 2)
-            convert2Percent = str(convert2Percent) + "%"
-            responseItem = str(item) + ": " + convert2Percent
-            scenes.append(responseItem)
-        # sceneList.append(response.json())
-    # Catch IndexError for Objects which are not in the Semantic yet and append an empty list in this case
-    except:
-        pass
+
+    parsed = response.json()
+
+    for key in parsed:
+        scenes.append("{0}: {1:.1f}".format(str(key), float(parsed[key] * 100.0)))
 
     return scenes
