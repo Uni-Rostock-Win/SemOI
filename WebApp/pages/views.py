@@ -23,23 +23,26 @@ def index(request):
 
 @csrf_exempt
 def demo(request):
-    entries = ["Person: 68%",
-               "Person: 51%",
-               "Drink: 44%",
-               "Man: 41%",
-               "Wine glass: 26%",
-               "Clothing: 25%",
-               "Human arm: 21%",
-               "Man: 21%",
-               "Drink: 18%"]
+    entries = ["Person: 27.4%",
+               "Clothing: 15.2%",
+               "Clothing: 14.1%",
+               "Clothing: 13.5%",
+               "Man: 10.8%",
+               "Human arm: 10.6%",
+               "Man: 10.4%",
+               "Wine glass: 10.2%"]
 
-    semantics = ["dinner: 100.0%",
-                 "people: 100.0%"]
+    semantics = ["people: 100.0%",
+                 "cooking: 12.7%",
+                 "dining_room: 12.7%",
+                 "kitchen: 12.7%",
+                 "meal: 12.7%",
+                 "party: 12.7%"]
 
     data = {
         "ObjListHTML": "<br>".join(entries),
         "SemaListHTML": "<br>".join(semantics),
-        "resultImage": "../media/results/party_with_BOXES.jpg"
+        "resultImage": "../media/results/party-result.jpg"
     }
 
     return render(request, "results.html", data)
