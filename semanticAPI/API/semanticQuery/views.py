@@ -1,3 +1,4 @@
+from logging import error
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
@@ -13,12 +14,9 @@ from semanticQuery.Exceptions import WrongInputData
 @api_view(['GET', 'POST'])
 
 def semanticCall(request):
+    # This part here for "GET" is no longer used
     if request.method == 'GET':
-        sh = SemanticHandler()
-        oID1 = request.GET.get('objectID1')
-        if(oID1 == None or not(oID1.startswith("/m/"))):
-            raise WrongInputData
-        semanticResponse = sh.getSemanticEnhancement(oID1)
+        raise WrongInputData
         return Response(semanticResponse)
     
     if request.method == 'POST':
@@ -34,28 +32,72 @@ def semanticCall(request):
         print("regex_cleared")
         print(newData)
         array = str(newData).split(",")
-        
-        print(array)
-            
-        
-        maxValue = 0.0
-        for element in array:
-            print(element)
-            id = element.split("=")[0]
-            prob = element.split("=")[1]
-            semanticResponse = sh.getSemanticEnhancement(id)
-            print(semanticResponse)
-            for responseElement in semanticResponse[0]["scenes"]:
-                if responseElement in ProbAggregation:
-                    ProbAggregation[responseElement] = ProbAggregation[responseElement] + float(prob)
-                else:
-                    ProbAggregation[responseElement] = float(prob)
-                    print(prob)
-                    print("created")
-                if (ProbAggregation[responseElement] > maxValue):
-                    maxValue = ProbAggregation[responseElement] 
-        # Normalize Values
-        for item in ProbAggregation:
-            ProbAggregation[item] = ProbAggregation[item] / maxValue
 
-        return Response(ProbAggregation)
+        maxValue = 0.0
+        detectedObjects = []
+        
+        for detectedObject in array:
+            detectedObjects.append({
+                "detectorId":  detectedObject.split("=")[0],
+                "probability":  float(detectedObject.split("=")[1])
+                })
+        # Call the Semantic
+        semanticResponse = sh.getSemanticEnhancement(detectedObjects)
+        inferedElements = {}
+        # Calculte the semantic Confidence Value.
+        for detectedObject in detectedObjects:
+            # Access at first just one detected element
+            inferedElementsForOneDetector = filterSemanticResponse(detectedObject["detectorId"], semanticResponse)
+            # For this detected element, iterate over the inferred items by the semantic
+            for inferedElement in inferedElementsForOneDetector:
+                # If the infered item already has been detected
+                if(inferedElement in inferedElements):
+                    # Then set the counter of the amount of detected elements +1
+                    inferedElements[inferedElement] += detectedObject["probability"]
+                    print(getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
+                else:
+                    # Otherwise add the element to the dict
+                    inferedElements[inferedElement] =  detectedObject["probability"]
+                # Calculates the highest counter over all elements.
+                maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
+        
+        # Normalize Values
+        for element in inferedElements:
+            inferedElements[element] /= maxValue
+
+        return Response(inferedElements)
+    
+def getRelationCountForInferredElement(semanticResponse: list,  inferredElement: str)->int:
+    """Get the amount of Realtions of one inferred item
+
+    Args:
+        semanticResponse (list): The respone from the getSemanticEnhancement method
+        inferredElement (str): The item to look at
+
+    Raises:
+        LookupError: The item is not in the return list of the semantic response
+
+    Returns:
+        int: Count of relations of the inferredElement items
+    """
+    for item in semanticResponse:
+        if(inferredElement == item["contextItems"]):
+            return item["numberOfRelations"]
+    # No element is found
+    raise LookupError( "Contextitem not in resultlist")
+
+def filterSemanticResponse(detectorId: str, semanticRespose: list)->list:
+    """Takes the response of the semantic and isolates the results for ONE detector
+
+    Args:
+        detectorId (str): detector to be filtered
+        semanticRespose (list): Array List Containing the semantic response
+
+    Returns:
+        list: list with inferred items for ONE detector
+    """
+    contextList = []
+    for element in semanticRespose:
+        if(detectorId == element["imageClassifier"]):
+            contextList.append(element["contextItems"])
+    return contextList

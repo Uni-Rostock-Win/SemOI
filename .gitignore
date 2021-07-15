@@ -1,2 +1,8 @@
-WebApp/media/
+# python cache
 *__pycache__*
+
+# ide files
+.idea
+
+# media
+WebApp/media/
