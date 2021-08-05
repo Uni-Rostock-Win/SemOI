@@ -4,13 +4,13 @@ services:
     container_name: "semanticapi"
     build: ./SemanticAPI/API
     ports: 
-     - "8001:8000"
+     - "8021:8000"
     restart: always
   webapp:
     container_name: "webapp"
     build: ./WebApp
     ports:
-      - "8002:8000"
+      - "8022:8000"
     restart: always
     environment:
       - inDockerContainer=True
