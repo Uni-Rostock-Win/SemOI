@@ -18,6 +18,8 @@ class PerformanceRegistry:
         for entry in self.entries:
             if entry.stopped is not None:
                 total += entry.duration
+        if total == 0:
+            return results
 
         for entry in self.entries:
             if entry.stopped is not None:
@@ -33,8 +35,8 @@ class PerformanceEntry:
         self.started = started
         self.stopped = None
         self.registry = registry
+        self.duration = None
 
     def stop(self):
         self.stopped = time.time()
         self.duration = self.stopped - self.started
-

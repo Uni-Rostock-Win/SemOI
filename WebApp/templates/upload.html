@@ -6,203 +6,109 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="../media/Logo.png">
 
-
-    <title>SEMA</title>
+    <title>SemOI</title>
 
     <style>
-        .image-preview {
-            width: 600px;
-            min-height: 350px;
-            border: 2px solid black;
-            margin-top: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: grey;
+        :root {
+            --bs-primary: #004a99;
         }
-
-        .image-preview__image {
+        html, body
+        {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: "Roboto", sans-serif;
+            background-color: #f8f9fa;
+            height: 100%;
+            margin: 0;
+        }
+        input[type="file"] {
             display: none;
+        }
+        .custom-file-upload {
+            border: 1px solid cyan;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: .25rem;
+        }
+        .footer {
+            height: 126px;
+            margin-top: -126px;
+            text-align: center;
+        }
+        #imageContainer {
             width: 100%;
-            max-height: 350px;
+            max-width: 540px;
         }
-
-        .ausgabe {
-            margin-top: 20px;
-        }
-
-
-        .scrollbar::-webkit-scrollbar-track {
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-            background-color: #F5F5F5;
-            border-radius: 10px;
-        }
-
-        .scrollbar::-webkit-scrollbar {
-            width: 12px;
-            background-color: #F5F5F5;
-        }
-
-        .scrollbar::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-            background-color: #17a2b8;
-        }
-
-        .scrollbar {
-            scrollbar-color: #17a2b8 #F5F5F5;
-        }
-
-
-        .bordered::-webkit-scrollbar-track {
-            -webkit-box-shadow: none;
-            border: 1px solid #00bcd4;
-        }
-
-        .bordered::-webkit-scrollbar-thumb {
-            -webkit-box-shadow: none;
-        }
-
-        .square::-webkit-scrollbar-track {
-            border-radius: 0 !important;
-        }
-
-        .square::-webkit-scrollbar-thumb {
-            border-radius: 0 !important;
-        }
-
-        .thin::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .example-1 {
-            position: relative;
-            overflow-y: scroll;
-            height: 200px;
+        #analyze {
+            width: 100%;
+            max-width: 400px;
         }
     </style>
 
 </head>
 
 <body>
-
-    <div class="container-fluid p-3 mb-2 bg-info text-white">
-        <h1 Align="center"> <strong>SemOI</strong> </h1>
-        <h2 Align="center">Semantic Augmentation for Open Images</h2>
-    </div>
-
-
-    <div class="input" align="center">
-        <form method="post" enctype="multipart/form-data">
-            <br>
-            {% csrf_token %}
-            <input type="file" name="inpFile" id="inpFile" accept="image/*" class="btn btn-info bnt-lg">
-            <br><br>
-            <p>Choose your analysis module:</p>
-            <input type="radio" id="modul1" name="modul" value="1" required>
-            <label for="modul1">Inception Resnet v2 (accurate but slow)</label>
-            <br>
-            <input type="radio" id="modul2" name="modul" value="2">
-            <label for="modul2">SSD/Mobilenet v2 (less accurate, but faster)</label>
-            <br>
-            <input type="submit" value="Upload and Analyze" class="btn btn-info bnt-lg">
-        </form>
-    </div>
-
-    <div class="bild" align="center">
-        <div class="image-preview" id="imagePreview">
-            <img scr="{{uploadedImage}}" alt="Image Preview" class="image-preview__image">
-            <span class="image-preview__default-text">Image Preview</span>
-        </div>
-    </div>
-
-    <div class="ausgabe">
-        <div class="row justify-content-around">
-            <div class="col-4">
-                <h5>Detected Objects:</h5>
-                <div class="card example-1 square scrollbar bordered">
-                    <div class="output-preview" id="outputPreview">
-                        <samp class="output-text" id="output-text">
-                            {% block includes %}
-                            {% autoescape off %}
-                            {{ObjListHTML}}
-                            {% endautoescape %}
-                        </samp>
-                    </div>
+    <div style="min-height: 100%">
+        <nav class="navbar navbar-light bg-dark px-4">
+            <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
+            <form method="post" id="upload" action="/upload/" enctype="multipart/form-data" class="form-inline">
+                {% csrf_token %}
+                <label for="inpFile" class="btn-dark btn-outline-info custom-file-upload">Upload Image</label>
+                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
+            </form>
+        </nav>
+        <div class="container" style="padding-bottom: 150px;">
+            <div class="row px-2 my-4 justify-content-center">
+                <div id="imageContainer">
+                    <img src="{{ uploadedImage }}" class="img-fluid" style="width: 100%" alt="Uploaded Image"/>
                 </div>
             </div>
-            <div class="col-4">
-                <h5>Semantic Augmentation:</h5>
-                <div class="card example-1 square scrollbar bordered">
-                    <div class="output-preview-semantik" id="outputPreviewSemantik">
-                        <div id="content-5" class="custom-scrollbar-js p-2">
-                            <samp class="output-semantik" id="output-semantik">
-                                {% autoescape off %}
-                                {{SemaListHTML}}
-                                {% endautoescape %}
-                                {% endblock includes %}
-                            </samp>
-                        </div>
-                    </div>
-                </div>
+            <div class="row px-2 d-flex justify-content-center my-4">
+                <form method="post" action="/results/" id="analyze" class="d-grid gap-2">
+                    {% csrf_token %}
+                    <div class="float-left"><span>Choose Options:</span></div>
+                    <div class="btn-group float-right">
+                        <input type="radio" value="mobilenet-v2" class="btn-check" name="module-identifier" id="option1" autocomplete="off" checked/>
+                        <label class="btn btn-outline-dark" for="option1">Fast</label> 
+                        <input type="radio" value="resnet-v2" class="btn-check" name="module-identifier" id="option2" autocomplete="off" />
+                        <label class="btn btn-outline-dark" for="option2">Accurate</label>
+                    </div>  
+                    <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
+                        <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Analyze
+                    </button>    
+                </form>
             </div>
         </div>
     </div>
-
-    <div class="container-fluid p-5 bg-info mt-3">
-        <a class="badge badge-light href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
+    <div class="footer p-4 bg-dark">
+        <div class="row"><span class="text-light my-2">© 2021 Universität Rostock</span></div>
+        <a class="btn text-light btn-link" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
     </div>
-
-
 </body>
-
 <script>
     const inpFile = document.getElementById("inpFile");
-    const previewContainer = document.getElementById("imagePreview");
-    const previewImage = previewContainer.querySelector(".image-preview__image");
-    const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
-    {%if result %}
-    const result = true
 
-    previewImage.setAttribute("src", "{{uploadedImage}}");
-    previewDefaultText.style.display = "none";
-    previewImage.style.display = "block";
-
-    {% else %}
-    const result = false
-    {% endif %}
     inpFile.addEventListener("change", function () {
         const file = this.files[0];
-        console.log(result);
         console.log(file);
         if (file) {
             const reader = new FileReader();
-
-            previewDefaultText.style.display = "none";
-            previewImage.style.display = "block";
-
-            reader.addEventListener("load", function () {
-                console.log(this);
-                previewImage.setAttribute("src", this.result);
-            });
-
             reader.readAsDataURL(file);
-        }
-
-
-        else {
-
-            previewDefaultText.style.display = null;
-            previewImage.style.display = null;
-            previewImage.setAttribute("src", "");
+            document.getElementById("upload").submit();
         }
     });
 
-
+    function startLoading() {
+        document.getElementById("loading").style.display = "inline-block";
+        document.getElementById("btn").disabled = true;
+        document.getElementById("analyze").submit()
+    }
 
 </script>
 
