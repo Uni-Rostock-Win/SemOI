@@ -41,7 +41,7 @@ class callSemantic:
 
 
     def getRelationCountForInferredElement(self, semanticResponse: list,  inferredElement: str)->int:
-        """Get the amount of Realtions of one inferred item
+        """Get the amount of Realations of one inferred item
 
         Args:
             semanticResponse (list): The respone from the getSemanticEnhancement method
