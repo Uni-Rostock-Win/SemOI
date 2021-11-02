@@ -42,7 +42,7 @@ def demo(request):
     data = {
         "ObjListHTML": "<br>".join(entries),
         "SemaListHTML": "<br>".join(semantics),
-        "resultImage": "../media/results/party-result.jpg"
+        "resultImage": "../media/party-result.jpg"
     }
 
     return render(request, "results.html", data)
