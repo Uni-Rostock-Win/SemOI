@@ -61,12 +61,12 @@ def upload(request):
         save_performance = registry.start("file-save")
 
         uploaded_file = request.FILES["inpFile"]
-        fs = FileSystemStorage()
+        fs = FileSystemStorage(location="media/uploaded")
         name = fs.save(uploaded_file.name, uploaded_file)
         print("fs save name", name)
 
         # Define the path for the loaded image and for the result image
-        source = os.path.join(BASE_DIR, "media", uploaded_file.name)
+        source = os.path.join(BASE_DIR, "media", "uploaded" , uploaded_file.name)
         path_to_save = os.path.join(BASE_DIR, "media", "results")
 
         if not os.path.exists(path_to_save):
