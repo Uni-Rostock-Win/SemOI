@@ -24,15 +24,10 @@ def semanticCall(request):
         sh = SemanticHandler()
         data = request.data
         ProbAggregation = {}
-        print("req:")
-        print(data)
-        print("data: ")
-        print(data["data"])
-        newData = re.sub("\s|\[|\]|\'", "",  str(data["data"]))
-        print("regex_cleared")
-        print(newData)
-        array = str(newData).split(",")
 
+        newData = re.sub("\s|\[|\]|\'", "",  str(data["data"]))
+        array = str(newData).split(",")
+    
         maxValue = 0.0
         detectedObjects = []
         

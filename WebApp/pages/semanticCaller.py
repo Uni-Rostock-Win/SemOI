@@ -98,10 +98,12 @@ def semanticCaller(detection_result):
     for entry in detection_result:
         object_name = entry[0]
         object_probability = entry[1]
+        object_size = entry[2][2]*entry[2][3]
+        object_relevance = object_probability * object_size
 
         # Get the ID for the Semantic
         object_id = id_index[object_name]
-        object_list_ids.append(str(object_id) + "=" + str(object_probability))
+        object_list_ids.append(str(object_id) + "=" + str(object_relevance))
         post_data["data"] = str(object_list_ids)
 
     # Send the ID to the Semantic
