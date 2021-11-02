@@ -9,6 +9,7 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageOps
 from .detector import DetectorManager
+from .handleDetectorIDs import HandleDetectorIDs
 
 # Print Tensorflow version
 print(tf.__version__)
@@ -129,7 +130,18 @@ def draw_boxes(image_pil, spliced):
             display_str_list=[display_str])
 
 
-def splice_result(object_detection_result, image_dimensions, item_limit=10, min_score=0.1):
+def splice_result(object_detection_result, image_dimensions, item_limit=10, min_score=0.1)->list:
+    """Transfers the image classificatoin into a new data representation
+
+    Args:
+        object_detection_result (str): name of identifier
+        image_dimensions (ImageDimensions): ImageDimensions Datatype
+        item_limit (int, optional): How much items are analyzed maximum. Defaults to 10.
+        min_score (float, optional): The minimum Score an item must have. Defaults to 0.1.
+
+    Returns:
+        list: arraylist with [0]->enitityName, [1]->Score, [2] positionValue [3]->importanceRating based on %Size
+    """
     result = {key: value.numpy() for key, value in object_detection_result.items()}
     # print("all detected Objects", object_detection_result)
     positions = result["detection_boxes"]
@@ -162,19 +174,29 @@ def splice_result(object_detection_result, image_dimensions, item_limit=10, min_
         print("entity", entity, "covered area", covered_area, "importance", importance)
         if importance < 0.1 and score < 0.3:
             continue
-
-        ls.append((entity, score, position, importance))
+        ids =HandleDetectorIDs()
+        
+        ls.append((entity, score, position, importance, ids.kv.get(entity)))
 
         processed += 1
 
     return ls
 
 
-# Function to run the actual Object Detection
-# Choose Module
-# high accuracy = 1 (FasterRCNN + InceptionResNet V2)
-# small and fast = 2 (SSD + MobileNet V2)
+
 def run_object_detection(module_identifier, source, destination, registry):
+    """Function to run the actual Object Detection
+
+
+    Args:
+        module_identifier (int): Choose Module: high accuracy = 1 (FasterRCNN + InceptionResNet V2) small and fast = 2 (SSD + MobileNet V2)
+        source ([type]): [description]
+        destination ([type]): [description]
+        registry ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     detector_load_performance = registry.start("detector-load")
     detector = _detector_manager.get_detector(module_identifier)
     detector_load_performance.stop()

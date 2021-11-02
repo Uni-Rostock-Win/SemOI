@@ -1,122 +1,77 @@
 import os
 import requests
 
+from pages.SemanticHandler import SemanticHandler
 
-# Returns the ObjID from a LabelMap
-# We need this because the SemanticAPI only accepts the ObjectID from an OpenImage Object
-# We should use oidv4_LabelMap. Which is the Map for OpenImage
-# Get them here while they are hot: https://github.com/tensorflow/models/tree/master/research/object_detection/data
-# Must have the following format:
-# item {
-#   name: ""
-#   id: 
-#   display_name: ""
-# }
+class callSemantic:
+    # Function to get the Scenes from the API
+    def semanticCaller(self, detection_results):
 
-class ObjectDefinitionAccess:
-
-    def __init__(self):
-        pass
-
-    def definitions(self, source):
-        block_name = ""
-        block_content = ""
-
-        state = False
-
-        for line in source:
-            for c in line:
-                if c == "{":
-                    state = True
-                elif c == "}":
-                    yield self.parse_block(block_name, block_content)
-                    state = False
-                    block_name = ""
-                    block_content = ""
+        maxValue = 0
+        sh = SemanticHandler()
+        # Call the Semantic
+        semanticResponse = sh.getSemanticEnhancement(detection_results)
+        inferedElements = {}
+        # Calculte the semantic Confidence Value.
+        for detectedObject in detection_results:
+            # Access at first just one detected element
+            inferedElementsForOneDetector = self.filterSemanticResponse(detectedObject[4], semanticResponse)
+            # For this detected element, iterate over the inferred items by the semantic
+            for inferedElement in inferedElementsForOneDetector:
+                # If the infered item already has been detected
+                if(inferedElement in inferedElements):
+                    # Then set the counter of the amount of detected elements +1
+                    inferedElements[inferedElement] += detectedObject[1]
+                    print(self.getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
                 else:
-                    if state:
-                        block_content += c
-                    else:
-                        block_name += c
+                    # Otherwise add the element to the dict
+                    inferedElements[inferedElement] =  detectedObject[1]
+                # Calculates the highest counter over all elements.
+                maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
+        
+        scenes = []
+        # Normalize Values
+        for element in inferedElements:
+            inferedElements[element] /= (maxValue /100)
+            scenes.append("{0}: {1:.1f}%".format(str(element), float(inferedElements[element])))
+        
+        
 
-    def parse_block(self, name, content):
-        items = {}
-
-        lines = filter(lambda x: x, map(lambda x: x.strip(), content.splitlines()))
-
-        for line in lines:
-            i = line.index(":")
-            j = i + 1
-            key = line[0:i].strip()
-            value = line[j:].strip()
-            items[key] = self.replace_escapes(value)
-
-        return name.strip(), items
-
-    @staticmethod
-    def replace_escapes(part):
-        result = ""
-
-        ignore = False
-
-        for c in part:
-            if ignore:
-                result += c
-                ignore = False
-                continue
-
-            if c == "\\":
-                ignore = True
-                continue
-
-            if c != "\"":
-                result += c
-
-        return result
+        return scenes
 
 
-def build_object_index():
-    index = {}
+    def getRelationCountForInferredElement(self, semanticResponse: list,  inferredElement: str)->int:
+        """Get the amount of Realtions of one inferred item
 
-    with open("oidv4_LabelMap.txt", "r") as source:
-        access = ObjectDefinitionAccess()
-        for (name, items) in access.definitions(source):
-            key = items["display_name"]
-            value = items["name"]
-            index[key] = value
+        Args:
+            semanticResponse (list): The respone from the getSemanticEnhancement method
+            inferredElement (str): The item to look at
 
-    return index
+        Raises:
+            LookupError: The item is not in the return list of the semantic response
 
+        Returns:
+            int: Count of relations of the inferredElement items
+        """
+        for item in semanticResponse:
+            if(inferredElement == item["contextItems"]):
+                return item["numberOfRelations"]
+        # No element is found
+        raise LookupError( "Contextitem not in resultlist")
 
-# Function to get the Scenes from the API
-def semanticCaller(detection_result):
-    scenes = []
-    object_list_ids = []
-    id_index = build_object_index()
-    post_data = {}
+    def filterSemanticResponse(self, detectorId: str, semanticRespose: list)->list:
+        """Takes the response of the semantic and isolates the results for ONE detector
 
-    for entry in detection_result:
-        object_name = entry[0]
-        object_probability = entry[1]
-        object_size = entry[2][2]*entry[2][3]
-        object_relevance = object_probability * object_size
+        Args:
+            detectorId (str): detector to be filtered
+            semanticRespose (list): Array List Containing the semantic response
 
-        # Get the ID for the Semantic
-        object_id = id_index[object_name]
-        object_list_ids.append(str(object_id) + "=" + str(object_relevance))
-        post_data["data"] = str(object_list_ids)
+        Returns:
+            list: list with inferred items for ONE detector
+        """
+        contextList = []
+        for element in semanticRespose:
+            if(detectorId == element["imageClassifier"]):
+                contextList.append(element["contextItems"])
+        return contextList
 
-    # Send the ID to the Semantic
-    # depending whether the location is in a docker conainer, use localhost or the local docker instantiation
-    is_docker_environment = os.environ.get("inDockerContainer", False)
-    destination = "http://semanticapi:8000" if is_docker_environment else "http://localhost:8001"
-    response = requests.post(destination, data=post_data)
-
-    # Append only the Scenes from the Response to the SceneList
-
-    parsed = response.json()
-
-    for key in parsed:
-        scenes.append("{0}: {1:.1f}%".format(str(key), float(parsed[key] * 100.0)))
-
-    return scenes

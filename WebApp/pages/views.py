@@ -2,8 +2,9 @@ import os
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
+from numpy.lib.function_base import _calculate_shapes
 from .tf_hub import run_object_detection
-from .semanticCaller import semanticCaller
+from .semanticCaller import callSemantic
 from .performance import PerformanceRegistry
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -114,11 +115,12 @@ def analyze(request):
 
         # Get Scenes from the SemanticAPI
         semantic_processing_performance = registry.start("semantic-detection")
-        semantics = semanticCaller(detection_result)
+        semantic = callSemantic()
+        semanticResults = semantic.semanticCaller(detection_result)
         semantic_processing_performance.stop()
         
         # Convert the List to display in the Output Field
-        semantic_list_html = html_list(semantics)
+        semantic_list_html = html_list(semanticResults)
         print("semantic list", semantic_list_html)
 
         result_image_path = "/" + os.path.relpath(destination, BASE_DIR).replace("\\", "/")  # windows quirk
