@@ -5,11 +5,11 @@ class DetectorManager:
 
     def __init__(self):
         self._descriptors = {
-            # "resnet-v2": {
-            #     "name": "Inception Resnet v2",
-            #     "description": "slower, but more accurate",
-            #     "handle": "https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1"
-            # },
+            "resnet-v2": {
+                "name": "Inception Resnet v2",
+                "description": "slower, but more accurate",
+                "handle": "https://tfhub.dev/google/faster_rcnn/openimages_v4/inception_resnet_v2/1"
+            },
             "mobilenet-v2": {
                 "name": "MobileNet version 2",
                 "description": "faster, but less accurate",

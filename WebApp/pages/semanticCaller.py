@@ -21,7 +21,7 @@ class callSemantic:
                 # If the infered item already has been detected
                 if(inferedElement in inferedElements):
                     # Then set the counter of the amount of detected elements +1
-                    inferedElements[inferedElement] += detectedObject[1]
+                    inferedElements[inferedElement] += (detectedObject[1] + detectedObject[3])
                     print(self.getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
                 else:
                     # Otherwise add the element to the dict

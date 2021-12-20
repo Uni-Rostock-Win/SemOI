@@ -12,6 +12,7 @@ matplotlib = "*"
 django-crispy-forms = "*"
 rdflib = "*"
 sparqlwrapper = "*"
+oxrdflib = "*"
 
 [dev-packages]
 

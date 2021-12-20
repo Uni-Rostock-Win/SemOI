@@ -140,7 +140,7 @@ def splice_result(object_detection_result, image_dimensions, item_limit=10, min_
         min_score (float, optional): The minimum Score an item must have. Defaults to 0.1.
 
     Returns:
-        list: arraylist with [0]->enitityName, [1]->Score, [2] positionValue [3]->importanceRating based on %Size
+        list: arraylist with [0]->enitityName, [1]->Score, [2] positionValue, [3]->importanceRating based on %Size, [4] detector-ID
     """
     result = {key: value.numpy() for key, value in object_detection_result.items()}
     # print("all detected Objects", object_detection_result)
