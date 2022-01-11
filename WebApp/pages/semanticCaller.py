@@ -25,7 +25,7 @@ class callSemantic:
                     print(self.getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
                 else:
                     # Otherwise add the element to the dict
-                    inferedElements[inferedElement] =  detectedObject[1]
+                    inferedElements[inferedElement] =  (detectedObject[1] + detectedObject[3])
                 # Calculates the highest counter over all elements.
                 maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
         
