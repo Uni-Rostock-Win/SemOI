@@ -16,16 +16,18 @@
         :root {
             --bs-primary: #004a99;
         }
-        body
-        {
+
+        body {
             font-size: 1em !important;
             color: #000 !important;
             font-family: "Roboto", sans-serif;
             background-color: #f8f9fa;
         }
+
         input[type="file"] {
             display: none;
         }
+
         .custom-file-upload {
             border: 1px solid cyan;
             display: inline-block;
@@ -33,6 +35,7 @@
             cursor: pointer;
             border-radius: .25rem;
         }
+
         .footer {
             position: fixed;
             left: 0;
@@ -59,18 +62,25 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-4">
-                <img src="../media/SemOI.png" class="img-fluid" alt="SemOI Logo"/>
+                <img src="../media/SemOI.png" class="img-fluid" alt="SemOI Logo" />
             </div>
             <div class="col-1"></div>
             <div class="col-5 d-flex align-items-center">
-                <img src="../media/uni_rostock.png" class="img-fluid" alt="Uni Rostock Logo"/>
+                <img src="../media/uni_rostock.png" class="img-fluid" alt="Uni Rostock Logo" />
             </div>
         </div>
         <div class="row justify-content-center">
             <form method="post" action="/upload/" id="upload" enctype="multipart/form-data" style="max-width: 350px;">
                 {% csrf_token %}
                 <label for="inpFile" style="width: 100%" class="btn btn-lg btn-danger mt-5 text-light rounded-pill">Upload Image</label>
-                <input id="inpFile" name="inpFile" accept="image/*" type="file"/>
+                <input id="inpFile" name="inpFile" accept="image/*" type="file" />
+            </form>
+        </div>
+        <div class="row justify-content-center">
+            <form method="post" action="/vidUpload/" id="vidUpload" enctype="multipart/form-data" style="max-width: 350px;">
+                {% csrf_token %}
+                <label for="inpFile2" style="width: 100%" class="btn btn-lg btn-danger mt-5 text-light rounded-pill">Upload Video</label>
+                <input id="inpFile2" name="inpFile2" accept="video/*" type="file" />
             </form>
         </div>
     </div>
@@ -81,6 +91,7 @@
 </body>
 <script>
     const inpFile = document.getElementById("inpFile");
+    const inpFile2 = document.getElementById("inpFile2");
 
     inpFile.addEventListener("change", function () {
         const file = this.files[0];
@@ -89,6 +100,16 @@
             const reader = new FileReader();
             reader.readAsDataURL(file);
             document.getElementById("upload").submit();
+        }
+    });
+
+    inpFile2.addEventListener("change", function () {
+        const file = this.files[0];
+        console.log(file);
+        if (file) {
+            const reader2 = new FileReader();
+            reader2.readAsDataURL(file);
+            document.getElementById("vidUpload").submit();
         }
     });
 </script>

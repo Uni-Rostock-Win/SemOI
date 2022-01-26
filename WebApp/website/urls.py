@@ -23,7 +23,9 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("demo/", views.demo, name="demo"),
     path("upload/", views.upload, name="upload"),
-    path("results/", views.analyze, name="analyze")
+    path("vidUpload/", views.vidUpload, name="vidUpload"),
+    path("results/", views.analyze, name="analyze"),
+    path("vidResults/", views.analyzeVideo, name="analyzeVideo")
 ]
 
 if settings.DEBUG:

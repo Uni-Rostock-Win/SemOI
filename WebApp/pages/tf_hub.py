@@ -185,7 +185,7 @@ def splice_result(object_detection_result, image_dimensions, item_limit=10, min_
 
 
 def run_object_detection(module_identifier, source, destination, registry):
-    """Function to run the actual Object Detection
+    """Function to run the actual Object Detection for an image
 
 
     Args:
@@ -222,5 +222,38 @@ def run_object_detection(module_identifier, source, destination, registry):
     image_save_performance = registry.start("image-save")
     image_resized.save(destination, '')
     image_save_performance.stop()
+
+    return spliced
+
+def run_object_detection_Lite(module_identifier, source, registry):
+    """Function to run the shortened Object Detection for video frames
+
+
+    Args:
+        module_identifier (int): Choose Module: high accuracy = 1 (FasterRCNN + InceptionResNet V2) small and fast = 2 (SSD + MobileNet V2)
+        source ([type]): [description]
+        registry ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
+
+    detector_load_performance = registry.start("detector-load")
+    detector = _detector_manager.get_detector(module_identifier)
+    detector_load_performance.stop()
+
+    image_load_performance = registry.start("image-load")
+    image_dimension, image_rgb, image_resized, tf_image_data = preprocess_image(source)
+    image_load_performance.stop()
+
+    image_convert_performance = registry.start("image-convert")
+    converted_img = tf.image.convert_image_dtype(tf_image_data, tf.float32)[tf.newaxis, ...]
+    image_convert_performance.stop()
+
+    image_detect_performance = registry.start("detect")
+    object_detection_result = detector(converted_img)
+    image_detect_performance.stop()
+
+    spliced = splice_result(object_detection_result, image_dimension, 20, 0.1)
 
     return spliced

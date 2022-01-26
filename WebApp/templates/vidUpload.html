@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" type="image/x-icon" href="../media/Logo.png">
+
+    <title>SemOI</title>
+
+    <style>
+        :root {
+            --bs-primary: #004a99;
+        }
+
+        html, body {
+            font-size: 1em !important;
+            color: #000 !important;
+            font-family: "Roboto", sans-serif;
+            background-color: #f8f9fa;
+            height: 100%;
+            margin: 0;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border: 1px solid cyan;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
+            border-radius: .25rem;
+        }
+
+        .footer {
+            height: 126px;
+            margin-top: -126px;
+            text-align: center;
+        }
+
+        #videoContainer {
+            width: 100%;
+            max-width: 540px;
+        }
+
+        #analyze {
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div style="min-height: 100%">
+        <nav class="navbar navbar-light bg-dark px-4">
+            <a href="http://semoi.informatik.uni-rostock.de/" class="navbar-brand fs-2 text-info mb-0 h1">SemOI</a>
+            <form method="post" id="vidUpload" action="/vidUpload/" enctype="multipart/form-data" class="form-inline">
+                {% csrf_token %}
+                <label for="inpFile2" class="btn-dark btn-outline-info custom-file-upload">Upload Video</label>
+                <input id="inpFile2" name="inpFile2" accept="video/*" type="file" />
+            </form>
+        </nav>
+        <div class="container" style="padding-bottom: 150px;">
+            <div class="row px-2 my-4 justify-content-center">
+                <div id="videoContainer">
+                    <video width="540" height="310" controls>
+                        <source src="{{ uploadedVideo }}" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="row px-2 d-flex justify-content-center my-4">
+                <form method="post" action="/vidResults/" id="analyzeVideo" class="d-grid gap-2">
+                    {% csrf_token %}
+                    <div class="float-left"><span>Choose Options:</span></div>
+                    <div class="btn-group float-right">
+                        <input type="radio" value="mobilenet-v2" class="btn-check" name="module-identifier" id="option1" autocomplete="off" checked />
+                        <label class="btn btn-outline-dark" for="option1">Fast</label>
+                        <input type="radio" value="resnet-v2" class="btn-check" name="module-identifier" id="option2" autocomplete="off" />
+                        <label class="btn btn-outline-dark" for="option2">Accurate</label>
+                    </div>
+                    <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
+                        <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Analyze
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer p-4 bg-dark">
+        <div class="row"><span class="text-light my-2">� 2021 Universit�t Rostock</span></div>
+        <a class="btn text-light btn-link" href="https://www.uni-rostock.de/footer/impressum/">Impressum/Imprint</a>
+    </div>
+</body>
+<script>
+    const inpFile2 = document.getElementById("inpFile2");
+    inpFile2.addEventListener("change", function () {
+        const file = this.files[0];
+        console.log(file);
+        if (file) {
+            const reader2 = new FileReader();
+            reader2.readAsDataURL(file);
+            document.getElementById("vidUpload").submit();
+        }
+    });
+
+    function startLoading() {
+        document.getElementById("loading").style.display = "inline-block";
+        document.getElementById("btn").disabled = true;
+        document.getElementById("analyzeVideo").submit()
+    }
+
+</script>
+
+</html>

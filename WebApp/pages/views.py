@@ -4,8 +4,11 @@ from django.core.files.storage import FileSystemStorage
 from django.views.decorators.csrf import csrf_exempt
 from numpy.lib.function_base import _calculate_shapes
 from .tf_hub import run_object_detection
+from .tf_hub import run_object_detection_Lite
 from .semanticCaller import callSemantic
 from .performance import PerformanceRegistry
+import cv2
+import time
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -92,6 +95,48 @@ def upload(request):
 
 
 @csrf_exempt
+def vidUpload(request):
+    global source
+    global destination
+
+    registry = PerformanceRegistry()
+    context = {}
+
+    if request.method == "POST":
+        # Save the File
+        save_performance = registry.start("file-save")
+
+        uploaded_file = request.FILES["inpFile2"]
+        fs = FileSystemStorage(location="media/uploaded")
+        name = fs.save(uploaded_file.name, uploaded_file)
+        print("fs save name", name)
+
+        # Define the path for the loaded image and for the result image
+        source = os.path.join(BASE_DIR, "media", "uploaded" , uploaded_file.name)
+        path_to_save = os.path.join(BASE_DIR, "media", "results")
+
+        if not os.path.exists(path_to_save):
+            print("creating path", path_to_save)
+            os.mkdir(path_to_save)
+
+        path_raw = os.path.join(path_to_save, uploaded_file.name)
+        (file_name, file_extension) = os.path.splitext(path_raw)
+        destination = file_name + "-result"
+
+        print("source image", source)
+        print("save image at", destination)
+        save_performance.stop()
+
+        uploaded_video_path = "/" + os.path.relpath(source, BASE_DIR).replace("\\", "/")  # windows quirk
+
+        context = {
+            "uploadedVideo": uploaded_video_path
+        }
+
+    return render(request, "vidUpload.html", context)
+
+
+@csrf_exempt
 def analyze(request):
     context = {}
     registry = PerformanceRegistry()
@@ -143,3 +188,93 @@ def analyze(request):
         print("{0:32s}{1:4.1f}s {2:5.1f}%".format(*e))
 
     return render_result
+
+
+@csrf_exempt
+def analyzeVideo(request):
+    context = {}
+    registry = PerformanceRegistry()
+
+    global source
+    global destination
+    global BASE_DIR
+
+    base = os.path.splitext(os.path.basename(source))[0]
+
+    cap = cv2.VideoCapture(source)
+    if (cap.isOpened() == False):
+        print('Error while trying to read video. Please check path again')
+
+    frame_width = int(cap.get(3))
+    frame_height = int(cap.get(4))
+
+    # define codec and create VideoWriter object 
+    out = cv2.VideoWriter(destination+".mp4", cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
+
+    count = 0
+
+    if request.method == "POST":
+        # Request Detection Type from the Radio Buttons/User Input
+        module_identifier = request.POST["module-identifier"]
+        print("module", module_identifier)
+
+        # Read until end of video
+        while(cap.isOpened()):
+            # Capture each frame of the video
+            ret, frame = cap.read()
+            if ret == True:
+                frameImage = frame.copy()
+                #Converting the frame from a numpy array into a readable .jpg file for detection
+                cv2.imwrite('./media/frames/'+ base + str(count) + '.jpg', frame)
+                image = "./media/frames/"+ base + str(count) +".jpg"
+
+                # Run Object Detection
+                detection_result = run_object_detection_Lite(module_identifier, image, registry)
+
+                # Get Scenes from the SemanticAPI
+                semantic_processing_performance = registry.start("semantic-detection")
+                semantic = callSemantic()
+                semanticResult = semantic.semanticCaller_V(detection_result)
+                semantic_processing_performance.stop()
+        
+                print("LABEL FOR THIS FRAME: "+semanticResult)
+
+                #Put Label on Frame (top left corner)
+                cv2.putText(frameImage, semanticResult, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, lineType=cv2.LINE_AA)
+
+                #Add frame with label to newly assembled video file
+                out.write(frameImage)
+
+                os.remove("./media/frames/"+ base + str(count) +".jpg")
+            else:
+                break
+            count += 1
+
+        print("Video had "+str(count)+" analyzed frames.")
+
+        # Release VideoCapture()
+        cap.release()
+        # Close all frames and video windows
+        cv2.destroyAllWindows()
+
+        result_video_path = "/" + os.path.relpath(destination+".mp4", BASE_DIR).replace("\\", "/")  # windows quirk
+        print("result video path:", result_video_path)
+
+        context = {
+            "resultVideo": result_video_path,
+            "result": True
+        }
+
+    #Wait a few seconds for the mp4 file to finish assembling for next step
+    time.sleep(10)
+
+    render_performance = registry.start("rendering")
+    render_result_2 = render(request, "vidResults.html", context)
+    render_performance.stop()
+
+    print("performance results")
+    for e in registry.relative():
+        e[2] *= 100.0
+        print("{0:32s}{1:4.1f}s {2:5.1f}%".format(*e))
+
+    return render_result_2

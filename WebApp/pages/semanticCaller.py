@@ -39,6 +39,50 @@ class callSemantic:
 
         return scenes
 
+    def semanticCaller_V(self, detection_results):
+
+        maxValue = 0
+        sh = SemanticHandler()
+        # Call the Semantic
+        semanticResponse = sh.getSemanticEnhancement(detection_results)
+        inferedElements = {}
+        # Calculte the semantic Confidence Value.
+        for detectedObject in detection_results:
+            # Access at first just one detected element
+            inferedElementsForOneDetector = self.filterSemanticResponse(detectedObject[4], semanticResponse)
+            # For this detected element, iterate over the inferred items by the semantic
+            for inferedElement in inferedElementsForOneDetector:
+                # If the infered item already has been detected
+                if(inferedElement in inferedElements):
+                    # Then set the counter of the amount of detected elements +1
+                    inferedElements[inferedElement] += (detectedObject[1] + detectedObject[3])
+                    print(self.getRelationCountForInferredElement(semanticResponse, inferedElement)) # Just as a placeholder and an Example!
+                else:
+                    # Otherwise add the element to the dict
+                    inferedElements[inferedElement] =  (detectedObject[1] + detectedObject[3])
+                # Calculates the highest counter over all elements.
+                maxValue = inferedElements[inferedElement] if maxValue < inferedElements[inferedElement] else maxValue
+        
+        # Normalize Values
+        bestValue = 999.0
+        label = ""
+        for element in inferedElements:
+            inferedElements[element] /= (maxValue /100)
+            
+            #Comparison of semantic Values until first 100% value appears
+            if(bestValue == 999.0):
+                label = str(element)
+                bestValue = float(inferedElements[element])
+            elif(bestValue == 100.0):
+                break
+            elif(float(inferedElements[element]) > bestValue):
+                label = str(element)
+                bestValue = float(inferedElements[element])
+            else:
+                break
+
+        return label
+
 
     def getRelationCountForInferredElement(self, semanticResponse: list,  inferredElement: str)->int:
         """Get the amount of Realations of one inferred item
