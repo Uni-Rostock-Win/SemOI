@@ -41,6 +41,13 @@ class callSemantic:
 
     def semanticCaller_V(self, detection_results):
 
+        #If no detected objects, return label 'null'
+        if(detection_results == []):
+            label = "null"
+            return label
+        else:
+            pass
+
         maxValue = 0
         sh = SemanticHandler()
         # Call the Semantic
