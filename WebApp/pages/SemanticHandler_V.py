@@ -1,13 +1,13 @@
 import re, os, rdflib, logging
 
 
-class SemanticHandler():
+class SemanticHandler_V():
     
     
     def __init__(self):
         
         self.rdf = rdflib.Graph(store="OxMemory")
-        self.rdf.parse(location="media/augmentionOntology.owl", format="application/rdf+xml")
+        self.rdf.parse(location="media/augmentionOntology_Videos.owl", format="application/rdf+xml")
     
     def getSemanticEnhancement(self, detectorIds: list):
         filter =   'FILTER(str(?classifier) = "'

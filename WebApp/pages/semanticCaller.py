@@ -1,14 +1,15 @@
 import os
 import requests
 
-from pages.SemanticHandler import SemanticHandler
+from pages.SemanticHandler_I import SemanticHandler_I
+from pages.SemanticHandler_V import SemanticHandler_V
 
 class callSemantic:
     # Function to get the Scenes from the API
     def semanticCaller(self, detection_results):
 
         maxValue = 0
-        sh = SemanticHandler()
+        sh = SemanticHandler_I()
         # Call the Semantic
         semanticResponse = sh.getSemanticEnhancement(detection_results)
         inferedElements = {}
@@ -43,13 +44,13 @@ class callSemantic:
 
         #If no detected objects, return label 'null'
         if(detection_results == []):
-            label = "null"
+            label = "no activity"
             return label
         else:
             pass
 
         maxValue = 0
-        sh = SemanticHandler()
+        sh = SemanticHandler_V()
         # Call the Semantic
         semanticResponse = sh.getSemanticEnhancement(detection_results)
         inferedElements = {}
@@ -85,6 +86,8 @@ class callSemantic:
             elif(float(inferedElements[element]) > bestValue):
                 label = str(element)
                 bestValue = float(inferedElements[element])
+            elif(float(inferedElements[element]) == bestValue):
+                pass
             else:
                 break
 
