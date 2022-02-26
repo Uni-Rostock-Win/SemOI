@@ -85,6 +85,17 @@
                         <input type="radio" value="resnet-v2" class="btn-check" name="module-identifier" id="option2" autocomplete="off" />
                         <label class="btn btn-outline-dark" for="option2">Accurate</label>
                     </div>
+                    <div class="btn-group float-right">
+                        <label for="frameskip">Frameskip (higher number = faster but less accurate)</label>
+                        <select name="frameskip-option" id="frameskip">
+                            <option value="none">0 (no skip)</option>
+                            <option value="5" selected>5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="30">30</option>
+                          
+                        </select>
+                    </div>
                     <button id="btn" type="button" class="btn btn-lg btn-danger mt-2 text-light rounded-pill" onclick="startLoading()">
                         <span id="loading" style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                         Analyze

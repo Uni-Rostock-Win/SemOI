@@ -189,10 +189,6 @@ def analyze(request):
 
     return render_result
 
-#Some methods for getting improved semantic labels in analyzeVideo method
-def count_l(item):
-  return "a"
-
 def count_els(e, labels):
   i = 0
   for el in labels:
@@ -221,66 +217,98 @@ def analyzeVideo(request):
     frame_height = int(cap.get(4))
 
     # define codec and create VideoWriter object 
-    out = cv2.VideoWriter(destination+".mp4", cv2.VideoWriter_fourcc(*'mp4v'), 30, (frame_width, frame_height))
+    out = cv2.VideoWriter(destination+".mp4", cv2.VideoWriter_fourcc(*'h264'), 30, (frame_width, frame_height))
 
+    # Define variables for process loop
+    # frame_skip is the number of frames that are skipped before analyzing the current frame again (saves processing time)
     count = 0
+    best_label = "no_activity"
+    frame_skip = 0
+    frame_skip_counter = 0
 
     if request.method == "POST":
         # Request Detection Type from the Radio Buttons/User Input
         module_identifier = request.POST["module-identifier"]
         print("module", module_identifier)
 
+        #Request Frameskip Option from the Dropdown Input
+        frameskip_chosen_option = request.POST["frameskip-option"]
+        if frameskip_chosen_option == "none":
+            pass
+        else:
+            frame_skip = int(frameskip_chosen_option)
+
         # Read until end of video
         while(cap.isOpened()):
             # Capture each frame of the video
             ret, frame = cap.read()
             if ret == True:
-                best_label = ""
-                best_label_count = 0
-                frameImage = frame.copy()
+                #Analyzing process only looks at frames that are not skipped for increased efficieny and timesave
+                if frame_skip_counter == 0:
+                    frameImage = frame.copy()
+                    best_label_count = 0
 
-                #Converting the frame from a numpy array into a readable .jpg file for detection
-                cv2.imwrite('./media/frames/'+ base + str(count) + '.jpg', frame)
-                image = "./media/frames/"+ base + str(count) +".jpg"
+                    #Converting the frame from a numpy array into a readable .jpg file for detection
+                    cv2.imwrite('./media/frames/'+ base + str(count) + '.jpg', frame)
+                    image = "./media/frames/"+ base + str(count) +".jpg"
 
-                # Run Object Detection
-                detection_result = run_object_detection_Lite(module_identifier, image, registry)
+                    # Run Object Detection
+                    detection_result = run_object_detection_Lite(module_identifier, image, registry)
 
-                # Get Scenes from the SemanticAPI
-                semantic_processing_performance = registry.start("semantic-detection")
-                semantic = callSemantic()
-                semanticResult = semantic.semanticCaller_V(detection_result)
-                semantic_processing_performance.stop()
+                    # Get Scenes from the SemanticAPI
+                    semantic_processing_performance = registry.start("semantic-detection")
+                    semantic = callSemantic()
+                    semanticResult = semantic.semanticCaller_V(detection_result)
+                    semantic_processing_performance.stop()
 
-                #Build dynamic list for detected labels and corresponding frames
-                #and only keep the results of the last 10 Frames (removes label flickering)
-                label_list.append(semanticResult)
-                if(count > 9):
-                    del label_list[0]
+                    #Build dynamic list for detected labels and corresponding frames
+                    #and only keep the results of the last 10 Frames (removes label flickering)
+                    label_list.append(semanticResult)
+                    if(len(label_list) > 10):
+                        del label_list[0]
+                    else:
+                        pass
+
+                    #Extract label with most occurences (best label)
+                    unique_labels = set(label_list)
+
+                    for el in unique_labels:
+                      if(count_els(el, label_list) > best_label_count):
+                        best_label = el
+                        best_label_count = count_els(el, label_list)
+                      else:
+                        pass
+
+                    print("LABEL FOR THIS FRAME: "+best_label)
+                    print("LABEL LISTE: "+str(label_list))
+                    print("UNIQUE LABELS: "+str(unique_labels))
+
+                    #Put Label on Frame (top left corner)
+                    cv2.putText(frameImage, best_label, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, lineType=cv2.LINE_AA)
+
+                    #Add frame with label to newly assembled video file
+                    out.write(frameImage)
+
+                    os.remove("./media/frames/"+ base + str(count) +".jpg")
+
+                    if frame_skip == 0:
+                        pass
+                    else:
+                        frame_skip_counter += 1
                 else:
-                    pass
+                    #skip analyzing step and put last known label on current frame
+                    frameImage = frame.copy()
 
-                #Extract label with most occurences (best label)
-                unique_labels = set(label_list)
+                    #Put Label on Frame (top left corner)
+                    cv2.putText(frameImage, best_label, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, lineType=cv2.LINE_AA)
 
-                for el in unique_labels:
-                  if(count_els(el, label_list) > best_label_count):
-                    best_label = el
-                    best_label_count = count_els(el, label_list)
-                  else:
-                    pass
+                    #Add frame with label to newly assembled video file
+                    out.write(frameImage)
 
-                print("LABEL FOR THIS FRAME: "+best_label)
-                print("LABEL LISTE: "+str(label_list))
-                print("UNIQUE LABELS: "+str(unique_labels))
-
-                #Put Label on Frame (top left corner)
-                cv2.putText(frameImage, best_label, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, lineType=cv2.LINE_AA)
-
-                #Add frame with label to newly assembled video file
-                out.write(frameImage)
-
-                os.remove("./media/frames/"+ base + str(count) +".jpg")
+                    if frame_skip_counter < frame_skip:
+                        frame_skip_counter += 1
+                    else:
+                        frame_skip_counter = 0
             else:
                 break
             count += 1
@@ -289,8 +317,12 @@ def analyzeVideo(request):
 
         # Release VideoCapture()
         cap.release()
+        out.release()
         # Close all frames
         cv2.destroyAllWindows()
+
+        #Wait a "few" seconds for the mp4 file to finish assembling for next steps
+        time.sleep(30)
 
         result_video_path = "/" + os.path.relpath(destination+".mp4", BASE_DIR).replace("\\", "/")  # windows quirk
         print("result video path:", result_video_path)
@@ -308,8 +340,5 @@ def analyzeVideo(request):
     for e in registry.relative():
         e[2] *= 100.0
         print("{0:32s}{1:4.1f}s {2:5.1f}%".format(*e))
-
-    #Wait a few seconds for the mp4 file to finish assembling for next step
-    time.sleep(10)
 
     return render_result_2

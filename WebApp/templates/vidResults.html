@@ -63,12 +63,10 @@
                 <input id="inpFile2" name="inpFile2" accept="video/*" type="file" />
             </form>
         </nav>
-        <div class="row px-2 my-4 justify-content-center">
-            <div id="videoContainer">
-                <video width="540" height="310" controls>
-                    <source src="{{ resultVideo }}" type="video/mp4">
-                </video>
-            </div>
+        <div class="col-6 my-3 py-3 mobile-view">
+            <video width="540" height="310" controls>
+                <source src="{{ resultVideo }}" type="video/mp4">
+            </video>
         </div>
     </div>
     <div class="footer p-4 bg-dark">
