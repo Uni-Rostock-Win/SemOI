@@ -78,7 +78,7 @@
             <div class="row px-2 d-flex justify-content-center my-4">
                 <form method="post" action="/vidResults/" id="analyzeVideo" class="d-grid gap-2">
                     {% csrf_token %}
-                    <div class="float-left"><span>Choose Options:</span></div>
+                    <div class="float-left"><span>Choose Detector:</span></div>
                     <div class="btn-group float-right">
                         <input type="radio" value="mobilenet-v2" class="btn-check" name="module-identifier" id="option1" autocomplete="off" checked />
                         <label class="btn btn-outline-dark" for="option1">Fast</label>

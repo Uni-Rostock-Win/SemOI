@@ -63,10 +63,28 @@
                 <input id="inpFile2" name="inpFile2" accept="video/*" type="file" />
             </form>
         </nav>
-        <div class="col-6 my-3 py-3 mobile-view">
-            <video width="540" height="310" controls>
-                <source src="{{ resultVideo }}" type="video/mp4">
-            </video>
+        <div class="container px-4 pt-4" style="padding-bottom: 150px;">
+            <div class="row justify-content-around">
+                <div class="col-6 my-3 py-3 mobile-view">
+                    <video width="540" height="310" controls>
+                        <source src="{{ resultVideo }}" type="video/mp4">
+                    </video>
+                </div>
+                <div class="col-3 mobile-view">
+                    <h5>Semantic Augmentation:</h5>
+                    <div class="card bordered">
+                        <div class="p-2">
+                            <samp>
+                                {% block includes %}
+                                {% autoescape off %}
+                                {{SemaListHTML}}
+                                {% endautoescape %}
+                                {% endblock includes %}
+                            </samp>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer p-4 bg-dark">

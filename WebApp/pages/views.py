@@ -200,6 +200,9 @@ def count_els(e, labels):
 def analyzeVideo(request):
     context = {}
     label_list = []
+    semantic_list = []
+    semantic_augmentation_list = []
+    semantic_count = 0
     registry = PerformanceRegistry()
 
     global source
@@ -279,6 +282,9 @@ def analyzeVideo(request):
                       else:
                         pass
 
+                    #Build and Convert a list in the Output Field
+                    semantic_list.append(str(best_label))
+
                     print("LABEL FOR THIS FRAME: "+best_label)
                     print("LABEL LISTE: "+str(label_list))
                     print("UNIQUE LABELS: "+str(unique_labels))
@@ -299,8 +305,11 @@ def analyzeVideo(request):
                     #skip analyzing step and put last known label on current frame
                     frameImage = frame.copy()
 
+                    #Build and Convert a list in the Output Field
+                    semantic_list.append(str(best_label))
+
                     #Put Label on Frame (top left corner)
-                    cv2.putText(frameImage, best_label, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 2, lineType=cv2.LINE_AA)
+                    cv2.putText(frameImage, best_label, (15, 25), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, lineType=cv2.LINE_AA)
 
                     #Add frame with label to newly assembled video file
                     out.write(frameImage)
@@ -321,13 +330,22 @@ def analyzeVideo(request):
         # Close all frames
         cv2.destroyAllWindows()
 
-        #Wait a "few" seconds for the mp4 file to finish assembling for next steps
-        time.sleep(30)
+        #Wait a few seconds for the mp4 file to finish assembling for next steps
+        time.sleep(10)
+
+        #Count Frames of each label and convert a list in the Output Field
+        unique_augmentations = set(semantic_list)
+        for el in unique_augmentations:
+            semantic_count = count_els(el, semantic_list)
+            semantic_augmentation_list.append(str(el)+": "+str(semantic_count)+" Frames")
+
+        semantic_augmentation_list_html = html_list(semantic_augmentation_list)
 
         result_video_path = "/" + os.path.relpath(destination+".mp4", BASE_DIR).replace("\\", "/")  # windows quirk
         print("result video path:", result_video_path)
 
         context = {
+            "SemaListHTML": semantic_augmentation_list_html,
             "resultVideo": result_video_path,
             "result": True
         }

@@ -47,12 +47,15 @@ ORDER BY ?detected ?context"""
         qres = self.rdf.query(queryBuilder)
         responseBuilder  = []
         # Converts the SPARQL-Query to a Dict-Array
-        for row in qres:
-            responseBuilder.append({
-                "objectName": re.sub("((.*)#)", "",str(row[0])),
-                "imageClassifier": str(row[1]),
-                "contextItems": re.sub("((.*)#)", "", str(row[2])),
-                "numberOfRelations" :  int(row[3])
-                })
+        try:
+            for row in qres:
+                responseBuilder.append({
+                    "objectName": re.sub("((.*)#)", "",str(row[0])),
+                    "imageClassifier": str(row[1]),
+                    "contextItems": re.sub("((.*)#)", "", str(row[2])),
+                    "numberOfRelations" :  int(row[3])
+                    })
+        except:
+            return []
                 
         return responseBuilder

@@ -42,7 +42,7 @@ class callSemantic:
 
     def semanticCaller_V(self, detection_results):
 
-        #If no detected objects, return label 'null'
+        # If no detected objects, return label no_activity
         if(detection_results == []):
             label = "no activity"
             return label
@@ -52,7 +52,14 @@ class callSemantic:
         maxValue = 0
         sh = SemanticHandler_V()
         # Call the Semantic
+        # If no Semantics were found, return label no_activity
         semanticResponse = sh.getSemanticEnhancement(detection_results)
+        if(semanticResponse == []):
+            label = "no_activity"
+            return label
+        else:
+            pass
+
         inferedElements = {}
         # Calculte the semantic Confidence Value.
         for detectedObject in detection_results:
@@ -77,7 +84,7 @@ class callSemantic:
         for element in inferedElements:
             inferedElements[element] /= (maxValue /100)
             
-            #Comparison of semantic Values until first 100% value appears
+            #Comparison of semantic Values until first 100% value appears or the list ends
             if(bestValue == 999.0):
                 label = str(element)
                 bestValue = float(inferedElements[element])
