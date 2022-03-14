@@ -1,10 +1,10 @@
 version: '3'
 services:
   webapp:
-    container_name: "webapp"
+    container_name: "webapp_video_extension"
     build: ./WebApp
     ports:
-      - "8022:8000"
+      - "8030:8000"
     restart: always
     environment:
       - inDockerContainer=True
